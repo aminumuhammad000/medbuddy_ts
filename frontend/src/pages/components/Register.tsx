@@ -3,9 +3,11 @@ import DocInput from "./DocInput";
 import PasswordInput from "./PasswordInput";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
+import PhoneNumber from "./PhoneNumber";
 
 const Register: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.auth);
+  // const [phone, setPhone] = useState("+234");
 
   return (
     <>
@@ -35,18 +37,9 @@ const Register: React.FC = () => {
           />
         </div>
 
-        <div className={style.phone} id="flexColumn">
-          <label htmlFor="phone" id="mediumText">
-            Phone number
-          </label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Enter your Phone number"
-            required
-            id="mediumText"
-          />
-        </div>
+        {/* <div className={style.phone} id="flexColumn"> */}
+        <PhoneNumber />
+        {/* </div> */}
       </div>
       <div className={style.password}>
         <PasswordInput label={"Password"} />

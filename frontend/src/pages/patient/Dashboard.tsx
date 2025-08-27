@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLogged } = useSelector((state: RootState) => state.auth);
+  // const { isLogged } = useSelector((state: RootState) => state.auth);
   const currentPage = useSelector(
     (state: RootState) => state.patientNav.currentPage
   );
@@ -25,21 +25,21 @@ const Dashboard: React.FC = () => {
     (state: RootState) => state.patientNav.userInformation
   );
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token || !isLogged) {
-      navigate("/auth");
-      return;
-    }
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token || !isLogged) {
+  //     navigate("/auth");
+  //     return;
+  //   }
 
-    dispatch(getProfile())
-      .unwrap()
-      .catch((err: any) => {
-        if (err?.status !== 304) {
-          console.error("Profile fetch error:", err);
-        }
-      });
-  }, [dispatch, isLogged, navigate]);
+  //   dispatch(getProfile())
+  //     .unwrap()
+  //     .catch((err: any) => {
+  //       if (err?.status !== 304) {
+  //         console.error("Profile fetch error:", err);
+  //       }
+  //     });
+  // }, [dispatch, isLogged, navigate]);
 
   const handleBack = () => {
     if (userInformation === "basic") {
