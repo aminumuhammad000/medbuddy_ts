@@ -8,7 +8,8 @@
   color: var(--white-color);
 }
 
-.AIChat h4 {
+.AIChat .title {
+  position: absolute;
   margin-bottom: 1.25rem; /* 20px */
   text-align: center;
   font-weight: 600;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "../../store/slices/authReducer";
+// import { getProfile } from "../../store/slices/authReducer";
 import style from "./Dashboard.module.css";
 import Sidebar from "../common/Sidebar";
 import Overview from "./dashboard/components/Overview";
@@ -14,7 +14,7 @@ import AIChat from "./ai/AIChat";
 import type { RootState, AppDispatch } from "../../store/store"; // adjust path if needed
 
 const Dashboard: React.FC = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
   // const { isLogged } = useSelector((state: RootState) => state.auth);

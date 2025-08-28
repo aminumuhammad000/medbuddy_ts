@@ -21,10 +21,10 @@ const AIChat = () => {
   return (
     <div
       className={styles.AIChat}
-      style={expandPage && { padding: "2em 7em 2em 2em" }}
+      // style={expandPage && { padding: "2em 7em 2em 2em" }}
     >
       <AiSideBar />
-      <h4>AI Consultant</h4>
+      <h4 className={styles.title}>AI Consultant</h4>
 
       <button
         className={styles.expand}

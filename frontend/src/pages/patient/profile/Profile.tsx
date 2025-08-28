@@ -19,7 +19,7 @@ const Profile = () => {
   return (
     <div className={style.profile}>
       {loading && <Loading />}
-      {!user && <div>No profile data available</div>}
+      {/* {!user && <div>No profile data available</div>} */}
       <div className={style.profileHeader} id="flexCenter">
         <ul className={style.profileList} id="flexCenter">
           <li
