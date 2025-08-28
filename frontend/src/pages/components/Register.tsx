@@ -36,10 +36,7 @@ const Register: React.FC = () => {
             id="mediumText"
           />
         </div>
-
-        {/* <div className={style.phone} id="flexColumn"> */}
         <PhoneNumber />
-        {/* </div> */}
       </div>
       <div className={style.password}>
         <PasswordInput label={"Password"} />

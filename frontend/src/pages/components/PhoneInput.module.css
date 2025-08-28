@@ -1,0 +1,64 @@
+.phoneContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+label{
+    font-weight: 400;
+}
+.inputGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #edededcc;
+    border-radius: 20px;
+}
+.input{
+    width: 100%;
+    background-color: transparent;
+      appearance: none;
+}
+.phoneInput {
+  width: 100% !important;
+  height: 60px !important;
+  border: none !important;
+     /* background-color: #edededcc !important; */
+  background-color: transparent !important;
+  font-size: 16px !important;
+  font-weight: 600;
+  outline: none !important;
+}
+
+.flagDropdown {
+  width: 50px !important;
+  border: none !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: 90px;
+  border-radius: 0px 20px 20px 0px !important;
+   /* appearance: none !important; */
+   /* 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("/icons/vector.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;  */
+}
+
+:global(.react-tel-input .form-control.phoneInput:hover),
+:global(.react-tel-input .form-control.phoneInput:focus) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+:global(.react-tel-input .flag-dropdown.flagDropdown:hover),
+:global(.react-tel-input .flag-dropdown.flagDropdown:focus) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: blue !important;
+}

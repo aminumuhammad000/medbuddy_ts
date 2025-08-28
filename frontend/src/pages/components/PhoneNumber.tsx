@@ -1,47 +1,39 @@
-import React from "react";
-// import style from "./PhoneInput.module.css";
+// import React, { useState } from "react";
+import style from "./PhoneInput.module.css";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useState } from "react";
 
 const PhoneNumber: React.FC = () => {
-  const [phone, setPhone] = useState("+234");
+  // const [phone, setPhone] = useState("");
 
   return (
-    <div id="flexColumn">
-      <PhoneInput
-        country={"ng"} // default country → shows 🇺🇸 + +1
-        value={phone}
-        onChange={(value) => setPhone(value)}
-        // enableSearch={true} // allows searching countries
-        // inputStyle={{ width: "100%" }}
-        inputStyle={{
-          width: "100%",
-          height: "60px",
-          borderRadius: "20px",
-          backgroundColor: "#edededcc",
-          opacity: "0.6",
-          padding: "20px 40px",
-        }}
-        // buttonStyle={{
-        //   borderRadius: "12px 0 0 12px",
-        //   backgroundColor: "#f5f5f5",
-        // }}
-        // containerStyle={{
-        //   margin: "10px 0",
-        // }}
-      />
-      <label htmlFor="email" id="mediumText">
-        Email
+    <div className={style.phoneContainer} id="flexColumn ">
+      <label htmlFor="phone" className={style.label}>
+        Phone Number
       </label>
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter your Email address"
-        required
-        id="mediumText"
-      />
+
+      <div className={style.inputGroup}>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter your phone number"
+          // value={phone}
+          // onChange={(e) => setPhone(e.target.value)}
+          className={style.input}
+          name="phone"
+        />
+
+        <PhoneInput
+          country={"ng"} // default Nigeria
+          // value={phone}
+          // onChange={(phone) => setPhone(phone)}
+          inputClass={style.phoneInput}
+          buttonClass={style.flagDropdown}
+          // disableDropdown={true}
+        />
+      </div>
     </div>
   );
 };
+
 export default PhoneNumber;

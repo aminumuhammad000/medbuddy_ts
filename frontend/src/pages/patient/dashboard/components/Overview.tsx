@@ -4,7 +4,7 @@ import style from "./Overview.module.css";
 import profile from "../../../../assets/images/profiles/profile.jpg";
 import AIChat from "../../ai/AIChat";
 import Loading from "../../../auth/components/Loading";
-import type { RootState } from "../../../../store/store"; // adjust path if needed
+import type { RootState } from "../../../../store/store";
 
 const Overview: React.FC = () => {
   const { user, loading } = useSelector((state: RootState) => state.auth);
@@ -75,7 +75,7 @@ const Overview: React.FC = () => {
   return (
     <>
       {loading && <Loading />}
-      {!user && <div>No profile data available</div>}
+      {/* {!user && <div>No profile data available</div>} */}
 
       <div className={style.Overview}>
         <div className={style.user} id="flexColumnCenter">
@@ -165,9 +165,7 @@ const Overview: React.FC = () => {
             </div>
           </div>
 
-          <div className={style.aiChat}>
-            <AIChat />
-          </div>
+          <div className={style.aiChat}>{<AIChat />}</div>
         </div>
       </div>
     </>
