@@ -36,7 +36,7 @@ const GoogleLogin: React.FC = () => {
                 navigate("/patient/dashboard");
                 break;
               case "doctor":
-                navigate("/doctor/dashboard");
+                navigate("/doctors/dashboard");
                 break;
               case "pharmacist":
                 navigate("/pharmacist/dashboard");

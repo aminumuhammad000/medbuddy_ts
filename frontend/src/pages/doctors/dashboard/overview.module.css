@@ -1,0 +1,10 @@
+.viewbtn{
+                  background: transparent, 
+                  color: white, 
+                  textDocoration: underline,
+                  padding: 6px 12px, 
+                  borderRadius: "6px", 
+                  fontSize: "11px",
+                  cursor: "pointer",
+                  fontWeight: "500"
+}

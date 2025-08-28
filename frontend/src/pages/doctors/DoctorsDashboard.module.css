@@ -1,0 +1,152 @@
+.MainDashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: 250px;
+  background-color: #f5f7fa;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.heading {
+  font-size: 24px;
+  color: #343a40;
+}
+
+.notification {
+  cursor: pointer;
+}
+
+.aiContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+}
+
+.sidebar {
+  position: fixed;
+  left: 289px;
+  top: 640px;
+  height: 390px;
+  width: 1466px; 
+  background-color: var(--blue-color);
+  border-right: 1px solid #dee2e6;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.logo img {
+  max-width: 120px;
+  height: auto;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu button {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.2s;
+}
+
+.menu button:hover {
+  background-color: #f8f9fa;
+}
+
+.menu button.active {
+  background-color: #1771b7;
+  color: white;
+}
+
+.menu button.logout {
+  margin-top: auto;
+  color: #666;
+}
+
+.menu button.logout:hover {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.menu button h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .MainDashboard {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+  
+  .MainDashboard {
+    margin-left: 0;
+  }
+}
+
+/* Additional styling improvements */
+.menu ul {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu li:last-child {
+  margin-top: auto;
+}
+
+.menu button:hover {
+  transform: translateX(5px);
+  transition: transform 0.2s ease;
+}
+
+.menu button.active:hover {
+  transform: none;
+}

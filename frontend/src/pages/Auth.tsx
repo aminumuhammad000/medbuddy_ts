@@ -48,7 +48,7 @@ const Auth = () => {
         if (user?.usertype === "patient") navigate("/patient/dashboard");
         else if (user?.usertype === "pharmacist")
           navigate("/pharmacist/dashboard");
-        else if (user?.usertype === "doctor") navigate("/doctor/dashboard");
+        else if (user?.usertype === "doctor") navigate("/doctors/dashboard");
         else if (user?.usertype === "admin") navigate("/admin/dashboard");
         // else navigate("/dashboard");
         break;
