@@ -1,0 +1,437 @@
+.appointmentsContainer {
+  width: 100%;
+  padding: 0;
+  background: var(--background-color);
+}
+
+/* Page Header */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.notificationIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Search and Filter Section */
+.searchFilterSection {
+  margin-bottom: 24px;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.searchInputWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  color: #9ca3af;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #1a1a1a;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.filterIcon {
+  width: 48px;
+  height: 48px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+}
+
+.filterIcon:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* Filter Tabs */
+.filterTabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.filterTab {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.filterTab:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.filterTab.activeFilterTab {
+  background: var(--blue-color);
+  color: white;
+}
+
+/* Appointments Table */
+.appointmentsTable {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.headerCell {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.tableBody {
+  background: white;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.tableRow:hover {
+  background: #f9fafb;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.patientName {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.dateTime {
+  color: #6b7280;
+}
+
+.appointmentType,
+.appointmentMode {
+  color: #6b7280;
+}
+
+/* Status Styles */
+.status {
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusScheduled {
+  background: #dbeafe;
+  color: var(--blue-color);
+}
+
+.statusPending {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.statusCompleted {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.statusCancelled {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.joinCallButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.joinCallButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.rescheduleButton {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rescheduleButton:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cancelButton {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.viewDetailsLink {
+  color: var(--blue-color);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.2s ease;
+}
+
+.viewDetailsLink:hover {
+  color: var(--hover-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .appointmentsContainer {
+    padding: 10px;
+  }
+  
+  .pageTitle {
+    font-size: 24px;
+  }
+  
+  .searchContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .filterTabs {
+    gap: 8px;
+  }
+  
+  .filterTab {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+  }
+  
+  .headerCell {
+    display: none;
+  }
+  
+  .tableCell {
+    justify-content: space-between;
+    padding: 4px 0;
+  }
+  
+  .tableCell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+    margin-right: 8px;
+  }
+  
+  .actionButtons {
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .searchInput {
+    padding: 14px 14px 14px 44px;
+    font-size: 14px;
+  }
+  
+  .searchIcon {
+    left: 14px;
+    font-size: 18px;
+  }
+  
+  .filterIcon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .filterTabs {
+    gap: 6px;
+  }
+  
+  .filterTab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .appointmentsTable {
+    border-radius: 12px;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    padding: 12px;
+  }
+  
+  .actionButtons {
+    gap: 6px;
+  }
+  
+  .joinCallButton,
+  .rescheduleButton,
+  .cancelButton {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}

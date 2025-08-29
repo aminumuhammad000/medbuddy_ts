@@ -48,46 +48,19 @@ const DoctorsDashboard: React.FC = () => {
   };
 
   return (
-    <div style={{ 
-      display: "flex", 
-      minHeight: "100vh",
-      background: "#f5f5f5"
-    }}>
+    <div className={style.dashboardContainer}>
       {/* Sidebar */}
       <DoctorSidebar />
       
       {/* Main Content Area */}
-      <div style={{ 
-        flex: 1, 
-        marginLeft: "280px", // Account for sidebar width
-        padding: "20px",
-        background: "#f5f5f5"
-      }}>
+      <div className={style.mainContent}>
         {/* Page Header */}
         {currentPage !== "dashboard" && (
-          <div style={{
-            background: "white",
-            padding: "20px",
-            borderRadius: "16px",
-            marginBottom: "20px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-            display: "flex",
-            alignItems: "center",
-            gap: "16px"
-          }}>
+          <div className={style.pageHeader}>
             {currentPage === "updates" && (
               <button
                 onClick={handleBack}
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "8px",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
+                className={style.backButton}
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#1771b7"/>
@@ -95,12 +68,7 @@ const DoctorsDashboard: React.FC = () => {
               </button>
             )}
             
-            <h1 style={{
-              margin: 0,
-              fontSize: "24px",
-              fontWeight: "600",
-              color: "#1a1a1a"
-            }}>
+            <h1 className={style.pageTitle}>
               {currentPage === "patients"
                 ? "Manage Patients"
                 : currentPage === "appointments"
@@ -123,7 +91,7 @@ const DoctorsDashboard: React.FC = () => {
         )}
 
         {/* Page Content */}
-        <div>
+        <div className={style.pageContent}>
           {currentPage === "dashboard" && <Overview />}
           {currentPage === "patients" && <ManagePatients />}
           {currentPage === "appointments" && <Appointments />}

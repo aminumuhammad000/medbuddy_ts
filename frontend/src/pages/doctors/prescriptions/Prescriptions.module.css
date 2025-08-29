@@ -1,0 +1,943 @@
+.prescriptionsContainer {
+  width: 100%;
+  padding: 0;
+  background: var(--background-color);
+}
+
+/* Page Header */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notificationIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Search and Filter Section */
+.searchFilterSection {
+  margin-bottom: 24px;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.searchInputWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  color: #9ca3af;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #1a1a1a;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.filterIcon {
+  width: 48px;
+  height: 48px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+}
+
+.filterIcon:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* Filter Section */
+.filterSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 12px;
+}
+
+.filterTab {
+  background: white;
+  color: var(--blue-color);
+  border: 1px solid #e5e7eb;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filterTab:hover {
+  background: #f9fafb;
+  border-color: var(--blue-color);
+}
+
+.filterTab.activeFilterTab {
+  background: var(--blue-color);
+  color: white;
+  border-color: var(--blue-color);
+}
+
+.addNewButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addNewButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+/* Prescriptions Table */
+.prescriptionsTable {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.headerCell {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.tableBody {
+  background: white;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.tableRow:hover {
+  background: #f9fafb;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.patientName {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.dateIssued,
+.medicine,
+.duration {
+  color: #6b7280;
+}
+
+/* Status Styles */
+.status {
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusActive {
+  background: #dbeafe;
+  color: var(--blue-color);
+}
+
+.statusCompleted {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.statusExpired {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.viewButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.editButton {
+  background: #eff6ff;
+  color: var(--blue-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editButton:hover {
+  background: #dbeafe;
+}
+
+.cancelButton {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.renewButton {
+  background: #eff6ff;
+  color: var(--blue-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.renewButton:hover {
+  background: #dbeafe;
+}
+
+/* Detail View Styles */
+.detailContent {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.infoSection {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.infoValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Medication Table */
+.medicationSection {
+  margin-bottom: 32px;
+}
+
+.medicationTable {
+  background: #f9fafb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.medicationTable .tableHeader {
+  background: #f3f4f6;
+  padding: 16px 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.medicationTable .tableRow {
+  background: white;
+  padding: 16px 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.medicationTable .tableRow:last-child {
+  border-bottom: none;
+}
+
+.notes {
+  color: var(--blue-color);
+  font-weight: 500;
+}
+
+/* Doctor's Message Section */
+.messageSection {
+  margin-bottom: 32px;
+}
+
+.doctorMessage {
+  font-style: italic;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border-left: 4px solid var(--blue-color);
+}
+
+/* Share Button */
+.shareSection {
+  text-align: center;
+}
+
+.shareButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shareButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+/* Share Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.shareModal {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.shareOptions {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.shareOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.shareIconButton {
+  width: 80px;
+  height: 80px;
+  background: var(--blue-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.shareIconButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.shareLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+}
+
+/* Edit Mode Styles */
+.editFormContent {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.medicineSection {
+  margin-bottom: 32px;
+}
+
+.medicineForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.medicineRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.textInput::placeholder {
+  color: #9ca3af;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 16px;
+  color: #9ca3af;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.addMedicineButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.addMedicineButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.messageTextarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.messageTextarea:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.messageTextarea::placeholder {
+  color: #9ca3af;
+}
+
+.editActionButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.saveSendButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveSendButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+.saveDraftButton {
+  background: transparent;
+  color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveDraftButton:hover {
+  background: var(--blue-color);
+  color: white;
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+  }
+  
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .shareOptions {
+    gap: 30px;
+  }
+  
+  .shareIconButton {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .medicineRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .prescriptionsContainer {
+    padding: 10px;
+  }
+  
+  .pageTitle {
+    font-size: 24px;
+  }
+  
+  .filterSection {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .filterTabs {
+    justify-content: center;
+    overflow-x: auto;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+  }
+  
+  .headerCell {
+    display: none;
+  }
+  
+  .tableCell {
+    justify-content: space-between;
+    padding: 4px 0;
+  }
+  
+  .tableCell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+    margin-right: 8px;
+  }
+  
+  .actionButtons {
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  
+  .medicationTable .tableHeader,
+  .medicationTable .tableRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .shareOptions {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .shareIconButton {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .editActionButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .shareModal {
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .searchInput {
+    padding: 14px 14px 14px 44px;
+    font-size: 14px;
+  }
+  
+  .searchIcon {
+    left: 14px;
+    font-size: 18px;
+  }
+  
+  .filterIcon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .filterTab {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .addNewButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .detailContent,
+  .editFormContent {
+    padding: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+  }
+  
+  .shareButton {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+  
+  .shareIconButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .shareLabel {
+    font-size: 12px;
+  }
+  
+  .textInput {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  .messageTextarea {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .saveSendButton,
+  .saveDraftButton {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+  
+  .shareModal {
+    padding: 20px;
+  }
+  
+  .modalTitle {
+    font-size: 18px;
+  }
+}

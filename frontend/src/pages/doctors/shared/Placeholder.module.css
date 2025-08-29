@@ -1,0 +1,36 @@
+.placeholderContainer {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+}
+
+.description {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .placeholderContainer {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .placeholderContainer {
+    padding: 15px;
+  }
+  
+  .pageTitle {
+    font-size: 20px;
+  }
+}

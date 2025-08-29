@@ -1,24 +1,276 @@
-import React from "react";
+import React, { useState } from "react";
+import styles from "./Appointments.module.css";
 
 const Appointments: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Sample appointments data matching the UI screenshots
+  const appointments = [
+    {
+      id: 1,
+      patient: "Mustapha Hussein",
+      dateTime: "16 Oct, 10:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Scheduled"
+    },
+    {
+      id: 2,
+      patient: "Aminu Muhammad",
+      dateTime: "17 Oct, 10:00 AM",
+      type: "In-Clinic",
+      mode: "Physical",
+      status: "Scheduled"
+    },
+    {
+      id: 3,
+      patient: "Mustapha Hussein",
+      dateTime: "18 Oct, 9:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Pending"
+    },
+    {
+      id: 4,
+      patient: "Mustapha Hussein",
+      dateTime: "16 Oct, 10:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Completed"
+    },
+    {
+      id: 5,
+      patient: "Aminu Muhammad",
+      dateTime: "17 Oct, 10:00 AM",
+      type: "In-Clinic",
+      mode: "Physical",
+      status: "Completed"
+    },
+    {
+      id: 6,
+      patient: "Mustapha Hussein",
+      dateTime: "18 Oct, 9:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Completed"
+    },
+    {
+      id: 7,
+      patient: "Mustapha Hussein",
+      dateTime: "16 Oct, 10:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Completed"
+    },
+    {
+      id: 8,
+      patient: "Aminu Muhammad",
+      dateTime: "17 Oct, 10:00 AM",
+      type: "In-Clinic",
+      mode: "Physical",
+      status: "Completed"
+    },
+    {
+      id: 9,
+      patient: "Mustapha Hussein",
+      dateTime: "18 Oct, 9:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Cancelled"
+    },
+    {
+      id: 10,
+      patient: "Mustapha Hussein",
+      dateTime: "16 Oct, 10:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Cancelled"
+    },
+    {
+      id: 11,
+      patient: "Aminu Muhammad",
+      dateTime: "17 Oct, 10:00 AM",
+      type: "In-Clinic",
+      mode: "Physical",
+      status: "Cancelled"
+    },
+    {
+      id: 12,
+      patient: "Mustapha Hussein",
+      dateTime: "18 Oct, 9:00 AM",
+      type: "Virtual",
+      mode: "Video",
+      status: "Cancelled"
+    }
+  ];
+
+  // Filter appointments based on active filter
+  const getFilteredAppointments = () => {
+    switch (activeFilter) {
+      case "today":
+        return appointments.filter(app => app.dateTime.includes("10:00 AM") || app.dateTime.includes("9:00 AM"));
+      case "upcoming":
+        return appointments.filter(app => app.status === "Scheduled" || app.status === "Pending");
+      case "completed":
+        return appointments.filter(app => app.status === "Completed");
+      case "cancelled":
+        return appointments.filter(app => app.status === "Cancelled");
+      default:
+        return appointments;
+    }
+  };
+
+  const filteredAppointments = getFilteredAppointments();
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "Scheduled":
+        return styles.statusScheduled;
+      case "Pending":
+        return styles.statusPending;
+      case "Completed":
+        return styles.statusCompleted;
+      case "Cancelled":
+        return styles.statusCancelled;
+      default:
+        return "";
+    }
+  };
+
+  const renderActionButtons = (appointment: any) => {
+    if (appointment.status === "Completed" || appointment.status === "Cancelled") {
+      return null;
+    }
+
+    return (
+      <div className={styles.actionButtons}>
+        {appointment.type === "Virtual" && appointment.status === "Scheduled" && (
+          <button className={styles.joinCallButton}>Join Call</button>
+        )}
+        {appointment.type === "In-Clinic" && appointment.status === "Scheduled" && (
+          <span className={styles.viewDetailsLink}>View Details</span>
+        )}
+        <button className={styles.rescheduleButton}>Reschedule</button>
+        <button className={styles.cancelButton}>Cancel</button>
+      </div>
+    );
+  };
+
   return (
-    <div style={{ 
-      background: "white", 
-      padding: "30px", 
-      borderRadius: "16px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
-    }}>
-      <h2 style={{ 
-        fontSize: "24px", 
-        fontWeight: "600", 
-        color: "#1a1a1a", 
-        margin: "0 0 20px 0" 
-      }}>
-        Appointments
-      </h2>
-      <p style={{ color: "#666" }}>
-        Appointment management functionality will be implemented here.
-      </p>
+    <div className={styles.appointmentsContainer}>
+      {/* Page Header */}
+      <div className={styles.pageHeader}>
+        <div className={styles.headerLeft}>
+          <button className={styles.backButton}>
+            <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+          </button>
+          <h1 className={styles.pageTitle}>Appointments</h1>
+        </div>
+        <div className={styles.notificationIcon}>
+          <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+        </div>
+      </div>
+
+      {/* Search and Filter Section */}
+      <div className={styles.searchFilterSection}>
+        <div className={styles.searchContainer}>
+          <div className={styles.searchInputWrapper}>
+            <iconify-icon icon="mdi:magnify" className={styles.searchIcon}></iconify-icon>
+            <input
+              type="text"
+              placeholder="Search by patient name, ID, or date..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className={styles.searchInput}
+            />
+          </div>
+          <div className={styles.filterIcon}>
+            <iconify-icon icon="mdi:filter-variant" style={{ fontSize: "20px" }}></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      {/* Filter Tabs */}
+      <div className={styles.filterTabs}>
+        <button
+          className={`${styles.filterTab} ${activeFilter === "all" ? styles.activeFilterTab : ""}`}
+          onClick={() => handleFilterChange("all")}
+        >
+          All
+        </button>
+        <button
+          className={`${styles.filterTab} ${activeFilter === "today" ? styles.activeFilterTab : ""}`}
+          onClick={() => handleFilterChange("today")}
+        >
+          Today
+        </button>
+        <button
+          className={`${styles.filterTab} ${activeFilter === "upcoming" ? styles.activeFilterTab : ""}`}
+          onClick={() => handleFilterChange("upcoming")}
+        >
+          Upcoming
+        </button>
+        <button
+          className={`${styles.filterTab} ${activeFilter === "completed" ? styles.activeFilterTab : ""}`}
+          onClick={() => handleFilterChange("completed")}
+        >
+          Completed
+        </button>
+        <button
+          className={`${styles.filterTab} ${activeFilter === "cancelled" ? styles.activeFilterTab : ""}`}
+          onClick={() => handleFilterChange("cancelled")}
+        >
+          Cancelled
+        </button>
+      </div>
+
+      {/* Appointments Table */}
+      <div className={styles.appointmentsTable}>
+        <div className={styles.tableHeader}>
+          <div className={styles.headerCell}>Patient</div>
+          <div className={styles.headerCell}>Date & Time</div>
+          <div className={styles.headerCell}>Type</div>
+          <div className={styles.headerCell}>Mode</div>
+          <div className={styles.headerCell}>Status</div>
+          <div className={styles.headerCell}></div>
+        </div>
+        
+        <div className={styles.tableBody}>
+          {filteredAppointments.map((appointment) => (
+            <div key={appointment.id} className={styles.tableRow}>
+              <div className={styles.tableCell}>
+                <span className={styles.patientName}>{appointment.patient}</span>
+              </div>
+              <div className={styles.tableCell}>
+                <span className={styles.dateTime}>{appointment.dateTime}</span>
+              </div>
+              <div className={styles.tableCell}>
+                <span className={styles.appointmentType}>{appointment.type}</span>
+              </div>
+              <div className={styles.tableCell}>
+                <span className={styles.appointmentMode}>{appointment.mode}</span>
+              </div>
+              <div className={styles.tableCell}>
+                <span className={`${styles.status} ${getStatusColor(appointment.status)}`}>
+                  {appointment.status}
+                </span>
+              </div>
+              <div className={styles.tableCell}>
+                {renderActionButtons(appointment)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

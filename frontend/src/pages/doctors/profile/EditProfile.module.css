@@ -1,0 +1,442 @@
+.editProfileContainer {
+  width: 100%;
+  padding: 0;
+  background: var(--background-color);
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  background: #f3f4f6;
+  color: var(--blue-color);
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notificationIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.saveButton {
+  background: var(--blue-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveButton:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+/* Tab Navigation */
+.tabNavigation {
+  display: flex;
+  gap: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabButton {
+  background: transparent;
+  border: none;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  border-bottom: 3px solid transparent;
+}
+
+.tabButton:hover {
+  color: var(--blue-color);
+}
+
+.tabButton.activeTab {
+  color: var(--blue-color);
+  border-bottom-color: var(--blue-color);
+}
+
+/* Tab Content */
+.tabContent {
+  width: 100%;
+}
+
+.editForm {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Profile Picture Section */
+.profilePictureSection {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profilePictureContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profilePicture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--blue-color);
+}
+
+.cameraIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--blue-color);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
+.imageButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.uploadButton {
+  background: transparent;
+  color: var(--blue-color);
+  border: 1px solid #dbeafe;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.uploadButton:hover {
+  background: #eff6ff;
+  border-color: var(--blue-color);
+}
+
+.removeButton {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.removeButton:hover {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+/* Form Section */
+.formSection {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 24px 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.textInput,
+.selectInput {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.textInput:focus,
+.selectInput:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.textInput::placeholder {
+  color: #9ca3af;
+}
+
+/* Phone Input Container */
+.phoneInputContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.countryCodeSelect {
+  padding: 12px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  min-width: 80px;
+  cursor: pointer;
+}
+
+.phoneInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.phoneInput:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Date Input Container */
+.dateInputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 16px;
+  color: #9ca3af;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* Full Width Field */
+.fullWidthField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* Availability Settings Styles */
+.availabilityForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.availabilityField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.consultationHoursContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.timeInput {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.timeInput:focus {
+  outline: none;
+  border-color: var(--blue-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.timeInput::placeholder {
+  color: #9ca3af;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .consultationHoursContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .timeInput {
+    min-width: auto;
+  }
+  
+  .profilePictureSection {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .imageButtons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .headerRight {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .tabNavigation {
+    overflow-x: auto;
+    gap: 0;
+  }
+  
+  .tabButton {
+    padding: 12px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .editProfileContainer {
+    padding: 10px;
+  }
+  
+  .pageTitle {
+    font-size: 24px;
+  }
+  
+  .editForm {
+    padding: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+  }
+  
+  .profilePicture {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cameraIcon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .textInput,
+  .selectInput,
+  .phoneInput,
+  .countryCodeSelect,
+  .timeInput {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .fieldLabel {
+    font-size: 13px;
+  }
+}

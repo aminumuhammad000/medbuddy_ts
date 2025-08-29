@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100vh;
   margin-left: 250px;
-  background-color: #f5f7fa;
+  background-color: var(--background-color);
 }
 
 .nav {
@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   border-bottom: 1px solid #dee2e6;
 }
 
@@ -29,7 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e9ecef;
+  background-color: var(--background-color);
 }
 
 .sidebar {
@@ -64,6 +64,7 @@
 
 .menu li {
   margin-bottom: 10px;
+  color: white;
 }
 
 .menu button {
@@ -108,6 +109,53 @@
   font-size: 18px;
 }
 
+/* New styles for the main dashboard layout */
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 220px;
+  padding: 20px;
+  background: var(--background-color);
+}
+
+.pageHeader {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.pageContent {
+  /* Content area styling */
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .sidebar {
@@ -115,6 +163,10 @@
   }
   
   .MainDashboard {
+    margin-left: 200px;
+  }
+
+  .mainContent {
     margin-left: 200px;
   }
 }
@@ -127,6 +179,10 @@
   }
   
   .MainDashboard {
+    margin-left: 0;
+  }
+
+  .mainContent {
     margin-left: 0;
   }
 }
