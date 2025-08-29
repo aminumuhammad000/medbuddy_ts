@@ -92,7 +92,7 @@ const Dashboard: React.FC = () => {
         )}
       </div>
 
-      {aiSideBar ? "" : <Sidebar />}
+      {aiSideBar && currentPage === "ai" ? "" : <Sidebar />}
 
       <>
         {currentPage === "dashboard" && <Overview />}
