@@ -21,12 +21,20 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.header}>
-        <button className={styles.newChat}>📝 New chat</button>
-        <input
-          className={styles.search}
-          type="text"
-          placeholder="Search chat"
-        />
+        <button className={styles.newChat}>
+          <iconify-icon
+            icon="jam:write-f"
+            className={styles.icons}
+          ></iconify-icon>
+          New chat
+        </button>
+        <button className={styles.newChat}>
+          <iconify-icon
+            icon="mingcute:search-line"
+            className={styles.icons}
+          ></iconify-icon>
+          Search chat
+        </button>
       </div>
 
       <div className={styles.chatList}>
