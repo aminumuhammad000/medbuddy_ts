@@ -30,12 +30,13 @@ const Profile: React.FC = () => {
       <div className={styles.pageHeader}>
         <h1 className={styles.pageTitle}>My profile</h1>
         <div className={styles.notificationIcon}>
-          <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color) " }}>
+          </iconify-icon>
         </div>
       </div>
 
       {/* Tab Navigation */}
-      <div className={styles.tabNavigation}>
+      <div className={styles.tabNavigation} id="flexCenter">
         <button
           className={`${styles.tabButton} ${activeTab === "basic" ? styles.activeTab : ""}`}
           onClick={() => handleTabChange("basic")}
@@ -61,13 +62,13 @@ const Profile: React.FC = () => {
         <div className={styles.doctorInfo}>
           <img src={doctorImage} alt="Dr. Musa Abdullahi" className={styles.doctorImage} />
           <div className={styles.doctorDetails}>
-            <h2 className={styles.doctorName}>Musa Abdullahi MBBS, FWACS</h2>
+            <h2 className={styles.doctorName}>Musa Abdullahi <span className={styles.status}>MBBS, FWACS</span></h2>
             <p className={styles.doctorSpecialty}>Neurologist</p>
           </div>
         </div>
         <button className={styles.editButton} onClick={handleEditClick}>
-          <iconify-icon icon="iconamoon:edit-light" style={{ fontSize: "18px" }}></iconify-icon>
           Edit
+          <iconify-icon icon="iconamoon:edit-light" style={{ fontSize: "18px" }}></iconify-icon>
         </button>
       </div>
 
@@ -78,44 +79,44 @@ const Profile: React.FC = () => {
             <div className={styles.cardHeader}>
               <h3 className={styles.cardTitle}>Personal Information</h3>
               <button className={styles.editButton} onClick={handleEditClick}>
+                 Edit
                 <iconify-icon icon="iconamoon:edit-light" style={{ fontSize: "18px" }}></iconify-icon>
-                Edit
               </button>
             </div>
             <div className={styles.infoGrid}>
               <div className={styles.infoColumn}>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>First Name:</span>
+                  <span className={styles.infoLabel}>First Name</span><br />
                   <span className={styles.infoValue}>Musa</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Email Address:</span>
+                  <span className={styles.infoLabel}>Email Address</span><br />
                   <span className={styles.infoValue}>dr.musa@medbuddy.com</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Date Of Birth:</span>
+                  <span className={styles.infoLabel}>Date Of Birth</span><br />
                   <span className={styles.infoValue}>6/10/2025</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Address:</span>
+                  <span className={styles.infoLabel}>Address</span><br />
                   <span className={styles.infoValue}>No.12, Tarauni, Kano, Nigeria</span>
                 </div>
               </div>
               <div className={styles.infoColumn}>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Last Name:</span>
+                  <span className={styles.infoLabel}>Last Name</span><br />
                   <span className={styles.infoValue}>Abdullahi</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Phone Number:</span>
+                  <span className={styles.infoLabel}>Phone Number</span><br />
                   <span className={styles.infoValue}>+234 812 345 6789</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Gender:</span>
+                  <span className={styles.infoLabel}>Gender</span><br />
                   <span className={styles.infoValue}>Male</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>License ID:</span>
+                  <span className={styles.infoLabel}>License ID</span><br />
                   <span className={styles.infoValue}>1234567890</span>
                 </div>
               </div>

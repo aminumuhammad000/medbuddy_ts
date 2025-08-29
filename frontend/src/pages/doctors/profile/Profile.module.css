@@ -20,8 +20,8 @@
 }
 
 .notificationIcon {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,12 +29,17 @@
   position: relative;
 }
 
+.status{
+  font-size: 13px;
+}
+
 /* Tab Navigation */
 .tabNavigation {
   display: flex;
   gap: 0;
   margin-bottom: 30px;
-  border-bottom: 1px solid #e5e7eb;
+  /* border-bottom: 1px solid #e5e7eb; */
+  gap: 300px;
 }
 
 .tabButton {
@@ -100,22 +105,23 @@
 }
 
 .editButton {
-  background: var(--blue-color);
-  color: white;
+  background: transparent;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 14px;
+  box-shadow: 1px 1px 1px 1px #d2c1c1;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 8px;
+  angle: 0 deg;
 }
 
 .editButton:hover {
-  background: var(--hover-color);
+  background: var(--blue-color);
   transform: translateY(-1px);
 }
 
@@ -135,9 +141,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2px;
+  padding-bottom: 10px;
+  /* border-bottom:  1px solid #e5e7eb; */
 }
 
 .cardTitle {
@@ -154,17 +160,17 @@
 }
 
 .infoColumn {
-  display: flex;
-  flex-direction: column;
+  display: inline;
+  flex-direction: row;
   gap: 20px;
 }
 
 .infoRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #f3f4f6;
+  /* display: li; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  padding: 15px 0;
+  /* border-bottom: 1px solid #f3f4f6; */
 }
 
 .infoRow:last-child {
@@ -182,9 +188,9 @@
   font-size: 16px;
   font-weight: 600;
   color: #1a1a1a;
-  text-align: right;
-  flex: 1;
-  margin-left: 20px;
+  text-align: left;
+  /* flex: 3; */
+  /* margin-left: 20px; */
 }
 
 /* Availability Settings Styles */
@@ -199,7 +205,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-bottom: 1px solid #f3f4f6;
+  /* border-bottom: 1px solid #f3f4f6; */
 }
 
 .availabilityRow:last-child {
