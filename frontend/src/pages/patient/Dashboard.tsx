@@ -18,11 +18,8 @@ const Dashboard: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   // const { isLogged } = useSelector((state: RootState) => state.auth);
-  const currentPage = useSelector(
-    (state: RootState) => state.patientNav.currentPage
-  );
-  const userInformation = useSelector(
-    (state: RootState) => state.patientNav.userInformation
+  const { currentPage, userInformation, aiSideBar } = useSelector(
+    (state: RootState) => state.patientNav
   );
 
   // useEffect(() => {
@@ -95,7 +92,7 @@ const Dashboard: React.FC = () => {
         )}
       </div>
 
-      <Sidebar />
+      {aiSideBar ? "" : <Sidebar />}
 
       <>
         {currentPage === "dashboard" && <Overview />}

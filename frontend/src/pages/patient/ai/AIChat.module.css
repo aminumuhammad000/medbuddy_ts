@@ -6,13 +6,14 @@
   background-color: #333;
   border-radius: 1.875rem;
   color: var(--white-color);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .sidebarContainer{
   position: absolute;
-  width: 250px;
+  width: 200px;
   background-color: #fff;
   border-radius: 16px;
+  margin-left: -10px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -27,8 +28,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
-
+.sideIcons{
+  color: var(--blue-color);
+  font-size: 24px;
+  margin-left: 130px;
+}
+.sideIcons2{
+   font-size: 24px;
+   color: var(--white-color);
+   margin-left: 200px;
+}
 .title {
   font-weight: 600;
   opacity: 0.8;
@@ -39,6 +50,9 @@
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.4;
+}
+.btn{
+  cursor: pointer;
 }
 .icon {
   font-size: 20px;

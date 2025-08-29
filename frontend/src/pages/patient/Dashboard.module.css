@@ -20,6 +20,9 @@
   top: 0;
   position: fixed;
   height: 102vh;
-  width: 92vw;
+  /* padding: 0px 0px; */
+  margin-left: -13.5%;
+  width: 100%;
   z-index: -1;
+  background: #333;
 }
