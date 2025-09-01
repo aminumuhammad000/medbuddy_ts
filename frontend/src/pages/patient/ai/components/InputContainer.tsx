@@ -1,9 +1,16 @@
-import React from "react";
 import styles from "./InputContainer.module.css";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../../store/store";
 
 export const InputContainer = () => {
+  const { currentPage } = useSelector((state: RootState) => state.patientNav);
+
   return (
-    <div className={styles.inputContainer} id="flexAlignCenter">
+    <div
+      className={styles.inputContainer}
+      style={currentPage === "ai" ? { marginLeft: "100px" } : {}}
+      id="flexAlignCenter"
+    >
       <input
         type="text"
         placeholder="Consult me!"

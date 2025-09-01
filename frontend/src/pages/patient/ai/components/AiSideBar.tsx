@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "./AiSideBar.module.css";
+import { setSearchChat } from "../../../../store/slices/patientNavSlice";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../../../../store/store"; // adjust path if needed
 
 const chats = [
   "MEDBUDDY Homepage Design",
@@ -17,6 +20,12 @@ const chats = [
 
 const Sidebar = () => {
   const [selectedChat, setSelectedChat] = useState(null);
+  const dispatch = useDispatch();
+  const { searchChat } = useSelector((state: RootState) => state.patientNav);
+
+  const handleSeachContainer = () => {
+    dispatch(setSearchChat(!searchChat));
+  };
 
   return (
     <div className={styles.sidebar}>
@@ -28,7 +37,7 @@ const Sidebar = () => {
           ></iconify-icon>
           New chat
         </button>
-        <button className={styles.newChat}>
+        <button className={styles.newChat} onClick={handleSeachContainer}>
           <iconify-icon
             icon="mingcute:search-line"
             className={styles.icons}

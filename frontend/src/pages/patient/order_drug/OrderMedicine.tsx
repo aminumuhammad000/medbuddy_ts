@@ -7,6 +7,8 @@ import { useState } from "react";
 import Preview from "../components/Preview";
 import Cart from "./Cart";
 import Search from "../components/Search";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../../../store/store"; // adjust path if needed
 
 const drugs = [
   {
@@ -57,11 +59,14 @@ const drugs = [
 ];
 
 const OrderMedicine = () => {
+  const {} = useSelector((state: RootState) => state.patientNav);
+  const dispatch = useDispatch();
+
   const [selectedDrug, setSelectedDrug] = useState(null);
   const [view, setView] = useState("list"); // "list", "preview", "cart"
   const [viewAll, setViewAll] = useState(false);
 
-  const handleDrugClick = (drug) => {
+  const handleDrugClick = (drug: any) => {
     setSelectedDrug(drug);
     setView("preview");
   };
@@ -85,7 +90,7 @@ const OrderMedicine = () => {
         <Preview drug={selectedDrug} onAddToCart={handleAddToCart} />
       ) : (
         <>
-          <Search />
+          <Search label="Search Drug..." />
           {!viewAll && (
             <>
               <div className={style.Banner} id="flexSpaceBetween">
@@ -106,7 +111,9 @@ const OrderMedicine = () => {
               </div>
 
               <div className={style.titleContainer} id="flexSpaceBetween">
-                <h3 className={style.pageTitle}>Hot Seller</h3>
+                <p className={style.pageTitle} id="text30">
+                  Hot Seller
+                </p>
                 <button
                   className={style.viewAll}
                   onClick={() => setViewAll(true)}

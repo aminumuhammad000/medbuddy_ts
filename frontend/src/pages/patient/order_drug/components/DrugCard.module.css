@@ -1,8 +1,9 @@
 .DrugCard {
   position: relative;
   background-color: #a9a9a914;
-  width: 320px;
-  height: 330px;
+  /* width: 320px; */
+  width: 30%;
+  height: 300px;
   padding: 20px;
   border-radius: 20px;
   display: flex;
@@ -15,8 +16,8 @@
   transform: scale(0.99);
 }
 .img {
-  width: 60%;
-  height: 200px;
+  width: 50%;
+  height: 60%;
   object-fit: cover;
   margin-inline: auto;
 }

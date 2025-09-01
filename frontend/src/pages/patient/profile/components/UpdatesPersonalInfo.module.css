@@ -1,7 +1,7 @@
 .UpdatesPersonalInfo {
   width: 100%;
   background-color: var(--white-color);
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
   margin-top: 62px;
   align-items: start;
@@ -11,7 +11,7 @@
 .UpdatesPersonalInfo .Email,
 .UpdatesPersonalInfo .OtherDetails {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .UpdatesPersonalInfo .fullName div,
 .UpdatesPersonalInfo .Email div,
@@ -24,14 +24,13 @@
 }
 .UpdatesPersonalInfo .OtherDetails div input,
 select {
-  font-size: 20px;
-  height: 60px;
+  height: 50px;
 }
 select {
   width: 100%;
   accent-color: var(--blue-color);
   background-color: #edededcc;
-  border-radius: 24px;
+  border-radius: 15px;
   padding: 10px;
 }
 .UpdateAddress {
@@ -39,7 +38,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .UpdatePassword {
@@ -50,19 +49,18 @@ select {
   background-color: #edededcc;
   padding: 2px 5px;
   width: 100%;
-  height: 60px;
-  border-radius: 20px;
+  height: 50px;
+  border-radius: 15px;
   outline: none;
 }
 .UpdatePassword .pass {
-  font-size: 16.5px;
   opacity: 0.7;
   outline: none;
   border: none;
   background-color: transparent;
 }
 .PassIcon {
-  font-size: 34px;
+  font-size: 24px;
   margin-right: 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

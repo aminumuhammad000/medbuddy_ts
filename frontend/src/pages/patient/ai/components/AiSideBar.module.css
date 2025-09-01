@@ -1,5 +1,9 @@
 .sidebar {
+    display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
+
 }
 
 .header {
@@ -29,11 +33,24 @@
 }
 
 .chatList {
-  flex: 1;
-  overflow-y: auto;
+   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  overflow-y: auto;
+  min-height: 0; 
+
+   scrollbar-width: thin;
+  scrollbar-color: var(--blue-color) transparent;
+}
+
+/* for Chrome, Edge, Safari */
+.chatList::-webkit-scrollbar {
+  width: 6px; /* thin scrollbar */
+}
+
+.chatList::-webkit-scrollbar-track {
+  background: transparent; /* or any background you like */
 }
 
 .chatItem {

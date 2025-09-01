@@ -20,9 +20,8 @@
   top: 0;
   position: fixed;
   height: 102vh;
-  /* padding: 0px 0px; */
   margin-left: -13.5%;
-  width: 100%;
+  width: 100vw;
   z-index: -1;
   background: #333;
 }
