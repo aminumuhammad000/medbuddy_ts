@@ -51,7 +51,7 @@ const Profile = () => {
           <img src={user?.profile?.profile || profile} alt="" loading="lazy" />
           <div className={style.patientInfo}>
             <h3 className={style.name}>{user?.auth?.name || "N/A"} </h3>
-            <p className={style.idNo} id="mediumText">
+            <p className={style.idNo} id="smallText">
               {user?.auth?.nhis_id || "N / A"}
             </p>
           </div>

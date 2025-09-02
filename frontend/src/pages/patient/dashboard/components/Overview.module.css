@@ -7,7 +7,6 @@
 }
 .user {
   gap: 40px;
-  /* margin-top: -50%; */
 }
 
 .userCard,
@@ -140,6 +139,6 @@
 }
 .aiChat {
   position: absolute;
-  width: 55%;
+  width: 58%;
   margin-top: 30px;
 }

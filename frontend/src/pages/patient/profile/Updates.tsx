@@ -16,10 +16,10 @@ import AlertContainer from "../../auth/components/AlertContainer";
 
 const Updates = () => {
   const dispatch = useDispatch();
-  const { user, loading } = useSelector((state) => state.auth);
+  const { user, loading } = useSelector((state: any) => state.auth);
 
   const userInformation = useSelector(
-    (state) => state.patientNav.userInformation
+    (state: any) => state.patientNav.userInformation
   );
 
   // Clear old success/error messages when component loads
@@ -124,8 +124,8 @@ const Updates = () => {
     if (multiple) {
       // multi-select case
       const values = Array.from(options)
-        .filter((o) => o.selected)
-        .map((o) => o.value);
+        .filter((o: any) => o.selected)
+        .map((o: any) => o.value);
 
       setMedicalData((prev) => ({
         ...prev,
@@ -140,12 +140,12 @@ const Updates = () => {
     }
   };
 
-  const handleAccountChange = (e) => {
+  const handleAccountChange = (e: any) => {
     const { name, value } = e.target;
     setAccountData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
     if (userInformation === "basic") {

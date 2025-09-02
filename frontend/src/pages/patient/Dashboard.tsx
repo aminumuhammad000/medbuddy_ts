@@ -9,7 +9,11 @@ import OrderMedicine from "./order_drug/OrderMedicine";
 import ConsultBooking from "./consult/ConsultBooking";
 import Profile from "./profile/Profile";
 import Updates from "./profile/Updates";
-import { setPage, setInformation } from "../../store/slices/patientNavSlice";
+import {
+  setPage,
+  setInformation,
+  setDrugSection,
+} from "../../store/slices/patientNavSlice";
 import AIChat from "./ai/AIChat";
 import type { RootState, AppDispatch } from "../../store/store"; // adjust path if needed
 
@@ -18,11 +22,8 @@ const Dashboard: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   // const { isLogged } = useSelector((state: RootState) => state.auth);
-  const currentPage = useSelector(
-    (state: RootState) => state.patientNav.currentPage
-  );
-  const userInformation = useSelector(
-    (state: RootState) => state.patientNav.userInformation
+  const { currentPage, userInformation, aiSideBar } = useSelector(
+    (state: RootState) => state.patientNav
   );
 
   // useEffect(() => {
@@ -52,6 +53,10 @@ const Dashboard: React.FC = () => {
       dispatch(setPage("users"));
     }
   };
+  const handleDrugBack = () => {
+    dispatch(setPage("drugs"));
+    dispatch(setDrugSection("preview"));
+  };
 
   return (
     <div className={style.MainDashboard} id="flexColumnCenter">
@@ -61,7 +66,7 @@ const Dashboard: React.FC = () => {
         ) : (
           <>
             <h1 className={style.heading} id="flexCenter">
-              {currentPage === "updates" && (
+              {currentPage === "updates" ? (
                 <button
                   style={{ marginRight: "11px", marginTop: "7px" }}
                   onClick={handleBack}
@@ -71,6 +76,18 @@ const Dashboard: React.FC = () => {
                     style={{ color: "#1771b7", fontSize: "60px" }}
                   />
                 </button>
+              ) : currentPage === "drugs" ? (
+                <button
+                  style={{ marginRight: "11px", marginTop: "7px" }}
+                  onClick={handleDrugBack}
+                >
+                  <iconify-icon
+                    icon="uil:arrow-left"
+                    style={{ color: "#1771b7", fontSize: "60px" }}
+                  />
+                </button>
+              ) : (
+                ""
               )}
 
               {currentPage === "dashboard"
@@ -95,7 +112,7 @@ const Dashboard: React.FC = () => {
         )}
       </div>
 
-      <Sidebar />
+      {aiSideBar && currentPage === "ai" ? "" : <Sidebar />}
 
       <>
         {currentPage === "dashboard" && <Overview />}

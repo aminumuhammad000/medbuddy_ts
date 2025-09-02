@@ -1,6 +1,6 @@
 .searchContainer {
-  width: 90%;
-  height: 4.25em;
+  width: 96%;
+  height: 4em;
   background-color: var(--white-color);
   padding: 7px 30px;
   border-radius: 0.625em;
@@ -8,7 +8,7 @@
   margin-inline: auto;
 }
 .searchContainer input {
-  /* width: 100%; */
+  width: 1000px;
   height: 4.25em;
   outline: none;
   padding: 0 0.625em;
@@ -17,7 +17,7 @@
 }
 .search,
 .filter {
-  font-size: 2rem;
+  font-size: 1.6rem;
   opacity: 0.8;
 }
 .filter {

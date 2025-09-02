@@ -1,5 +1,19 @@
+import React from "react";
 import style from "./DrugCard.module.css";
-const DrugCard = ({ image, title, price, onClick }) => {
+
+interface DrugInterface {
+  image?: string;
+  title: string;
+  price: string;
+  onClick?: () => void; // optional, since you used it on img
+}
+
+const DrugCard: React.FC<DrugInterface> = ({
+  image,
+  title,
+  price,
+  onClick,
+}) => {
   return (
     <div className={style.DrugCard}>
       <img

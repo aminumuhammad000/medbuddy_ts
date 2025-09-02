@@ -1,0 +1,46 @@
+.card {
+  width: 100%;
+  min-width: 900px;
+  margin: 0.5rem auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: system-ui, sans-serif;
+}
+
+.heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.detailsGrid {
+  width: 60%;
+  margin-bottom: 1.5rem;
+}
+
+.detailsGrid p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+}
+
+.label {
+  color: #888;
+  margin-right: 0.5rem;
+}
+
+.value {
+  text-align: start;
+  font-weight: 500;
+  color: #222;
+}
+
+.delivery p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}

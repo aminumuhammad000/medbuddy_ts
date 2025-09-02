@@ -20,6 +20,8 @@
   top: 0;
   position: fixed;
   height: 102vh;
-  width: 92vw;
+  margin-left: -13.5%;
+  width: 100vw;
   z-index: -1;
+  background: #333;
 }
