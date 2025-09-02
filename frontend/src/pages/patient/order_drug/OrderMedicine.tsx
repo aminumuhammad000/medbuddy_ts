@@ -7,8 +7,10 @@ import { useState } from "react";
 import Preview from "../components/Preview";
 import Cart from "./Cart";
 import Search from "../components/Search";
+import { setDrugSection } from "../../../store/slices/patientNavSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store/store"; // adjust path if needed
+import { Checkout } from "./Checkout";
 
 const drugs = [
   {
@@ -59,21 +61,22 @@ const drugs = [
 ];
 
 const OrderMedicine = () => {
-  const {} = useSelector((state: RootState) => state.patientNav);
+  const { drugSection } = useSelector((state: RootState) => state.patientNav);
   const dispatch = useDispatch();
 
   const [selectedDrug, setSelectedDrug] = useState(null);
-  const [view, setView] = useState("list"); // "list", "preview", "cart"
   const [viewAll, setViewAll] = useState(false);
 
   const handleDrugClick = (drug: any) => {
     setSelectedDrug(drug);
-    setView("preview");
+    dispatch(setDrugSection("preview"));
+    // setView("preview");
   };
 
   // Show cart when "Add to Cart" is clicked inside Preview
   const handleAddToCart = () => {
-    setView("cart");
+    dispatch(setDrugSection("cart"));
+    // setView("cart");
   };
 
   // Go back to list from cart or preview
@@ -81,14 +84,15 @@ const OrderMedicine = () => {
   //   setSelectedDrug(null);
   //   setView("list");
   // };
-
   return (
     <div className={style.OrderMedicine}>
-      {view === "cart" ? (
-        <Cart />
-      ) : view === "preview" ? (
+      {drugSection === "cart" && <Cart />}
+      {drugSection === "preview" && (
         <Preview drug={selectedDrug} onAddToCart={handleAddToCart} />
-      ) : (
+      )}
+
+      {drugSection === "checkout" && <Checkout />}
+      {drugSection === "drug" && (
         <>
           <Search label="Search Drug..." />
           {!viewAll && (

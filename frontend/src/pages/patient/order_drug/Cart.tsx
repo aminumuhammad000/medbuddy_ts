@@ -2,6 +2,8 @@ import style from "./Cart.module.css";
 import CartList from "../components/CartList";
 import drug1 from "../../../assets/images/backgrounds/drug1.png";
 import drug2 from "../../../assets/images/backgrounds/drug2.png";
+import { setDrugSection } from "../../../store/slices/patientNavSlice";
+import { useDispatch } from "react-redux";
 
 const drugs = [
   {
@@ -30,12 +32,18 @@ const drugs = [
   },
 ];
 const Cart = () => {
+  const dispatch = useDispatch();
+
+  const handleCheckout = () => {
+    dispatch(setDrugSection("checkout"));
+    console.log("payment page");
+  };
   return (
-    <div className={style.Cart} id="flexSpaceBetween">
+    <div className={style.Cart}>
       <div className={style.cartList}>
         <div className={style.cartTitle} id="flexSpaceBetween">
-          <h3>Product</h3>
-          <h3>Total</h3>
+          <h4>Product</h4>
+          <h4>Total</h4>
         </div>
 
         <div className={style.drugList}>
@@ -54,21 +62,23 @@ const Cart = () => {
         <div>
           <h1 className={style.checkoutTitle}>Order Summary</h1>
           <div className={style.subtotal} id="flexSpaceBetween">
-            <h3>Subtotal</h3>
-            <h3 className={style.bold}>{"₦ 100,000"}</h3>
+            <h4>Subtotal</h4>
+            <h4 className={style.bold}>{"₦ 100,000"}</h4>
           </div>
           <div className={style.delivery} id="flexSpaceBetween">
-            <h3>Delivery</h3>
-            <h3 className={style.bold}>{"₦ 1000"}</h3>
+            <h4>Delivery</h4>
+            <h4 className={style.bold}>{"₦ 1000"}</h4>
           </div>
         </div>
 
         <div className={style.checkoutContainer}>
           <div className={style.total} id="flexSpaceBetween">
-            <h3>Total</h3>
-            <h3 className={style.bold}>{"₦ 101,000"}</h3>
+            <h4>Total</h4>
+            <h4 className={style.bold}>{"₦ 101,000"}</h4>
           </div>
-          <button className={style.checkout}>Proceed to checkout</button>
+          <button className={style.checkout} onClick={handleCheckout}>
+            Proceed to checkout
+          </button>
         </div>
       </div>
     </div>

@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  gap: 0;
+  width: 100%;
+}
+
+.label {
+  font-weight: 600;
+  color: #111;
+}
+
+.value {
+  color: #333;
+}
+
+.copyRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.copyBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--blue-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  gap: 5x;
+}
+.icon{
+  font-size: 18px;
+}
+
+.copyBtn:hover {
+  background: var(--blue-color);
+}
+
+.note {
+  color: #d32f2f;
+  margin-top: 8px;
+}
+
+.confirmText {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 50px;
+}
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-inline: auto;
+}
+.payButton {
+  max-width: 500px;
+  width: 50%;
+  background: var(--blue-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-inline: auto;
+}
+
+.payButton:hover {
+   background: var(--blue-color);
+}

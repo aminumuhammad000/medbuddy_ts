@@ -5,7 +5,8 @@ const initialState = {
   userInformation: "basic",
   aiSideBar: true, // true, false
   searchChat: false,  // true, false
-  drugSection: "preview",
+  drugSection: "drug",  // "list", "preview", "cart"
+  drugStep: "form", // "from", "success", "reciept"
 };
 
 const patientNavSlice = createSlice({
@@ -25,10 +26,13 @@ const patientNavSlice = createSlice({
       state.searchChat = action.payload;
     },
     setDrugSection(state, action) {
-      state.drugSection = action.payload
+      state.drugSection = action.payload;
+    },
+    setDrugStep(state, action) {
+      state.drugStep = action.payload;
     }
   },
 });
 
-export const { setPage, setInformation, setAiSideBar, setSearchChat, setDrugSection } = patientNavSlice.actions;
+export const { setPage, setInformation, setAiSideBar, setSearchChat, setDrugSection, setDrugStep } = patientNavSlice.actions;
 export default patientNavSlice.reducer;

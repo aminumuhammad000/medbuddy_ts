@@ -1,0 +1,50 @@
+.card {
+  max-width: 500px;
+  /* margin: 2rem auto; */
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 2px 2px 10px #ddd;
+  text-align: center;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #d9534f;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.successIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  color: var(--blue-color);
+  font-size: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 600;
+  margin: 1.6rem 0;
+}
+
+.text {
+  font-size: 1rem;
+  color: #444;
+  margin: 1.3rem 0;
+  line-height: 1.5;
+}
