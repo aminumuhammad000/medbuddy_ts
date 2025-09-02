@@ -171,12 +171,12 @@ const Appointments: React.FC = () => {
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <button className={styles.backButton}>
-            <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px" }}></iconify-icon>
           </button>
           <h1 className={styles.pageTitle}>Appointments</h1>
         </div>
         <div className={styles.notificationIcon}>
-          <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
         </div>
       </div>
 
@@ -184,7 +184,7 @@ const Appointments: React.FC = () => {
       <div className={styles.searchFilterSection}>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputWrapper}>
-            <iconify-icon icon="mdi:magnify" className={styles.searchIcon}></iconify-icon>
+            <iconify-icon icon="tabler:search" className={styles.searchIcon}></iconify-icon>
             <input
               type="text"
               placeholder="Search by patient name, ID, or date..."
@@ -194,7 +194,7 @@ const Appointments: React.FC = () => {
             />
           </div>
           <div className={styles.filterIcon}>
-            <iconify-icon icon="mdi:filter-variant" style={{ fontSize: "20px" }}></iconify-icon>
+            <iconify-icon icon="mdi:filter" style={{ fontSize: "25px" }}></iconify-icon>
           </div>
         </div>
       </div>

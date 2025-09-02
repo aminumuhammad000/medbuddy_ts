@@ -30,7 +30,7 @@ const Profile: React.FC = () => {
       <div className={styles.pageHeader}>
         <h1 className={styles.pageTitle}>My profile</h1>
         <div className={styles.notificationIcon}>
-          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color) " }}>
+          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize:"25px" }}>
           </iconify-icon>
         </div>
       </div>
@@ -86,37 +86,37 @@ const Profile: React.FC = () => {
             <div className={styles.infoGrid}>
               <div className={styles.infoColumn}>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>First Name</span><br />
+                  <span className={styles.infoLabel}>First Name</span><br /><br />
                   <span className={styles.infoValue}>Musa</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Email Address</span><br />
+                  <span className={styles.infoLabel}>Email Address</span><br /><br />
                   <span className={styles.infoValue}>dr.musa@medbuddy.com</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Date Of Birth</span><br />
+                  <span className={styles.infoLabel}>Date Of Birth</span><br /><br />
                   <span className={styles.infoValue}>6/10/2025</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Address</span><br />
+                  <span className={styles.infoLabel}>Address</span><br /><br />
                   <span className={styles.infoValue}>No.12, Tarauni, Kano, Nigeria</span>
                 </div>
               </div>
               <div className={styles.infoColumn}>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Last Name</span><br />
+                  <span className={styles.infoLabel}>Last Name</span><br /><br />
                   <span className={styles.infoValue}>Abdullahi</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Phone Number</span><br />
+                  <span className={styles.infoLabel}>Phone Number</span><br /><br />
                   <span className={styles.infoValue}>+234 812 345 6789</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Gender</span><br />
+                  <span className={styles.infoLabel}>Gender</span><br /><br />
                   <span className={styles.infoValue}>Male</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>License ID</span><br />
+                  <span className={styles.infoLabel}>License ID</span><br /><br />
                   <span className={styles.infoValue}>1234567890</span>
                 </div>
               </div>
@@ -136,29 +136,29 @@ const Profile: React.FC = () => {
             <div className={styles.infoGrid}>
               <div className={styles.infoColumn}>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Specialty:</span>
+                  <span className={styles.infoLabel}>Specialty</span><br /><br />
                   <span className={styles.infoValue}>Neurologist</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>License Number:</span>
+                  <span className={styles.infoLabel}>License Number</span><br /><br />
                   <span className={styles.infoValue}>MDCN/123456</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Certifications:</span>
+                  <span className={styles.infoLabel}>Certifications</span><br /><br />
                   <span className={styles.infoValue}>MBBS, FWACS</span>
                 </div>
               </div>
               <div className={styles.infoColumn}>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Years of Experience:</span>
+                  <span className={styles.infoLabel}>Years of Experience</span><br /><br />
                   <span className={styles.infoValue}>12 years</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>License Expiry:</span>
+                  <span className={styles.infoLabel}>License Expiry</span><br /><br />
                   <span className={styles.infoValue}>December 2026</span>
                 </div>
                 <div className={styles.infoRow}>
-                  <span className={styles.infoLabel}>Languages:</span>
+                  <span className={styles.infoLabel}>Languages</span><br /><br />
                   <span className={styles.infoValue}>English, Hausa</span>
                 </div>
               </div>
@@ -177,15 +177,15 @@ const Profile: React.FC = () => {
             </div>
             <div className={styles.availabilityGrid}>
               <div className={styles.availabilityRow}>
-                <span className={styles.availabilityLabel}>Preferred Consultation Hours</span>
+                <span className={styles.availabilityLabel}>Preferred Consultation Hours</span><br /><br />
                 <span className={styles.availabilityValue}>Mon - Fri, 9 AM - 5 PM</span>
               </div>
               <div className={styles.availabilityRow}>
-                <span className={styles.availabilityLabel}>Consultation Modes</span>
+                <span className={styles.availabilityLabel}>Consultation Modes</span><br /><br />
                 <span className={styles.availabilityValue}>Virtual, Physical</span>
               </div>
               <div className={styles.availabilityRow}>
-                <span className={styles.availabilityLabel}>Max Consultation per Day</span>
+                <span className={styles.availabilityLabel}>Max Consultation per Day</span><br /><br />
                 <span className={styles.availabilityValue}>5</span>
               </div>
             </div>
