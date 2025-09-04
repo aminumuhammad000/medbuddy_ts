@@ -32,7 +32,10 @@ h1,
   font-size: 25px;
 }
 h2 {
-  font-size: 20px;
+
+font-size: 20px;
+
+  font-size: 22px;
 }
 h3,
 #text30 {
@@ -55,7 +58,7 @@ button:disabled {
 }
 
 h6 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 select { 
@@ -111,14 +114,14 @@ input:user-invalid {
   align-items: center;
 }
 #text25 {
-  font-size: 18px;
+  font-size: 16px;
 }
 #mediumText {
   list-style: none;
-  font-size: 16.5px;
+  font-size: 14px;
 }
 #smallText {
-  font-size: 14px;
+  font-size: 12px;
 }
 li,
 button {

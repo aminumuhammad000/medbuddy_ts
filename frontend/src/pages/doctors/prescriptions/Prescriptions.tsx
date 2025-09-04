@@ -181,19 +181,19 @@ const Prescriptions: React.FC = () => {
         <div className={styles.shareOptions}>
           <div className={styles.shareOption}>
             <div className={styles.shareIconButton}>
-              <iconify-icon icon="mdi:send" style={{ fontSize: "24px" }}></iconify-icon>
+              <iconify-icon icon="bitcoin-icons:share-filled" style={{ fontSize: "25px" }}></iconify-icon>
             </div>
             <span className={styles.shareLabel}>Send to patient</span>
           </div>
           <div className={styles.shareOption}>
             <div className={styles.shareIconButton}>
-              <iconify-icon icon="mdi:file-document-arrow-right" style={{ fontSize: "24px" }}></iconify-icon>
+              <iconify-icon icon="mingcute:copy-fill" style={{ fontSize: "25px" }}></iconify-icon>
             </div>
             <span className={styles.shareLabel}>Copy link</span>
           </div>
           <div className={styles.shareOption}>
             <div className={styles.shareIconButton}>
-              <iconify-icon icon="mdi:download" style={{ fontSize: "20px" }}></iconify-icon>
+              <iconify-icon icon="material-symbols:download-rounded" style={{ fontSize: "25px" }}></iconify-icon>
             </div>
             <span className={styles.shareLabel}>Download</span>
           </div>
@@ -224,43 +224,51 @@ const Prescriptions: React.FC = () => {
         {/* Edit Form Content */}
         <div className={styles.editFormContent}>
           {/* Patient Information Section */}
-          <div className={styles.infoSection}>
-            <h3 className={styles.sectionTitle}>Patient Information</h3>
-            <div className={styles.infoGrid}>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Patient Name:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.patientName}</span>
+          <div className={styles.patientInfoCard}>
+            <h3 className={styles.patientInfoTitle}>Patient Information</h3>
+            <div className={styles.patientInfoGrid}>
+              <div className={styles.patientInfoColumn}>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Patient Name:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.patientName}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Age / Gender:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.age} / {editPrescriptionData.gender}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Patient ID:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.patientId}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Diagnosis:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.diagnosis}</span>
+                </div>
               </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Age / Gender:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.age} / {editPrescriptionData.gender}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Patient ID:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.patientId}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Diagnosis:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.diagnosis}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Prescription ID:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.prescriptionId}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Date Issued:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.dateIssued}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Doctor's Name:</span>
-                <span className={styles.infoValue}>{editPrescriptionData.doctorName}</span>
+              <div className={styles.patientInfoColumn}>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Prescription ID:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.prescriptionId}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Date Issued:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.dateIssued}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Doctor's Name:</span>
+                  <span className={styles.patientInfoValue}>{editPrescriptionData.doctorName}</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Medicine Details Section */}
-          <div className={styles.medicineSection}>
-            <h3 className={styles.sectionTitle}>Medicine Details</h3>
+          
+        </div>
+          <div className={styles.editFormContent}>
+          {/* Patient Information Section */}
+          <div className={styles.infoSection}>
+        <div className={styles.medicineSection}>
             <div className={styles.medicineForm}>
               <div className={styles.medicineRow}>
                 <div className={styles.formField}>
@@ -288,8 +296,9 @@ const Prescriptions: React.FC = () => {
               </div>
               
               <button className={styles.addMedicineButton}>
-                <iconify-icon icon="mdi:plus" style={{ fontSize: "18px" }}></iconify-icon>
                 Add medicine +
+                <iconify-icon icon="ri:add-fill" style={{ fontSize: "18px" }}></iconify-icon>
+                
               </button>
 
               <div className={styles.medicineRow}>
@@ -338,7 +347,8 @@ const Prescriptions: React.FC = () => {
               Save as Draft
             </button>
           </div>
-        </div>
+          </div>
+          </div>
       </div>
     );
   }
@@ -359,60 +369,59 @@ const Prescriptions: React.FC = () => {
             <div className={styles.notificationIcon}>
               <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
             </div>
-            <div className={styles.actionButtons}>
-              <button className={styles.editButton} onClick={handleEdit}>Edit</button>
-              <button className={styles.renewButton}>Renew</button>
-            </div>
           </div>
         </div>
 
         {/* Prescription Detail Content */}
         <div className={styles.detailContent}>
           {/* Patient Information Section */}
-          <div className={styles.infoSection}>
-            <h3 className={styles.sectionTitle}>Patient Information</h3>
-            <div className={styles.infoGrid}>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Patient Name:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.patientName}</span>
+          <div className={styles.patientInfoCard}>
+            <h3 className={styles.patientInfoTitle}>Patient Information</h3>
+            <div className={styles.patientInfoGrid}>
+              <div className={styles.patientInfoColumn}>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Patient Name:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.patientName}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Age / Gender:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.age} / {prescriptionDetail.gender}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Patient ID:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.patientId}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Diagnosis:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.diagnosis}</span>
+                </div>
               </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Age / Gender:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.age} / {prescriptionDetail.gender}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Patient ID:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.patientId}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Diagnosis:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.diagnosis}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Prescription Details Section */}
-          <div className={styles.infoSection}>
-            <h3 className={styles.sectionTitle}>Prescription Details</h3>
-            <div className={styles.infoGrid}>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Prescription ID:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.prescriptionId}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Date Issued:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.dateIssued}</span>
-              </div>
-              <div className={styles.infoRow}>
-                <span className={styles.infoLabel}>Doctor's Name:</span>
-                <span className={styles.infoValue}>{prescriptionDetail.doctorName}</span>
+              <div className={styles.patientInfoColumn}>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Prescription ID:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.prescriptionId}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Date Issued:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.dateIssued}</span>
+                </div>
+                <div className={styles.patientInfoRow}>
+                  <span className={styles.patientInfoLabel}>Doctor's Name:</span>
+                  <span className={styles.patientInfoValue}>{prescriptionDetail.doctorName}</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Medication Table */}
           <div className={styles.medicationSection}>
-            <h3 className={styles.sectionTitle}>Medication Details</h3>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.sectionTitle}>Medication Details</h3>
+              <div className={styles.actionButtons}>
+                <button className={styles.editButton} onClick={handleEdit}>Edit</button>
+                <button className={styles.renewButton}>Renew</button>
+              </div>
+            </div>
             <div className={styles.medicationTable}>
               <div className={styles.tableHeader}>
                 <div className={styles.headerCell}>Medicine Name</div>
@@ -446,8 +455,8 @@ const Prescriptions: React.FC = () => {
           {/* Share Button */}
           <div className={styles.shareSection}>
             <button className={styles.shareButton} onClick={handleShare}>
-              <iconify-icon icon="mdi:share-variant" style={{ fontSize: "20px" }}></iconify-icon>
               Share
+              <iconify-icon icon="mi:share" style={{ fontSize: "20px" }}></iconify-icon>
             </button>
           </div>
         </div>
@@ -464,21 +473,20 @@ const Prescriptions: React.FC = () => {
       {/* Page Header */}
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-          <button className={styles.backButton}>
-            <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+           <button className={styles.backButton}>
+            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px" }}></iconify-icon>
           </button>
           <h1 className={styles.pageTitle}>Prescriptions</h1>
         </div>
         <div className={styles.notificationIcon}>
-          <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
         </div>
       </div>
-
       {/* Search and Filter Section */}
       <div className={styles.searchFilterSection}>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputWrapper}>
-            <iconify-icon icon="mdi:magnify" className={styles.searchIcon}></iconify-icon>
+            <iconify-icon icon="tabler:search" className={styles.searchIcon}></iconify-icon>
             <input
               type="text"
               placeholder="Search by patient name, ID, or prescription..."
@@ -488,10 +496,12 @@ const Prescriptions: React.FC = () => {
             />
           </div>
           <div className={styles.filterIcon}>
-            <iconify-icon icon="mdi:filter-variant" style={{ fontSize: "20px" }}></iconify-icon>
+            <iconify-icon icon="mdi:filter" style={{ fontSize: "25px" }}></iconify-icon>
           </div>
         </div>
       </div>
+
+
 
       {/* Filter Tabs and Add New Button */}
       <div className={styles.filterSection}>
@@ -522,8 +532,8 @@ const Prescriptions: React.FC = () => {
           </button>
         </div>
         <button className={styles.addNewButton}>
-          <iconify-icon icon="mdi:plus" style={{ fontSize: "18px" }}></iconify-icon>
-          Add new +
+            Add new 
+          <iconify-icon icon="ic:sharp-add" style={{ fontSize: "18px", color:"white" }}></iconify-icon>
         </button>
       </div>
 
@@ -566,7 +576,7 @@ const Prescriptions: React.FC = () => {
                   >
                     View
                   </button>
-                  <button className={styles.editButton}>Edit</button>
+                  <button className={styles.editButton} onClick={handleEdit}>Edit</button>
                   <button className={styles.cancelButton}>Cancel</button>
                 </div>
               </div>
