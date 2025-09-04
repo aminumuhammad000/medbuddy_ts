@@ -64,17 +64,14 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack, section = "basic" }) 
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <button className={styles.backButton} onClick={onBack}>
-            <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px", color:"var(--blue-color)" }}></iconify-icon>
           </button>
           <h1 className={styles.pageTitle}>Edit profile</h1>
         </div>
         <div className={styles.headerRight}>
           <div className={styles.notificationIcon}>
-            <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+            <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></iconify-icon>
           </div>
-          <button className={styles.saveButton} onClick={handleSaveChanges}>
-            Save changes
-          </button>
         </div>
       </div>
 
@@ -83,7 +80,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack, section = "basic" }) 
         <div className={styles.profilePictureContainer}>
           <img src={doctorImage} alt="Profile" className={styles.profilePicture} />
           <div className={styles.cameraIcon}>
-            <iconify-icon icon="mdi:camera" style={{ fontSize: "20px" }}></iconify-icon>
+            <iconify-icon icon="solar:camera-outline" style={{ fontSize: "30px" }}></iconify-icon>
           </div>
         </div>
         <div className={styles.imageButtons}>
@@ -94,9 +91,6 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack, section = "basic" }) 
             Remove image
           </button>
         </div>
-        <button className={styles.saveChangesButton}>
-          Save changes
-        </button>
       </div>
 
 
@@ -104,6 +98,9 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack, section = "basic" }) 
       {/* Form Content */}
       {activeTab === "basic" && (
         <div className={styles.editForm}>
+          <button className={styles.saveChangesButton}>
+          Save changes
+        </button>
           {/* Personal Information Form */}
           <div className={styles.formSection}>
             <h3 className={styles.sectionTitle}>Personal Information</h3>

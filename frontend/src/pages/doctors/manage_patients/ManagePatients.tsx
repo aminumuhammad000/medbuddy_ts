@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ManagePatients.module.css";
+import avata from "../../../assets/images/profiles/patient-profile.jpg";
+import doctorAvatar from "../../../assets/images/profiles/doctorp.jpg";
 
 const ManagePatients: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -21,7 +23,7 @@ const ManagePatients: React.FC = () => {
       patientId: "MED208898680",
       diagnosis: "Diabetes, Blood Disorder",
       status: "Pending",
-      avatar: "/api/placeholder/60/60"
+      avatar: "{avata}"
     },
     {
       id: 2,
@@ -87,19 +89,20 @@ const ManagePatients: React.FC = () => {
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <button className={styles.backButton}>
-            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px" }}></iconify-icon>
+            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "35px" }}></iconify-icon>
           </button>
           <h1 className={styles.pageTitle}>Patients</h1>
         </div>
         <div className={styles.headerRight}>
-          <div className={styles.notificationIcon}>
-            <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
-          </div>
-          <img 
-            src="/api/placeholder/40/40" 
+           <img 
+            src={doctorAvatar}
             alt="Profile" 
             className={styles.profilePicture}
           />
+          <div className={styles.notificationIcon}>
+            <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
+          </div>
+         
         </div>
       </div>
 
@@ -115,9 +118,7 @@ const ManagePatients: React.FC = () => {
               onChange={handleSearchChange}
               className={styles.searchInput}
             />
-          </div>
-          <div className={styles.filterIcon}>
-            <iconify-icon icon="mdi:filter" style={{ fontSize: "25px" }}></iconify-icon>
+            <iconify-icon icon="mdi:filter" className={styles.filterIcon}></iconify-icon>
           </div>
         </div>
 
@@ -150,7 +151,7 @@ const ManagePatients: React.FC = () => {
           <div key={patient.id} className={styles.patientCard}>
             <div className={styles.patientCardContent}>
               <img 
-                src={patient.avatar} 
+                src={avata} 
                 alt={patient.name}
                 className={styles.patientAvatar}
               />
