@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./EditProfile.module.css";
 import doctorImage from "../../../assets/images/profiles/doctor.jpg";
 
 interface EditProfileProps {
   onBack: () => void;
+  section?: "basic" | "professional" | "availability";
 }
 
-const EditProfile: React.FC<EditProfileProps> = ({ onBack }) => {
-  const [activeTab, setActiveTab] = useState("basic");
+const EditProfile: React.FC<EditProfileProps> = ({ onBack, section = "basic" }) => {
+  const [activeTab, setActiveTab] = useState(section);
+  
+  useEffect(() => {
+    setActiveTab(section);
+  }, [section]);
+  
   const [formData, setFormData] = useState({
     // Personal Information
     firstName: "Musa",
@@ -51,9 +57,6 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack }) => {
     onBack();
   };
 
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab);
-  };
 
   return (
     <div className={styles.editProfileContainer}>
@@ -75,53 +78,35 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack }) => {
         </div>
       </div>
 
-      {/* Tab Navigation */}
-      <div className={styles.tabNavigation}>
-        <button
-          className={`${styles.tabButton} ${activeTab === "basic" ? styles.activeTab : ""}`}
-          onClick={() => handleTabChange("basic")}
-        >
-          Personal Information
-        </button>
-        <button
-          className={`${styles.tabButton} ${activeTab === "professional" ? styles.activeTab : ""}`}
-          onClick={() => handleTabChange("professional")}
-        >
-          Professional Information
-        </button>
-        <button
-          className={`${styles.tabButton} ${activeTab === "availability" ? styles.activeTab : ""}`}
-          onClick={() => handleTabChange("availability")}
-        >
-          Availability Settings
+      {/* Profile Picture Section */}
+      <div className={styles.profilePictureSection}>
+        <div className={styles.profilePictureContainer}>
+          <img src={doctorImage} alt="Profile" className={styles.profilePicture} />
+          <div className={styles.cameraIcon}>
+            <iconify-icon icon="mdi:camera" style={{ fontSize: "20px" }}></iconify-icon>
+          </div>
+        </div>
+        <div className={styles.imageButtons}>
+          <button className={styles.uploadButton}>
+            Upload new image
+          </button>
+          <button className={styles.removeButton}>
+            Remove image
+          </button>
+        </div>
+        <button className={styles.saveChangesButton}>
+          Save changes
         </button>
       </div>
 
-      {/* Tab Content */}
-      <div className={styles.tabContent}>
-        {activeTab === "basic" && (
-          <div className={styles.editForm}>
-            {/* Profile Picture Section */}
-            <div className={styles.profilePictureSection}>
-              <div className={styles.profilePictureContainer}>
-                <img src={doctorImage} alt="Profile" className={styles.profilePicture} />
-                <div className={styles.cameraIcon}>
-                  <iconify-icon icon="mdi:camera" style={{ fontSize: "20px" }}></iconify-icon>
-                </div>
-              </div>
-              <div className={styles.imageButtons}>
-                <button className={styles.uploadButton}>
-                  Upload new image
-                </button>
-                <button className={styles.removeButton}>
-                  Remove image
-                </button>
-              </div>
-            </div>
 
-            {/* Personal Information Form */}
-            <div className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>Personal Information</h3>
+
+      {/* Form Content */}
+      {activeTab === "basic" && (
+        <div className={styles.editForm}>
+          {/* Personal Information Form */}
+          <div className={styles.formSection}>
+            <h3 className={styles.sectionTitle}>Personal Information</h3>
               <div className={styles.formGrid}>
                 <div className={styles.formColumn}>
                   <div className={styles.formField}>
@@ -144,29 +129,26 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack }) => {
                   </div>
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Date Of Birth</label>
-                    <div className={styles.dateInputContainer}>
-                      <input
-                        type="text"
-                        value={formData.dateOfBirth}
-                        onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
-                        className={styles.textInput}
-                      />
-                      <iconify-icon icon="mdi:calendar" className={styles.calendarIcon}></iconify-icon>
-                    </div>
-                  </div>
-                  <div className={styles.formField}>
-                    <label className={styles.fieldLabel}>License ID</label>
                     <input
                       type="text"
-                      value={formData.licenseId}
-                      onChange={(e) => handleInputChange("licenseId", e.target.value)}
+                      value={formData.dateOfBirth}
+                      onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+                      className={styles.textInput}
+                    />
+                  </div>
+                  <div className={styles.formField}>
+                    <label className={styles.fieldLabel}>House Address</label>
+                    <input
+                      type="text"
+                      value={formData.address}
+                      onChange={(e) => handleInputChange("address", e.target.value)}
                       className={styles.textInput}
                     />
                   </div>
                 </div>
                 <div className={styles.formColumn}>
                   <div className={styles.formField}>
-                    <label className={styles.fieldLabel}>Last Name</label>
+                    <label className={styles.fieldLabel}>First Name</label>
                     <input
                       type="text"
                       value={formData.lastName}
@@ -206,26 +188,26 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack }) => {
                       <option value="Other">Other</option>
                     </select>
                   </div>
+                  <div className={styles.formField}>
+                    <label className={styles.fieldLabel}>License ID</label>
+                    <input
+                      type="text"
+                      value={formData.licenseId}
+                      onChange={(e) => handleInputChange("licenseId", e.target.value)}
+                      className={styles.textInput}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className={styles.fullWidthField}>
-                <label className={styles.fieldLabel}>House Address</label>
-                <input
-                  type="text"
-                  value={formData.address}
-                  onChange={(e) => handleInputChange("address", e.target.value)}
-                  className={styles.textInput}
-                />
               </div>
             </div>
           </div>
         )}
 
-        {activeTab === "professional" && (
-          <div className={styles.editForm}>
-            {/* Professional Information Form */}
-            <div className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>Professional Information</h3>
+      {activeTab === "professional" && (
+        <div className={styles.editForm}>
+          {/* Professional Information Form */}
+          <div className={styles.formSection}>
+            <h3 className={styles.sectionTitle}>Professional Information</h3>
               <div className={styles.formGrid}>
                 <div className={styles.formColumn}>
                   <div className={styles.formField}>
@@ -303,87 +285,91 @@ const EditProfile: React.FC<EditProfileProps> = ({ onBack }) => {
           </div>
         )}
 
-        {activeTab === "availability" && (
-          <div className={styles.editForm}>
-            {/* Availability Settings Form */}
-            <div className={styles.formSection}>
-              <h3 className={styles.sectionTitle}>Availability Settings</h3>
+      {activeTab === "availability" && (
+        <div className={styles.editForm}>
+          {/* Availability Settings Form */}
+          <div className={styles.formSection}>
+            <h3 className={styles.sectionTitle}>Availability Settings</h3>
               <div className={styles.availabilityForm}>
-                <div className={styles.availabilityField}>
-                  <label className={styles.fieldLabel}>Preferred Consultation Hours</label>
-                  <div className={styles.consultationHoursContainer}>
+                <div className={styles.availabilityRow}>
+                  <div className={styles.availabilityField}>
+                    <label className={styles.fieldLabel}>Preferred Consultation Hours</label>
+                    <div className={styles.consultationHoursContainer}>
+                      <select
+                        value={formData.consultationDays}
+                        onChange={(e) => handleInputChange("consultationDays", e.target.value)}
+                        className={styles.selectInput}
+                      >
+                        <option value="Mon, Thur, Fri">Mon, Thur, Fri</option>
+                        <option value="Mon, Tue, Wed">Mon, Tue, Wed</option>
+                        <option value="Mon, Tue, Wed, Thu, Fri">Mon, Tue, Wed, Thu, Fri</option>
+                      </select>
+                      <input
+                        type="text"
+                        value={formData.consultationStartTime}
+                        onChange={(e) => handleInputChange("consultationStartTime", e.target.value)}
+                        className={styles.timeInput}
+                        placeholder="9 AM"
+                      />
+                      <input
+                        type="text"
+                        value={formData.consultationEndTime}
+                        onChange={(e) => handleInputChange("consultationEndTime", e.target.value)}
+                        className={styles.timeInput}
+                        placeholder="5 PM"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className={styles.availabilityField}>
+                    <label className={styles.fieldLabel}>Consultation Mode</label>
                     <select
-                      value={formData.consultationDays}
-                      onChange={(e) => handleInputChange("consultationDays", e.target.value)}
+                      value={formData.consultationMode}
+                      onChange={(e) => handleInputChange("consultationMode", e.target.value)}
                       className={styles.selectInput}
                     >
-                      <option value="Mon, Thur, Fri">Mon, Thur, Fri</option>
-                      <option value="Mon, Tue, Wed">Mon, Tue, Wed</option>
-                      <option value="Mon, Tue, Wed, Thu, Fri">Mon, Tue, Wed, Thu, Fri</option>
+                      <option value="Virtual, Physical">Virtual, Physical</option>
+                      <option value="Virtual Only">Virtual Only</option>
+                      <option value="Physical Only">Physical Only</option>
                     </select>
-                    <input
-                      type="text"
-                      value={formData.consultationStartTime}
-                      onChange={(e) => handleInputChange("consultationStartTime", e.target.value)}
-                      className={styles.timeInput}
-                      placeholder="9 AM"
-                    />
-                    <input
-                      type="text"
-                      value={formData.consultationEndTime}
-                      onChange={(e) => handleInputChange("consultationEndTime", e.target.value)}
-                      className={styles.timeInput}
-                      placeholder="5 PM"
-                    />
                   </div>
                 </div>
                 
-                <div className={styles.availabilityField}>
-                  <label className={styles.fieldLabel}>Consultation Mode</label>
-                  <select
-                    value={formData.consultationMode}
-                    onChange={(e) => handleInputChange("consultationMode", e.target.value)}
-                    className={styles.selectInput}
-                  >
-                    <option value="Virtual, Physical">Virtual, Physical</option>
-                    <option value="Virtual Only">Virtual Only</option>
-                    <option value="Physical Only">Physical Only</option>
-                  </select>
-                </div>
-                
-                <div className={styles.availabilityField}>
-                  <label className={styles.fieldLabel}>Max Consultation per Day</label>
-                  <select
-                    value={formData.maxConsultationsPerDay}
-                    onChange={(e) => handleInputChange("maxConsultationsPerDay", e.target.value)}
-                    className={styles.selectInput}
-                  >
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                  </select>
-                </div>
-                
-                <div className={styles.availabilityField}>
-                  <label className={styles.fieldLabel}>License Expiry</label>
-                  <div className={styles.dateInputContainer}>
-                    <input
-                      type="text"
-                      value={formData.licenseExpiryDate}
-                      onChange={(e) => handleInputChange("licenseExpiryDate", e.target.value)}
-                      className={styles.textInput}
-                    />
-                    <iconify-icon icon="mdi:calendar" className={styles.calendarIcon}></iconify-icon>
+                <div className={styles.availabilityRow}>
+                  <div className={styles.availabilityField}>
+                    <label className={styles.fieldLabel}>Max Consultation per Day</label>
+                    <select
+                      value={formData.maxConsultationsPerDay}
+                      onChange={(e) => handleInputChange("maxConsultationsPerDay", e.target.value)}
+                      className={styles.selectInput}
+                    >
+                      <option value="5">5</option>
+                      <option value="10">10</option>
+                      <option value="15">15</option>
+                      <option value="20">20</option>
+                    </select>
+                  </div>
+                  
+                  <div className={styles.availabilityField}>
+                    <label className={styles.fieldLabel}>License Expiry</label>
+                    <div className={styles.dateInputContainer}>
+                      <input
+                        type="text"
+                        value={formData.licenseExpiryDate}
+                        onChange={(e) => handleInputChange("licenseExpiryDate", e.target.value)}
+                        className={styles.textInput}
+                      />
+                      <iconify-icon icon="mdi:calendar" className={styles.calendarIcon}></iconify-icon>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 };
 
 export default EditProfile;
+
