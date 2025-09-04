@@ -17,7 +17,7 @@ export const createUser = createAsyncThunk("users/createUser", async (data) => {
   return response.data;
 });
 
-export const updateUser = createAsyncThunk("users/updateUser", async ({ id, data }) => {
+export const updateUser = createAsyncThunk("users/updateUser", async ({ id: data }) => {
   const response = await axios.put(`/users/${id}`, data);
   return response.data;
 });

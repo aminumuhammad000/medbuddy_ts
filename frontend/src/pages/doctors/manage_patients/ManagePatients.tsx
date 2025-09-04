@@ -179,6 +179,6 @@ const ManagePatients: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ManagePatients;

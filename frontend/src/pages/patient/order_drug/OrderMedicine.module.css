@@ -24,6 +24,7 @@
 .description {
   margin-top: 0.625em;
   margin-bottom: 1.25em;
+  color: var(--white-color);
 }
 .btn {
   width: 170px;

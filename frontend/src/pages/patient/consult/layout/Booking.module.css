@@ -1,0 +1,137 @@
+.Booking{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.doctorProfile{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.imgContainer{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ddd;
+  overflow: hidden;
+}
+.imgContainer .profiles{
+  width: 100%;
+  object-fit: cover;
+}
+.specialist{
+  color: var(--blue-color);
+}
+
+.nav{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+}
+.nav li{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ddd;
+}
+.nav li.active{
+  color: var(--blue-color);
+  border-bottom-color: var(--blue-color);
+}
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.message{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.message textarea{
+  width: 100%;
+  height: 130px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 40px;
+  background-color: rgba(237, 237, 237, 0.9);
+}
+.consultType{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.consultType li{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.consultType li .label{
+  font-size: 18px;
+}
+.consultType li input{
+  width: 25px;
+  height: 25px;
+
+
+}
+.consultType li .icon{
+  color: var(--blue-color);
+  font-size: 24px;
+}
+.documentContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.document{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+.check{
+  width: 120px;
+  display: flex;
+  border: 1px solid #ddd;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.check.active{
+  color: var(--white-color);
+  background-color: var(--blue-color);
+}
+.date{
+  accent-color: var(--blue-color);
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  color: var(--white-color);
+  background-color: var(--blue-color);
+  border-radius: 10px;
+  margin-top: 20px;
+  gap: 10px;
+}

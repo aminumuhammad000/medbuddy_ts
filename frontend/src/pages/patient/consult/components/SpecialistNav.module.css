@@ -1,0 +1,97 @@
+.iconsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+.iconBox {
+  gap: 7px;
+}
+.iconDiv {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 1px 2px 4px #ccc;
+}
+.iconDiv:hover {
+  transform: scale(0.9);
+  transition: 0.3s all ease-in-out;
+}
+.icon {
+  color: var(--blue-color);
+  font-size: 40px;
+}
+.name {
+  font-weight: 500;
+  opacity: 0.6;
+}
+.iconsContainerAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2em;
+}
+.iconBoxAll {
+  width: 240px;
+  height: 230px;
+  border-radius: 30px;
+  gap: 20px;
+  background-color: var(--white-color);
+  box-shadow: 1px 1px 4px #ddd;
+}
+.iconDivAll {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--blue-color);
+}
+.less{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.moreName{
+    display: none;
+}
+.moreName2{
+  font-weight: 500;
+  opacity: 0.6;
+}
+.name2{
+    display: none;
+}
+.more{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    cursor: pointer;
+    box-shadow: 1px 2px 4px #ccc; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* .more .name{
+    display: none;
+} */
+.iconDivAll .icon {
+  color: var(--white-color);
+}
+.amount {
+  color: #1771b7cc;
+}

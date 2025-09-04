@@ -1,28 +1,102 @@
 import DoctorCard from "./DoctorCard";
 import style from "./DoctorList.module.css";
-import { useState } from "react";
+import doctor1 from "../../../../assets/images/profiles/doctor1.png";
+import doctor2 from "../../../../assets/images/profiles/doctor2.png";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../../../../store/store";
+import { selectSpecialist } from "../../../../store/slices/patientNavSlice";
 
-const DoctorList = ({ doctors, onDoctorClick }) => {
-  const [selectedSpecialist, setSelectedSpecialist] = useState(null);
+const doctors = [
+  {
+    name: "Dr. Aisha Bello",
+    specialist: "Cardiologist",
+    title: "Heart & Blood Pressure Specialist",
+    price: "$45",
+    experience: "10yrs",
+    rating: 4.8,
+    totalPatient: "1.2k",
+    profile: doctor1,
+  },
+  {
+    name: "Dr. Yusuf Ibrahim",
+    specialist: "Neurologist",
+    title: "Brain & Nervous System Specialist",
+    price: "$50",
+    experience: "11yrs",
+    rating: 4.6,
+    totalPatient: "980+",
+    profile: doctor2,
+  },
+  {
+    name: "Dr. Laila Umar",
+    specialist: "Dermatologist",
+    title: "Skin & Hair Treatment Expert",
+    price: "$40",
+    experience: "9yrs",
+    rating: 4.9,
+    totalPatient: "1.5k",
+    profile: doctor1,
+  },
+  {
+    name: "Dr. Ahmed Sani",
+    specialist: "Pediatrician",
+    title: "Child Healthcare Consultant",
+    price: "$35",
+    experience: "8yrs",
+    rating: 4.7,
+    totalPatient: "1.1k",
+    profile: doctor2,
+  },
+  {
+    name: "Dr. Musa Bello",
+    specialist: "Cardiologist",
+    title: "Heart Disease Prevention Expert",
+    price: "$45",
+    experience: "12yrs",
+    rating: 4.8,
+    totalPatient: "1.3k",
+    profile: doctor1,
+  },
+  {
+    name: "Dr. Aminu Muhammad",
+    specialist: "Neurologist",
+    title: "Spinal & Brain Disorders Consultant",
+    price: "$50",
+    experience: "10yrs",
+    rating: 4.6,
+    totalPatient: "990+",
+    profile: doctor2,
+  },
+];
 
-  const clearFilter = () => {
-    setSelectedSpecialist(null);
-  };
+const DoctorList = () => {
+  const dispatch = useDispatch();
+  const { specialist } = useSelector((state: RootState) => state.patientNav);
+
+  // Filter doctors by specialist (or show all if no filter)
+  const filteredDoctors = specialist
+    ? doctors.filter((doc) => doc.specialist === specialist)
+    : doctors;
+
   return (
     <>
       <div className={style.doctorListTitle} id="flexBetween">
         <h1 className={style.listTitle} id="text30">
-          {selectedSpecialist
-            ? `${selectedSpecialist} Available`
-            : "Top Doctors"}
+          {filteredDoctors.length > 0
+            ? `${specialist} Available`
+            : "No Doctor Available"}
         </h1>
-        <button className={style.moreDoctors} onClick={clearFilter} id="text30">
-          {selectedSpecialist ? "Clear Filter" : "See more"}
+        <button
+          className={style.moreDoctors}
+          id="text30"
+          onClick={() => dispatch(selectSpecialist("Cardiologist"))}
+        >
+          {specialist ? "Clear Filter" : "See more"}
         </button>
       </div>
 
       <div className={style.DoctorList} id="flexCenter">
-        {doctors.map((doc, i) => (
+        {filteredDoctors.map((doc, i) => (
           <DoctorCard
             key={i}
             name={doc.name}
