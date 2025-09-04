@@ -100,7 +100,7 @@ const OrderMedicine = () => {
               <div className={style.Banner} id="flexSpaceBetween">
                 <div className={style.detailsContainer}>
                   <h1 className={style.title}>Order with Prescription</h1>
-                  <p className={style.description} id="mediumText">
+                  <p className={style.description} id="text30">
                     Upload a prescription and a pharmacist will arrange your
                     medicine for you.
                   </p>

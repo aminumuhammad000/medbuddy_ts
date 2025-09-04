@@ -1,5 +1,20 @@
+import React from "react";
 import style from "./DoctorAppointmentCard.module.css";
-const DoctorAppointmentCard = ({
+import { useDispatch } from "react-redux";
+import { setConsultStep } from "../../../../store/slices/patientNavSlice";
+
+type DoctorAppointmentCardProps = {
+  name: string;
+  specialist: string;
+  title: string;
+  profile: string; // image path or URL
+  price: string;
+  experience: string;
+  rating: number;
+  totalPatient: string;
+};
+
+const DoctorAppointmentCard: React.FC<DoctorAppointmentCardProps> = ({
   name,
   specialist,
   title,
@@ -9,9 +24,17 @@ const DoctorAppointmentCard = ({
   rating,
   totalPatient,
 }) => {
+  const dispatch = useDispatch();
+
+  const handleBooking = () => {
+    dispatch(setConsultStep("booking"));
+  };
   return (
     <div className={style.DoctorAppointmentCard} id="flexColumn">
-      <button className={style.appointment}>Book Appointment</button>
+      <button className={style.appointment} onClick={handleBooking}>
+        Book Appointment
+      </button>
+
       <div className={style.mainCard} id="flexBetween">
         <div className={style.info}>
           <h3 className={style.specialist}>{specialist}</h3>
@@ -26,10 +49,12 @@ const DoctorAppointmentCard = ({
             </span>
           </h4>
         </div>
+
         <div className={style.imgContainer}>
-          <img src={profile} alt={profile} loading="lazy" />
+          <img src={profile} alt={`${name} profile`} loading="lazy" />
         </div>
       </div>
+
       <div className={style.footer} id="flexCenter">
         <div className={style.experience}>
           <iconify-icon icon="uil:bag" className={style.icon} />
@@ -42,7 +67,10 @@ const DoctorAppointmentCard = ({
         </div>
 
         <div className={style.experience}>
-          <iconify-icon icon="tabler:star" className={style.icon} />
+          <iconify-icon
+            icon="material-symbols-light:star-outline-rounded"
+            className={style.icon}
+          />
           <h1 className={style.heading}>
             {rating}{" "}
             <span className={style.small} id="smallText">
@@ -53,7 +81,7 @@ const DoctorAppointmentCard = ({
 
         <div className={style.totalPatient}>
           <iconify-icon
-            icon="garden:user-group-stroke-12"
+            icon="ion:people-outline"
             className={style.icon}
           ></iconify-icon>
           <h1 className={style.heading}>

@@ -1,11 +1,11 @@
-import DoctorAppointmentCard from "./components/DoctorAppointmentCard";
+import DoctorAppointmentCard from "../components/DoctorAppointmentCard";
 import style from "./ConsultPreview.module.css";
-import doctor1 from "../../../assets/images/profiles/doctor1.png";
+import doctor1 from "../../../../assets/images/profiles/doctor2.png";
 import { useState } from "react";
-import AboutDoctor from "./components/AboutDoctor";
-import DoctorAvailability from "./components/DoctorAvailability";
-import DoctorFeedBacks from "./components/DoctorFeedBacks";
-import profile from "../../../assets/images/profiles/female-profile.jpg";
+import AboutDoctor from "../components/AboutDoctor";
+import DoctorAvailability from "../components/DoctorAvailability";
+import DoctorFeedBacks from "../components/DoctorFeedBacks";
+import profile from "../../../../assets/images/profiles/female-profile.jpg";
 
 const doc = {
   name: "Dr. Aisha Bello",

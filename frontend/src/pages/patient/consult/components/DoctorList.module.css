@@ -11,3 +11,6 @@
 .moreDoctors {
   color: var(--blue-color);
 }
+.listTitle{
+  opacity: 0.6;
+}
