@@ -235,20 +235,20 @@ const Prescriptions: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
-<<<<<<< HEAD
-              <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></iconify-icon>
-=======
+
+              <Icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></Icon>
+
               <Icon
                 icon="mdi:bell-notification"
                 style={{ color: "#ef4444", fontSize: "24px" }}
               ></Icon>
->>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
+
             </div>
           </div>
         </div>
 
         {/* Edit Form Content */}
-        {/* <div className={styles.editFormContent}> */}
+        <div className={styles.editFormContent}>
           {/* Patient Information Section */}
           <div className={styles.patientInfoCard}>
             <h3 className={styles.patientInfoTitle}>Patient Information</h3>
@@ -375,9 +375,9 @@ const Prescriptions: React.FC = () => {
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
+
                           <label className={styles.additionalInfoLabel}>Additional Information</label>
-=======
+
             </div>
           </div>
 
@@ -386,7 +386,7 @@ const Prescriptions: React.FC = () => {
             <label className={styles.additionalInfoLabel}>
               Additional Information
             </label>
->>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
+
             <textarea
               placeholder="Type note"
               className={styles.additionalInfoTextarea}
@@ -401,242 +401,184 @@ const Prescriptions: React.FC = () => {
             <button className={styles.saveSendButton}>Save & Send</button>
             <button className={styles.saveDraftButton}>Save as Draft</button>
           </div>
-        </div>
-      // </div>
+       </div>
     );
   }
 
   // Edit Existing Prescription Mode
   if (viewMode === "editExisting") {
-    return (
-      <div className={styles.prescriptionsContainer}>
-        {/* Page Header */}
-        <div className={styles.pageHeader}>
-          <div className={styles.headerLeft}>
-            <button className={styles.backButton} onClick={handleBackToList}>
-              <Icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></Icon>
-            </button>
-            <h1 className={styles.pageTitle}>Edit Prescription</h1>
+  return (
+    <div className={styles.prescriptionsContainer}>
+      {/* Page Header */}
+      <div className={styles.pageHeader}>
+        <div className={styles.headerLeft}>
+          <button className={styles.backButton} onClick={handleBackToList}>
+            <Icon icon="mdi:arrow-left" style={{ fontSize: "24px" }} />
+          </button>
+          <h1 className={styles.pageTitle}>Edit Prescription</h1>
+        </div>
+        <div className={styles.headerRight}>
+          <div className={styles.notificationIcon}>
+            <Icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }} />
+            <Icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }} />
           </div>
-          <div className={styles.headerRight}>
-            <div className={styles.notificationIcon}>
-<<<<<<< HEAD
-              <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></iconify-icon>
-=======
-              <Icon
-                icon="mdi:bell-notification"
-                style={{ color: "#ef4444", fontSize: "24px" }}
-              ></Icon>
->>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
+        </div>
+      </div>
+
+      {/* Patient Information Section */}
+      <div className={styles.patientInfoCard}>
+        <h3 className={styles.patientInfoTitle}>Patient Information</h3>
+        <div className={styles.patientInfoGrid}>
+          <div className={styles.patientInfoColumn}>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Patient Name:</span>
+              <span className={styles.patientInfoValue}>
+                {selectedPrescription?.patientName || "Mustapha Hussein"}
+              </span>
+            </div>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Age / Gender:</span>
+              <span className={styles.patientInfoValue}>42 / Male</span>
+            </div>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Patient ID:</span>
+              <span className={styles.patientInfoValue}>208898680</span>
+            </div>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Diagnosis:</span>
+              <span className={styles.patientInfoValue}>Diabetes, Blood Disorder</span>
+            </div>
+          </div>
+          <div className={styles.patientInfoColumn}>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Prescription ID:</span>
+              <span className={styles.patientInfoValue}>RX-2025-016</span>
+            </div>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Date Issued:</span>
+              <span className={styles.patientInfoValue}>
+                {selectedPrescription?.dateIssued || "16 Oct 2025"}
+              </span>
+            </div>
+            <div className={styles.patientInfoRow}>
+              <span className={styles.patientInfoLabel}>Doctor's Name:</span>
+              <span className={styles.patientInfoValue}>Dr. Musa Abdullahi</span>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Edit Form Content */}
-        {/* <div className={styles.editFormContent}> */}
-          {/* Patient Information Section */}
-          <div className={styles.patientInfoCard}>
-            <h3 className={styles.patientInfoTitle}>Patient Information</h3>
-            <div className={styles.patientInfoGrid}>
-              <div className={styles.patientInfoColumn}>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Patient Name:</span>
-                  <span className={styles.patientInfoValue}>
-                    {selectedPrescription?.patientName || "Mustapha Hussein"}
-                  </span>
-                </div>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Age / Gender:</span>
-                  <span className={styles.patientInfoValue}>42 / Male</span>
-                </div>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Patient ID:</span>
-                  <span className={styles.patientInfoValue}>208898680</span>
-                </div>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Diagnosis:</span>
-                  <span className={styles.patientInfoValue}>
-                    Diabetes, Blood Disorder
-                  </span>
-                </div>
+      {/* Current Medications Section */}
+      <div className={styles.currentMedicationsCard}>
+        <h3 className={styles.sectionTitle}>Current Medications</h3>
+        <div className={styles.medicationTable}>
+          <div className={styles.tableHeadered}>
+            <div className={styles.headerCell}>Medicine Name</div>
+            <div className={styles.headerCell}>Dosage & Frequency</div>
+            <div className={styles.headerCell}>Duration</div>
+            <div className={styles.headerCell}>Notes</div>
+            <div className={styles.headerCell}>Actions</div>
+          </div>
+          <div className={styles.tableBody}>
+            <div className={styles.tableRowed}>
+              <div className={styles.tableCell}>Metformin 500mg</div>
+              <div className={styles.tableCell}>1 tablet, twice daily</div>
+              <div className={styles.tableCell}>30 days</div>
+              <div className={styles.tableCell}>
+                <span className={styles.notes}>Take with meals</span>
               </div>
-              <div className={styles.patientInfoColumn}>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>
-                    Prescription ID:
-                  </span>
-                  <span className={styles.patientInfoValue}>RX-2025-016</span>
-                </div>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Date Issued:</span>
-                  <span className={styles.patientInfoValue}>
-                    {selectedPrescription?.dateIssued || "16 Oct 2025"}
-                  </span>
-                </div>
-                <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>
-                    Doctor's Name:
-                  </span>
-                  <span className={styles.patientInfoValue}>
-                    Dr. Musa Abdullahi
-                  </span>
-                </div>
+              <div className={styles.tableCell}>
+                <button className={styles.removeButton}>Remove</button>
               </div>
             </div>
-          </div>
-
-          {/* Current Medications Section */}
-          <div className={styles.currentMedicationsCard}>
-            <h3 className={styles.sectionTitle}>Current Medications</h3>
-            <div className={styles.medicationTable}>
-              <div className={styles.tableHeadered}>
-                <div className={styles.headerCell}>Medicine Name</div>
-                <div className={styles.headerCell}>Dosage & Frequency</div>
-                <div className={styles.headerCell}>Duration</div>
-                <div className={styles.headerCell}>Notes</div>
-                <div className={styles.headerCell}>Actions</div>
+            <div className={styles.tableRowed}>
+              <div className={styles.tableCell}>Amoxicillin 250mg</div>
+              <div className={styles.tableCell}>1 capsule, three times daily</div>
+              <div className={styles.tableCell}>7 days</div>
+              <div className={styles.tableCell}>
+                <span className={styles.notes}>Complete the dose</span>
               </div>
-              <div className={styles.tableBody}>
-                <div className={styles.tableRowed}>
-                  <div className={styles.tableCell}>Metformin 500mg</div>
-                  <div className={styles.tableCell}>1 tablet, twice daily</div>
-                  <div className={styles.tableCell}>30 days</div>
-                  <div className={styles.tableCell}>
-                    <span className={styles.notes}>Take with meals</span>
-                  </div>
-                  <div className={styles.tableCell}>
-                    <button className={styles.removeButton}>Remove</button>
-                  </div>
-                </div>
-                <div className={styles.tableRowed}>
-                  <div className={styles.tableCell}>Amoxicillin 250mg</div>
-                  <div className={styles.tableCell}>
-                    1 capsule, three times daily
-                  </div>
-                  <div className={styles.tableCell}>7 days</div>
-                  <div className={styles.tableCell}>
-                    <span className={styles.notes}>Complete the dose</span>
-                  </div>
-                  <div className={styles.tableCell}>
-                    <button className={styles.removeButton}>Remove</button>
-                  </div>
-                </div>
+              <div className={styles.tableCell}>
+                <button className={styles.removeButton}>Remove</button>
               </div>
             </div>
-          </div>
-
-          {/* Add New Medicine Section */}
-          <div className={styles.addMedicineCard}>
-            <h3 className={styles.sectionTitle}>Add New Medicine</h3>
-            <div className={styles.medicineForm}>
-              <div className={styles.medicineRow}>
-                <div className={styles.formField}>
-                  <label className={styles.fieldLabel}>Medicine Name</label>
-                  <div className={styles.inputWrapper}>
-                    <input
-                      type="text"
-                      placeholder="Enter or select medicine name"
-                      className={styles.textInput}
-                    />
-                    <Icon
-                      icon="mdi:chevron-down"
-                      className={styles.dropdownIcon}
-                    ></Icon>
-                  </div>
-                </div>
-                <div className={styles.formField}>
-                  <label className={styles.fieldLabel}>Dosage</label>
-                  <div className={styles.inputWrapper}>
-                    <input
-                      type="text"
-                      placeholder="Enter or select dosage"
-                      className={styles.textInput}
-                    />
-                    <Icon
-                      icon="mdi:chevron-down"
-                      className={styles.dropdownIcon}
-                    ></Icon>
-                  </div>
-                </div>
-              </div>
-
-              <button className={styles.addMedicineButton}>
-                Add medicine +
-                <Icon icon="ri:add-fill" style={{ fontSize: "18px" }}></Icon>
-              </button>
-
-              <div className={styles.medicineRow}>
-                <div className={styles.formField}>
-                  <label className={styles.fieldLabel}>Frequency</label>
-                  <div className={styles.inputWrapper}>
-                    <input
-                      type="text"
-                      placeholder="Enter or select Frequency"
-                      className={styles.textInput}
-                    />
-                    <Icon
-                      icon="mdi:chevron-down"
-                      className={styles.dropdownIcon}
-                    ></Icon>
-                  </div>
-                </div>
-                <div className={styles.formField}>
-                  <label className={styles.fieldLabel}>Duration</label>
-                  <div className={styles.inputWrapper}>
-                    <input
-                      type="text"
-                      placeholder="Select duration"
-                      className={styles.textInput}
-                    />
-                    <Icon
-                      icon="mdi:chevron-down"
-                      className={styles.dropdownIcon}
-                    ></Icon>
-                  </div>
-                </div>
-              </div>
-<<<<<<< HEAD
-              <label className={styles.additionalInfoLabel}>Additional Information</label>
-=======
-            </div>
-          </div>
-
-          {/* Additional Information Section */}
-          <div className={styles.additionalInfoCard}>
-            <label className={styles.additionalInfoLabel}>
-              Additional Information
-            </label>
->>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
-            <textarea
-              placeholder="Type note"
-              className={styles.additionalInfoTextarea}
-              rows={4}
-              defaultValue="Drink plenty of water and avoid alcohol while on medication."
-            ></textarea>
-            </div>
-          </div>
-
- 
-
-          {/* Action Buttons */}
-          <div className={styles.actionButtonsContainer}>
-<<<<<<< HEAD
-            <button className={styles.saveSendButton}>
-              Update & Send
-            </button>
-            <button className={styles.saveDraftButton}>
-              Save as Draft
-            </button>
-=======
-            <button className={styles.saveSendButton}>Update & Send</button>
-            <button className={styles.saveDraftButton}>Save as Draft</button>
-            <button className={styles.cancelEditButton}>Cancel</button>
->>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
           </div>
         </div>
-      // </div>
-    );
-  }
+      </div>
+
+      {/* Add New Medicine Section */}
+      <div className={styles.addMedicineCard}>
+        <h3 className={styles.sectionTitle}>Add New Medicine</h3>
+        <div className={styles.medicineForm}>
+          <div className={styles.medicineRow}>
+            <div className={styles.formField}>
+              <label className={styles.fieldLabel}>Medicine Name</label>
+              <div className={styles.inputWrapper}>
+                <input
+                  type="text"
+                  placeholder="Enter or select medicine name"
+                  className={styles.textInput}
+                />
+                <Icon icon="mdi:chevron-down" className={styles.dropdownIcon} />
+              </div>
+            </div>
+            <div className={styles.formField}>
+              <label className={styles.fieldLabel}>Dosage</label>
+              <div className={styles.inputWrapper}>
+                <input
+                  type="text"
+                  placeholder="Enter or select dosage"
+                  className={styles.textInput}
+                />
+                <Icon icon="mdi:chevron-down" className={styles.dropdownIcon} />
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.medicineRow}>
+            <div className={styles.formField}>
+              <label className={styles.fieldLabel}>Frequency</label>
+              <div className={styles.inputWrapper}>
+                <input
+                  type="text"
+                  placeholder="Enter or select Frequency"
+                  className={styles.textInput}
+                />
+                <Icon icon="mdi:chevron-down" className={styles.dropdownIcon} />
+              </div>
+            </div>
+            <div className={styles.formField}>
+              <label className={styles.fieldLabel}>Duration</label>
+              <div className={styles.inputWrapper}>
+                <input
+                  type="text"
+                  placeholder="Select duration"
+                  className={styles.textInput}
+                />
+                <Icon icon="mdi:chevron-down" className={styles.dropdownIcon} />
+              </div>
+            </div>
+          </div>
+
+          <label className={styles.additionalInfoLabel}>Additional Information</label>
+          <textarea
+            placeholder="Type note"
+            className={styles.additionalInfoTextarea}
+            rows={4}
+            defaultValue="Drink plenty of water and avoid alcohol while on medication."
+          />
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className={styles.actionButtonsContainer}>
+        <button className={styles.saveSendButton}>Update & Send</button>
+        <button className={styles.saveDraftButton}>Save as Draft</button>
+        <button className={styles.cancelEditButton}>Cancel</button>
+      </div>
+    </div>
+  );
+}
 
   // Detail View
   if (viewMode === "detail") {
@@ -724,15 +666,15 @@ const Prescriptions: React.FC = () => {
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Medication Details</h3>
               <div className={styles.actionButtons}>
-<<<<<<< HEAD
+
                 <button className={styles.editButton} style={{background:"var(--blue-color)", color:"white"}} onClick={handleEdit}>Edit</button>
                 <button className={styles.renewButton} style={{color:"var(--blue-color)", border:" 0.2px solid var(--blue-color)"}} >Renew</button>
-=======
+
                 <button className={styles.editButton} onClick={handleEdit}>
                   Edit
                 </button>
                 <button className={styles.renewButton}>Renew</button>
->>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
+
               </div>
             </div>
             <div className={styles.medicationTable}>
