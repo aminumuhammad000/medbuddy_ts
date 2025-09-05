@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./ManagePatients.module.css";
 import avata from "../../../assets/images/profiles/patient-profile.jpg";
 import doctorAvatar from "../../../assets/images/profiles/doctorp.jpg";
+import { Icon } from "@iconify/react";
 
 const ManagePatients: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -89,7 +90,7 @@ const ManagePatients: React.FC = () => {
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <button className={styles.backButton}>
-            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "35px" }}></iconify-icon>
+            <Icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "35px" }}></Icon>
           </button>
           <h1 className={styles.pageTitle}>Patients</h1>
         </div>
@@ -100,7 +101,7 @@ const ManagePatients: React.FC = () => {
             className={styles.profilePicture}
           />
           <div className={styles.notificationIcon}>
-            <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
+            <Icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></Icon>
           </div>
          
         </div>
@@ -110,7 +111,7 @@ const ManagePatients: React.FC = () => {
       <div className={styles.searchFilterSection}>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputWrapper}>
-            <iconify-icon icon="tabler:search" className={styles.searchIcon}></iconify-icon>
+            <Icon icon="tabler:search" className={styles.searchIcon}></Icon>
             <input
               type="text"
               placeholder="Search for patient"
@@ -118,7 +119,7 @@ const ManagePatients: React.FC = () => {
               onChange={handleSearchChange}
               className={styles.searchInput}
             />
-            <iconify-icon icon="mdi:filter" className={styles.filterIcon}></iconify-icon>
+            <Icon icon="mdi:filter" className={styles.filterIcon}></Icon>
           </div>
         </div>
 
