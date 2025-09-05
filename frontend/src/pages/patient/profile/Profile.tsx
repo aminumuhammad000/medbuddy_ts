@@ -6,15 +6,16 @@ import AccountInformation from "./components/AccountInformation";
 import { useSelector, useDispatch } from "react-redux";
 import { setInformation, setPage } from "../../../store/slices/patientNavSlice";
 import Loading from "../../auth/components/Loading";
+import { Icon } from "@iconify/react";
 
 const Profile = () => {
-  const { user, loading } = useSelector((state) => state.auth);
+  const { user, loading } = useSelector((state: any) => state.auth);
 
   const dispatch = useDispatch();
   const userInformation = useSelector(
-    (state) => state.patientNav.userInformation
+    (state: any) => state.patientNav.userInformation
   );
-  const currentPage = useSelector((state) => state.patientNav.currentPage);
+  const currentPage = useSelector((state: any) => state.patientNav.currentPage);
 
   return (
     <div className={style.profile}>
@@ -64,7 +65,7 @@ const Profile = () => {
         >
           Edit{" "}
           <span>
-            <iconify-icon icon="iconamoon:edit-light"></iconify-icon>
+            <Icon icon="iconamoon:edit-light"></Icon>
           </span>
         </button>
       </div>

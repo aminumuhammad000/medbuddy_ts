@@ -4,12 +4,14 @@ import logo from "../../assets/images/logos/logo2.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "../../store/slices/patientNavSlice";
+import type { RootState } from "../../store/store";
+import { Icon } from "@iconify/react";
 const Sidebar = () => {
-  const page = useSelector((state) => state.patientNav.currentPage);
+  const page = useSelector((state: RootState) => state.patientNav.currentPage);
   const dispatch = useDispatch();
 
   const handlePage = React.useCallback(
-    (e) => {
+    (e: any) => {
       dispatch(setPage(e));
     },
     [dispatch]
@@ -30,10 +32,7 @@ const Sidebar = () => {
               className={page === "dashboard" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="mingcute:grid-2-fill"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="mingcute:grid-2-fill" className={styles.icon}></Icon>
               <h4>Dashboard</h4>
             </button>
           </li>
@@ -45,10 +44,10 @@ const Sidebar = () => {
               }
               id="flexAlignCenter"
             >
-              <iconify-icon
+              <Icon
                 icon="iconamoon:profile-fill"
                 className={styles.icon}
-              ></iconify-icon>
+              ></Icon>
               <h4>My Profile</h4>
             </button>
           </li>
@@ -58,10 +57,7 @@ const Sidebar = () => {
               className={page === "drugs" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="mdi:drugs"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="mdi:drugs" className={styles.icon}></Icon>
               <h4>Order Drug</h4>
             </button>
           </li>
@@ -71,10 +67,7 @@ const Sidebar = () => {
               className={page === "consult" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="fa6-solid:user-doctor"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="fa6-solid:user-doctor" className={styles.icon}></Icon>
               <h4>Consult</h4>
             </button>
           </li>
@@ -84,10 +77,7 @@ const Sidebar = () => {
               className={page === "passbooks" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="solar:book-bold"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="solar:book-bold" className={styles.icon}></Icon>
               <h4>Passbooks</h4>
             </button>
           </li>
@@ -97,10 +87,7 @@ const Sidebar = () => {
               className={page === "settings" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="fontisto:history"
-                className={styles.icon}
-              ></iconify-icon>{" "}
+              <Icon icon="fontisto:history" className={styles.icon}></Icon>{" "}
               <h4>Med History</h4>
             </button>
           </li>
@@ -110,10 +97,7 @@ const Sidebar = () => {
               className={page === "settings" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="mdi:cart"
-                className={styles.icon}
-              ></iconify-icon>{" "}
+              <Icon icon="mdi:cart" className={styles.icon}></Icon>{" "}
               <h4>My Cart</h4>
             </button>
           </li>
@@ -124,10 +108,7 @@ const Sidebar = () => {
               className={page === "ai" ? styles.active : ""}
               id="flexAlignCenter"
             >
-              <iconify-icon
-                icon="hugeicons:ai-dna"
-                className={styles.icon}
-              ></iconify-icon>{" "}
+              <Icon icon="hugeicons:ai-dna" className={styles.icon}></Icon>{" "}
               <h4>AI Consultant</h4>
             </button>
           </li>

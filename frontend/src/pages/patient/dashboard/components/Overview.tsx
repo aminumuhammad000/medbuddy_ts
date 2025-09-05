@@ -5,6 +5,7 @@ import profile from "../../../../assets/images/profiles/profile.jpg";
 import AIChat from "../../ai/AIChat";
 import Loading from "../../../auth/components/Loading";
 import type { RootState } from "../../../../store/store";
+import { Icon } from "@iconify/react";
 
 const Overview: React.FC = () => {
   const { user, loading } = useSelector((state: RootState) => state.auth);
@@ -42,7 +43,7 @@ const Overview: React.FC = () => {
   }) => {
     return (
       <div className={style.div} id="flexColumnCenter">
-        <iconify-icon icon={icon} className={style.icon}></iconify-icon>
+        <Icon icon={icon} className={style.icon} />
         <h4 className={style.titleName}>{title}</h4>
         <h1>
           {value}
@@ -60,10 +61,7 @@ const Overview: React.FC = () => {
   const DocCard: React.FC<DocCardProps> = ({ name, date }) => {
     return (
       <div className={style.card} id="flexCenter">
-        <iconify-icon
-          icon="material-symbols-light:docs"
-          className={style.iconDoc}
-        ></iconify-icon>
+        <Icon icon="material-symbols-light:docs" className={style.iconDoc} />
         <div>
           <h4>{name}</h4>
           <p>{date}</p>

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./FeaturesCard.module.css";
-// import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 
 interface FeaturesCardProps {
   icon: string; // iconify icon name, e.g. "mdi:account"
@@ -23,11 +23,7 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
       id="flexColumnCenter"
       style={{ backgroundColor: bg, color: color }}
     >
-      <iconify-icon
-        icon={icon}
-        className={style.icon}
-        id="flexCenter"
-      ></iconify-icon>
+      <Icon icon={icon} className={style.icon} id="flexCenter"></Icon>
       <h2 className={style.title} style={{ color: color }} id="mediumText">
         {title}
       </h2>

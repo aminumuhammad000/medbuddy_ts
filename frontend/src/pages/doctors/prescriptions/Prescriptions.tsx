@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Prescriptions.module.css";
+import { Icon } from "@iconify/react";
 
 const Prescriptions: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -55,7 +56,7 @@ const Prescriptions: React.FC = () => {
       dateIssued: "16 Oct 2025",
       medicine: "Metformin 500mg",
       duration: "30 days",
-      status: "Active"
+      status: "Active",
     },
     {
       id: 2,
@@ -63,7 +64,7 @@ const Prescriptions: React.FC = () => {
       dateIssued: "15 Oct 2025",
       medicine: "Amoxicillin 250mg",
       duration: "7 days",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 3,
@@ -71,7 +72,7 @@ const Prescriptions: React.FC = () => {
       dateIssued: "10 Oct 2025",
       medicine: "Paracetamol 500mg",
       duration: "5 days",
-      status: "Expired"
+      status: "Expired",
     },
     {
       id: 4,
@@ -79,7 +80,7 @@ const Prescriptions: React.FC = () => {
       dateIssued: "12 Oct 2025",
       medicine: "Ibuprofen 400mg",
       duration: "10 days",
-      status: "Active"
+      status: "Active",
     },
     {
       id: 5,
@@ -87,8 +88,8 @@ const Prescriptions: React.FC = () => {
       dateIssued: "08 Oct 2025",
       medicine: "Omeprazole 20mg",
       duration: "14 days",
-      status: "Completed"
-    }
+      status: "Completed",
+    },
   ];
 
   // Sample prescription detail data
@@ -106,22 +107,23 @@ const Prescriptions: React.FC = () => {
         name: "Metformin 500mg",
         dosage: "1 tablet, twice daily",
         duration: "30 days",
-        notes: "Take with meals"
+        notes: "Take with meals",
       },
       {
         name: "Amoxicillin 250mg",
         dosage: "1 capsule, three times daily",
         duration: "7 days",
-        notes: "Complete the dose"
+        notes: "Complete the dose",
       },
       {
         name: "Paracetamol 500mg",
         dosage: "1 tablet, as needed",
         duration: "5 days",
-        notes: "For headache only"
-      }
+        notes: "For headache only",
+      },
     ],
-    doctorMessage: "Drink plenty of water and avoid alcohol while on medication."
+    doctorMessage:
+      "Drink plenty of water and avoid alcohol while on medication.",
   };
 
   // Sample edit prescription data
@@ -139,10 +141,10 @@ const Prescriptions: React.FC = () => {
         name: "",
         dosage: "",
         frequency: "",
-        duration: ""
-      }
+        duration: "",
+      },
     ],
-    doctorMessage: ""
+    doctorMessage: "",
   };
 
   const getStatusColor = (status: string) => {
@@ -161,11 +163,11 @@ const Prescriptions: React.FC = () => {
   const getFilteredPrescriptions = () => {
     switch (activeFilter) {
       case "active":
-        return prescriptions.filter(p => p.status === "Active");
+        return prescriptions.filter((p) => p.status === "Active");
       case "completed":
-        return prescriptions.filter(p => p.status === "Completed");
+        return prescriptions.filter((p) => p.status === "Completed");
       case "expired":
-        return prescriptions.filter(p => p.status === "Expired");
+        return prescriptions.filter((p) => p.status === "Expired");
       default:
         return prescriptions;
     }
@@ -179,26 +181,38 @@ const Prescriptions: React.FC = () => {
       <div className={styles.shareModal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h3 className={styles.modalTitle}>Share</h3>
-          <button className={styles.closeButton} onClick={handleCloseShareModal}>
-            <iconify-icon icon="mdi:close" style={{ fontSize: "20px" }}></iconify-icon>
+          <button
+            className={styles.closeButton}
+            onClick={handleCloseShareModal}
+          >
+            <Icon icon="mdi:close" style={{ fontSize: "20px" }}></Icon>
           </button>
         </div>
         <div className={styles.shareOptions}>
           <div className={styles.shareOption}>
             <div className={styles.shareIconButton}>
-              <iconify-icon icon="bitcoin-icons:share-filled" style={{ fontSize: "25px" }}></iconify-icon>
+              <Icon
+                icon="bitcoin-icons:share-filled"
+                style={{ fontSize: "25px" }}
+              ></Icon>
             </div>
             <span className={styles.shareLabel}>Send to patient</span>
           </div>
           <div className={styles.shareOption}>
             <div className={styles.shareIconButton}>
-              <iconify-icon icon="mingcute:copy-fill" style={{ fontSize: "25px" }}></iconify-icon>
+              <Icon
+                icon="mingcute:copy-fill"
+                style={{ fontSize: "25px" }}
+              ></Icon>
             </div>
             <span className={styles.shareLabel}>Copy link</span>
           </div>
           <div className={styles.shareOption}>
             <div className={styles.shareIconButton}>
-              <iconify-icon icon="material-symbols:download-rounded" style={{ fontSize: "25px" }}></iconify-icon>
+              <Icon
+                icon="material-symbols:download-rounded"
+                style={{ fontSize: "25px" }}
+              ></Icon>
             </div>
             <span className={styles.shareLabel}>Download</span>
           </div>
@@ -215,13 +229,16 @@ const Prescriptions: React.FC = () => {
         <div className={styles.pageHeader}>
           <div className={styles.headerLeft}>
             <button className={styles.backButton} onClick={handleBackToDetail}>
-              <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+              <Icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></Icon>
             </button>
             <h1 className={styles.pageTitle}>Add new prescription</h1>
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
-              <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+              <Icon
+                icon="mdi:bell-notification"
+                style={{ color: "#ef4444", fontSize: "24px" }}
+              ></Icon>
             </div>
           </div>
         </div>
@@ -235,33 +252,51 @@ const Prescriptions: React.FC = () => {
               <div className={styles.patientInfoColumn}>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Patient Name:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.patientName}</span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.patientName}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Age / Gender:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.age} / {editPrescriptionData.gender}</span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.age} / {editPrescriptionData.gender}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Patient ID:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.patientId}</span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.patientId}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Diagnosis:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.diagnosis}</span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.diagnosis}
+                  </span>
                 </div>
               </div>
               <div className={styles.patientInfoColumn}>
                 <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Prescription ID:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.prescriptionId}</span>
+                  <span className={styles.patientInfoLabel}>
+                    Prescription ID:
+                  </span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.prescriptionId}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Date Issued:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.dateIssued}</span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.dateIssued}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Doctor's Name:</span>
-                  <span className={styles.patientInfoValue}>{editPrescriptionData.doctorName}</span>
+                  <span className={styles.patientInfoLabel}>
+                    Doctor's Name:
+                  </span>
+                  <span className={styles.patientInfoValue}>
+                    {editPrescriptionData.doctorName}
+                  </span>
                 </div>
               </div>
             </div>
@@ -279,7 +314,10 @@ const Prescriptions: React.FC = () => {
                       placeholder="Enter or select medicine name"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
                 <div className={styles.formField}>
@@ -290,14 +328,17 @@ const Prescriptions: React.FC = () => {
                       placeholder="Enter or select dosage"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
               </div>
-              
+
               <button className={styles.addMedicineButton}>
                 Add medicine +
-                <iconify-icon icon="ri:add-fill" style={{ fontSize: "18px" }}></iconify-icon>
+                <Icon icon="ri:add-fill" style={{ fontSize: "18px" }}></Icon>
               </button>
 
               <div className={styles.medicineRow}>
@@ -309,7 +350,10 @@ const Prescriptions: React.FC = () => {
                       placeholder="Enter or select Frequency"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
                 <div className={styles.formField}>
@@ -320,7 +364,10 @@ const Prescriptions: React.FC = () => {
                       placeholder="Select duration"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
               </div>
@@ -329,7 +376,9 @@ const Prescriptions: React.FC = () => {
 
           {/* Additional Information Section */}
           <div className={styles.additionalInfoCard}>
-            <label className={styles.additionalInfoLabel}>Additional Information</label>
+            <label className={styles.additionalInfoLabel}>
+              Additional Information
+            </label>
             <textarea
               placeholder="Type note"
               className={styles.additionalInfoTextarea}
@@ -339,12 +388,8 @@ const Prescriptions: React.FC = () => {
 
           {/* Action Buttons */}
           <div className={styles.actionButtonsContainer}>
-            <button className={styles.saveSendButton}>
-              Save & Send
-            </button>
-            <button className={styles.saveDraftButton}>
-              Save as Draft
-            </button>
+            <button className={styles.saveSendButton}>Save & Send</button>
+            <button className={styles.saveDraftButton}>Save as Draft</button>
           </div>
         </div>
       </div>
@@ -359,13 +404,16 @@ const Prescriptions: React.FC = () => {
         <div className={styles.pageHeader}>
           <div className={styles.headerLeft}>
             <button className={styles.backButton} onClick={handleBackToList}>
-              <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+              <Icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></Icon>
             </button>
             <h1 className={styles.pageTitle}>Edit Prescription</h1>
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
-              <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+              <Icon
+                icon="mdi:bell-notification"
+                style={{ color: "#ef4444", fontSize: "24px" }}
+              ></Icon>
             </div>
           </div>
         </div>
@@ -379,7 +427,9 @@ const Prescriptions: React.FC = () => {
               <div className={styles.patientInfoColumn}>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Patient Name:</span>
-                  <span className={styles.patientInfoValue}>{selectedPrescription?.patientName || "Mustapha Hussein"}</span>
+                  <span className={styles.patientInfoValue}>
+                    {selectedPrescription?.patientName || "Mustapha Hussein"}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Age / Gender:</span>
@@ -391,21 +441,31 @@ const Prescriptions: React.FC = () => {
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Diagnosis:</span>
-                  <span className={styles.patientInfoValue}>Diabetes, Blood Disorder</span>
+                  <span className={styles.patientInfoValue}>
+                    Diabetes, Blood Disorder
+                  </span>
                 </div>
               </div>
               <div className={styles.patientInfoColumn}>
                 <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Prescription ID:</span>
+                  <span className={styles.patientInfoLabel}>
+                    Prescription ID:
+                  </span>
                   <span className={styles.patientInfoValue}>RX-2025-016</span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Date Issued:</span>
-                  <span className={styles.patientInfoValue}>{selectedPrescription?.dateIssued || "16 Oct 2025"}</span>
+                  <span className={styles.patientInfoValue}>
+                    {selectedPrescription?.dateIssued || "16 Oct 2025"}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Doctor's Name:</span>
-                  <span className={styles.patientInfoValue}>Dr. Musa Abdullahi</span>
+                  <span className={styles.patientInfoLabel}>
+                    Doctor's Name:
+                  </span>
+                  <span className={styles.patientInfoValue}>
+                    Dr. Musa Abdullahi
+                  </span>
                 </div>
               </div>
             </div>
@@ -436,7 +496,9 @@ const Prescriptions: React.FC = () => {
                 </div>
                 <div className={styles.tableRow}>
                   <div className={styles.tableCell}>Amoxicillin 250mg</div>
-                  <div className={styles.tableCell}>1 capsule, three times daily</div>
+                  <div className={styles.tableCell}>
+                    1 capsule, three times daily
+                  </div>
                   <div className={styles.tableCell}>7 days</div>
                   <div className={styles.tableCell}>
                     <span className={styles.notes}>Complete the dose</span>
@@ -462,7 +524,10 @@ const Prescriptions: React.FC = () => {
                       placeholder="Enter or select medicine name"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
                 <div className={styles.formField}>
@@ -473,14 +538,17 @@ const Prescriptions: React.FC = () => {
                       placeholder="Enter or select dosage"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
               </div>
-              
+
               <button className={styles.addMedicineButton}>
                 Add medicine +
-                <iconify-icon icon="ri:add-fill" style={{ fontSize: "18px" }}></iconify-icon>
+                <Icon icon="ri:add-fill" style={{ fontSize: "18px" }}></Icon>
               </button>
 
               <div className={styles.medicineRow}>
@@ -492,7 +560,10 @@ const Prescriptions: React.FC = () => {
                       placeholder="Enter or select Frequency"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
                 <div className={styles.formField}>
@@ -503,7 +574,10 @@ const Prescriptions: React.FC = () => {
                       placeholder="Select duration"
                       className={styles.textInput}
                     />
-                    <iconify-icon icon="mdi:chevron-down" className={styles.dropdownIcon}></iconify-icon>
+                    <Icon
+                      icon="mdi:chevron-down"
+                      className={styles.dropdownIcon}
+                    ></Icon>
                   </div>
                 </div>
               </div>
@@ -512,7 +586,9 @@ const Prescriptions: React.FC = () => {
 
           {/* Additional Information Section */}
           <div className={styles.additionalInfoCard}>
-            <label className={styles.additionalInfoLabel}>Additional Information</label>
+            <label className={styles.additionalInfoLabel}>
+              Additional Information
+            </label>
             <textarea
               placeholder="Type note"
               className={styles.additionalInfoTextarea}
@@ -523,15 +599,9 @@ const Prescriptions: React.FC = () => {
 
           {/* Action Buttons */}
           <div className={styles.actionButtonsContainer}>
-            <button className={styles.saveSendButton}>
-              Update & Send
-            </button>
-            <button className={styles.saveDraftButton}>
-              Save as Draft
-            </button>
-            <button className={styles.cancelEditButton}>
-              Cancel
-            </button>
+            <button className={styles.saveSendButton}>Update & Send</button>
+            <button className={styles.saveDraftButton}>Save as Draft</button>
+            <button className={styles.cancelEditButton}>Cancel</button>
           </div>
         </div>
       </div>
@@ -546,13 +616,16 @@ const Prescriptions: React.FC = () => {
         <div className={styles.pageHeader}>
           <div className={styles.headerLeft}>
             <button className={styles.backButton} onClick={handleBackToList}>
-              <iconify-icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></iconify-icon>
+              <Icon icon="mdi:arrow-left" style={{ fontSize: "24px" }}></Icon>
             </button>
             <h1 className={styles.pageTitle}>Prescriptions</h1>
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
-              <iconify-icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }}></iconify-icon>
+              <Icon
+                icon="mdi:bell-notification"
+                style={{ color: "#ef4444", fontSize: "24px" }}
+              ></Icon>
             </div>
           </div>
         </div>
@@ -566,33 +639,51 @@ const Prescriptions: React.FC = () => {
               <div className={styles.patientInfoColumn}>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Patient Name:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.patientName}</span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.patientName}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Age / Gender:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.age} / {prescriptionDetail.gender}</span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.age} / {prescriptionDetail.gender}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Patient ID:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.patientId}</span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.patientId}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Diagnosis:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.diagnosis}</span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.diagnosis}
+                  </span>
                 </div>
               </div>
               <div className={styles.patientInfoColumn}>
                 <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Prescription ID:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.prescriptionId}</span>
+                  <span className={styles.patientInfoLabel}>
+                    Prescription ID:
+                  </span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.prescriptionId}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
                   <span className={styles.patientInfoLabel}>Date Issued:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.dateIssued}</span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.dateIssued}
+                  </span>
                 </div>
                 <div className={styles.patientInfoRow}>
-                  <span className={styles.patientInfoLabel}>Doctor's Name:</span>
-                  <span className={styles.patientInfoValue}>{prescriptionDetail.doctorName}</span>
+                  <span className={styles.patientInfoLabel}>
+                    Doctor's Name:
+                  </span>
+                  <span className={styles.patientInfoValue}>
+                    {prescriptionDetail.doctorName}
+                  </span>
                 </div>
               </div>
             </div>
@@ -603,7 +694,9 @@ const Prescriptions: React.FC = () => {
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Medication Details</h3>
               <div className={styles.actionButtons}>
-                <button className={styles.editButton} onClick={handleEdit}>Edit</button>
+                <button className={styles.editButton} onClick={handleEdit}>
+                  Edit
+                </button>
                 <button className={styles.renewButton}>Renew</button>
               </div>
             </div>
@@ -641,7 +734,7 @@ const Prescriptions: React.FC = () => {
           <div className={styles.shareSection}>
             <button className={styles.shareButton} onClick={handleShare}>
               Share
-              <iconify-icon icon="mi:share" style={{ fontSize: "20px" }}></iconify-icon>
+              <Icon icon="mi:share" style={{ fontSize: "20px" }}></Icon>
             </button>
           </div>
         </div>
@@ -658,20 +751,26 @@ const Prescriptions: React.FC = () => {
       {/* Page Header */}
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
-           <button className={styles.backButton}>
-            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px" }}></iconify-icon>
+          <button className={styles.backButton}>
+            <Icon
+              icon="material-symbols:arrow-back-rounded"
+              style={{ fontSize: "30px" }}
+            ></Icon>
           </button>
           <h1 className={styles.pageTitle}>Prescriptions</h1>
         </div>
         <div className={styles.notificationIcon}>
-          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
+          <Icon
+            icon="mdi:bell-notification"
+            style={{ color: "var(--blue-color)", fontSize: "26px" }}
+          ></Icon>
         </div>
       </div>
       {/* Search and Filter Section */}
       <div className={styles.searchFilterSection}>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputWrapper}>
-            <iconify-icon icon="tabler:search" className={styles.searchIcon}></iconify-icon>
+            <Icon icon="tabler:search" className={styles.searchIcon}></Icon>
             <input
               type="text"
               placeholder="Search by patient name, ID, or prescription..."
@@ -681,44 +780,53 @@ const Prescriptions: React.FC = () => {
             />
           </div>
           <div className={styles.filterIcon}>
-            <iconify-icon icon="mdi:filter" style={{ fontSize: "25px" }}></iconify-icon>
+            <Icon icon="mdi:filter" style={{ fontSize: "25px" }}></Icon>
           </div>
         </div>
       </div>
-
-
 
       {/* Filter Tabs and Add New Button */}
       <div className={styles.filterSection}>
         <div className={styles.filterTabs}>
           <button
-            className={`${styles.filterTab} ${activeFilter === "all" ? styles.activeFilterTab : ""}`}
+            className={`${styles.filterTab} ${
+              activeFilter === "all" ? styles.activeFilterTab : ""
+            }`}
             onClick={() => handleFilterChange("all")}
           >
             All
           </button>
           <button
-            className={`${styles.filterTab} ${activeFilter === "active" ? styles.activeFilterTab : ""}`}
+            className={`${styles.filterTab} ${
+              activeFilter === "active" ? styles.activeFilterTab : ""
+            }`}
             onClick={() => handleFilterChange("active")}
           >
             Active
           </button>
           <button
-            className={`${styles.filterTab} ${activeFilter === "completed" ? styles.activeFilterTab : ""}`}
+            className={`${styles.filterTab} ${
+              activeFilter === "completed" ? styles.activeFilterTab : ""
+            }`}
             onClick={() => handleFilterChange("completed")}
           >
             Completed
           </button>
           <button
-            className={`${styles.filterTab} ${activeFilter === "expired" ? styles.activeFilterTab : ""}`}
+            className={`${styles.filterTab} ${
+              activeFilter === "expired" ? styles.activeFilterTab : ""
+            }`}
             onClick={() => handleFilterChange("expired")}
           >
             Expired
           </button>
         </div>
         <button className={styles.addNewButton} onClick={handleEdit}>
-            Add new 
-          <iconify-icon icon="ic:sharp-add" style={{ fontSize: "18px", color:"white" }}></iconify-icon>
+          Add new
+          <Icon
+            icon="ic:sharp-add"
+            style={{ fontSize: "18px", color: "white" }}
+          ></Icon>
         </button>
       </div>
 
@@ -732,15 +840,19 @@ const Prescriptions: React.FC = () => {
           <div className={styles.headerCell}>Status</div>
           <div className={styles.headerCell}>Actions</div>
         </div>
-        
+
         <div className={styles.tableBody}>
           {filteredPrescriptions.map((prescription) => (
             <div key={prescription.id} className={styles.tableRow}>
               <div className={styles.tableCell}>
-                <span className={styles.patientName}>{prescription.patientName}</span>
+                <span className={styles.patientName}>
+                  {prescription.patientName}
+                </span>
               </div>
               <div className={styles.tableCell}>
-                <span className={styles.dateIssued}>{prescription.dateIssued}</span>
+                <span className={styles.dateIssued}>
+                  {prescription.dateIssued}
+                </span>
               </div>
               <div className={styles.tableCell}>
                 <span className={styles.medicine}>{prescription.medicine}</span>
@@ -749,19 +861,28 @@ const Prescriptions: React.FC = () => {
                 <span className={styles.duration}>{prescription.duration}</span>
               </div>
               <div className={styles.tableCell}>
-                <span className={`${styles.status} ${getStatusColor(prescription.status)}`}>
+                <span
+                  className={`${styles.status} ${getStatusColor(
+                    prescription.status
+                  )}`}
+                >
                   {prescription.status}
                 </span>
               </div>
               <div className={styles.tableCell}>
                 <div className={styles.actionButtons}>
-                  <button 
+                  <button
                     className={styles.viewButton}
                     onClick={() => handleViewPrescription(prescription)}
                   >
                     View
                   </button>
-                  <button className={styles.editButton} onClick={() => handleEditPrescription(prescription)}>Edit</button>
+                  <button
+                    className={styles.editButton}
+                    onClick={() => handleEditPrescription(prescription)}
+                  >
+                    Edit
+                  </button>
                   <button className={styles.cancelButton}>Cancel</button>
                 </div>
               </div>
@@ -774,4 +895,3 @@ const Prescriptions: React.FC = () => {
 };
 
 export default Prescriptions;
-

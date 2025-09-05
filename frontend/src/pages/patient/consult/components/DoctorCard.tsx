@@ -2,7 +2,7 @@ import React from "react";
 import style from "./DoctorCard.module.css";
 import { useDispatch } from "react-redux";
 import { setConsultStep } from "../../../../store/slices/patientNavSlice";
-
+import { Icon } from "@iconify/react";
 interface DoctorCardProps {
   name: string;
   specialist: string;
@@ -45,7 +45,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
 
       const day = d.toLocaleDateString("en-US", { weekday: "short" }); // Mon
       const date = d.getDate(); // 15
-      const month = d.toLocaleDateString("en-US", { month: "short" }); // Jul
+      // const month = d.toLocaleDateString("en-US", { month: "short" });
 
       weekDays.push(`${day} ${date}`);
     }
@@ -59,11 +59,11 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
     <div className={style.DoctorCard} onClick={handlePreview}>
       <div className={style.cardHead}>
         <div className={style.rating}>
-          <iconify-icon icon="mdi:star" className={style.start}></iconify-icon>
+          <Icon icon="mdi:star" className={style.start}></Icon>
           {rating}
         </div>
         <div className={style.heartIcon}>
-          <iconify-icon icon="iconamoon:heart-light" className={style.icon} />
+          <Icon icon="iconamoon:heart-light" className={style.icon} />
         </div>
       </div>
 

@@ -51,23 +51,29 @@ const DoctorsDashboard: React.FC = () => {
     <div className={style.dashboardContainer}>
       {/* Sidebar */}
       <DoctorSidebar />
-      
+
       {/* Main Content Area */}
       <div className={style.mainContent}>
         {/* Page Header */}
         {currentPage !== "dashboard" && (
           <div className={style.pageHeader}>
             {currentPage === "updates" && (
-              <button
-                onClick={handleBack}
-                className={style.backButton}
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#1771b7"/>
+              <button onClick={handleBack} className={style.backButton}>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"
+                    fill="#1771b7"
+                  />
                 </svg>
               </button>
             )}
-            
+
             <h1 className={style.pageTitle}>
               {currentPage === "patients"
                 ? "Manage Patients"

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import type { RootState, AppDispatch } from "../../store/store"; // <-- adjust path
 import style from "./Auth.module.css";
 import {
   setRole,
@@ -25,14 +26,15 @@ import CreateNewPassword from "./components/CreateNewPassword";
 import Loading from "./components/Loading";
 import GoogleLogin from "./components/GoogleLogin";
 import AlertContainer from "./components/AlertContainer";
+import { Icon } from "@iconify/react";
 
 const Login = () => {
   const [otpEmail, setOtpEmail] = useState("");
   const navigate = useNavigate();
-  const { user, authMode, loading, error, success, isLogged } = useSelector(
-    (state) => state.auth
+  const { user, authMode, loading, error, success } = useSelector(
+    (state: RootState) => state.auth
   );
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const shouldRedirect = useRef(false);
 
   useEffect(() => {
@@ -41,6 +43,7 @@ const Login = () => {
 
   useEffect(() => {
     if (!success) return;
+    if (error) return;
 
     switch (authMode) {
       case "login":
@@ -71,35 +74,50 @@ const Login = () => {
     }
   }, [success, authMode, user, navigate, dispatch]);
 
-  const handleRoleClick = (role) => {
+  const handleRoleClick = (role: string) => {
     dispatch(setRole(role));
   };
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     dispatch(clearStatus());
-    const form = e.target;
+    const form = e.currentTarget as typeof e.currentTarget & {
+      email?: { value: string };
+      password?: { value: string };
+      confirmPassword?: { value: string };
+      name?: { value: string };
+      phone?: { value: string };
+      nhis?: { value: string };
+      license?: { value: string };
+      otp?: { value: string };
+    };
 
-    if (authMode === "forgot") {
+    if (authMode === "forgot" && form.email) {
       const email = form.email.value;
       setOtpEmail(email);
       dispatch(forgotPassword({ email }));
       return;
     }
 
-    if (authMode === "otp") {
+    if (authMode === "otp" && form.otp) {
       const otp = form.otp.value;
-      dispatch(verifyOtp({ otp, email: otpEmail })); // Pass both otp and email
+      dispatch(verifyOtp({ otp, email: otpEmail }));
       return;
     }
-    if (authMode === "setPassword") {
+
+    if (
+      authMode === "setPassword" &&
+      form.email &&
+      form.password &&
+      form.confirmPassword
+    ) {
       const email = form.email.value;
       const password = form.password.value;
       const confirmPassword = form.confirmPassword.value;
 
       if (password !== confirmPassword) {
-        setError("Passwords do not match");
+        alert("Passwords do not match");
         return;
       }
 
@@ -107,14 +125,14 @@ const Login = () => {
       return;
     }
 
-    if (authMode === "login") {
+    if (authMode === "login" && form.email && form.password) {
       const email = form.email.value;
       const password = form.password.value;
       dispatch(loginUser({ email, password }));
       return;
     }
 
-    if (authMode === "register") {
+    if (authMode === "register" && form.email && form.password && form.phone) {
       const payload = {
         usertype: user?.usertype,
         name: form.name?.value || "",
@@ -129,7 +147,7 @@ const Login = () => {
     }
   };
 
-  const handleResendOtp = (email) => {
+  const handleResendOtp = (email: string) => {
     dispatch(resendOtp({ email }));
   };
 
@@ -146,9 +164,9 @@ const Login = () => {
           <path
             d="M125.212 176.187C53.997 191.866 42.8737 178.823 39.166 174.476C35.4582 170.128 24.335 157.086 51.0573 89.2379M125.212 176.187C98.49 244.036 105.895 252.74 113.31 261.435M125.212 176.187C151.935 108.339 140.811 95.297 137.104 90.9495C133.396 86.6021 122.273 73.5596 51.0573 89.2379M51.0573 89.2379C77.7796 21.3899 70.3641 12.6949 62.9486 3.99998M51.0573 89.2379L15.6067 95.8917C-23.1259 101.458 -29.0583 94.5024 -35 87.5356"
             stroke="#40E0D0"
-            stroke-width="7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
@@ -163,7 +181,7 @@ const Login = () => {
           id="flexCenter"
           onClick={() => dispatch(setAuthMode("login"))}
         >
-          <iconify-icon icon="uil:arrow-left"></iconify-icon>
+          <Icon icon="uil:arrow-left" />
         </button>
       )}
       {authMode === "otp" && (
@@ -172,7 +190,7 @@ const Login = () => {
           id="flexCenter"
           onClick={() => dispatch(setAuthMode("forgot"))}
         >
-          <iconify-icon icon="typcn:arrow-left"></iconify-icon>
+          <Icon icon="typcn:arrow-left" />
         </button>
       )}
 
@@ -227,11 +245,8 @@ const Login = () => {
         <div className={style.form} id="flexCenter">
           <form onSubmit={handleFormSubmit} id="flexColumn">
             {authMode === "register" && <Register />}
-
             {authMode === "login" && <LoginComponent />}
-
             {authMode === "forgot" && <ForgetPassword />}
-
             {authMode === "otp" && (
               <Otp email={otpEmail} onResend={handleResendOtp} />
             )}
@@ -245,7 +260,6 @@ const Login = () => {
               disabled={loading}
             >
               <h3 id="flexCenter">
-                {" "}
                 {loading
                   ? "Please wait..."
                   : authMode === "login"
@@ -258,7 +272,7 @@ const Login = () => {
                   ? "Change Password"
                   : "Continue"}{" "}
                 <span style={{ marginTop: "10px" }}>
-                  <iconify-icon icon="formkit:arrowright"></iconify-icon>
+                  <Icon icon="formkit:arrowright" />
                 </span>
               </h3>
             </button>

@@ -1,9 +1,10 @@
+import type { RootState } from "../../../store/store";
 import style from "../Auth.module.css";
 import DocInput from "./DocInput";
 import PasswordInput from "./PasswordInput";
 import { useSelector } from "react-redux";
 const Register = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
   return (
     <>
       <div className={style.name} id="flexColumn">

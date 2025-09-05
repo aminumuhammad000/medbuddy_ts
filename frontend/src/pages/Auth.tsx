@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import style from "./Auth.module.css";
 import {
@@ -26,6 +26,7 @@ import type { RootState, AppDispatch } from "../store/store";
 
 import frame from "../assets/images/backgrounds/frame.png";
 import logo2 from "../assets/images/logos/logo2.png";
+import { Icon } from "@iconify/react";
 
 const Auth = () => {
   const [otpEmail, setOtpEmail] = useState<string>("");
@@ -34,7 +35,7 @@ const Auth = () => {
     (state: RootState) => state.auth
   );
   const dispatch = useDispatch<AppDispatch>();
-  const shouldRedirect = useRef(false);
+  // const shouldRedirect = useRef(false);
 
   useEffect(() => {
     dispatch(clearStatus());
@@ -110,8 +111,6 @@ const Auth = () => {
       const confirmPassword = form.confirmPassword?.value || "";
 
       if (password !== confirmPassword) {
-        // setError is not defined in this component, so you may want to handle error via Redux or local state
-        // setError("Passwords do not match");
         return;
       }
 
@@ -175,7 +174,7 @@ const Auth = () => {
           id="flexCenter"
           onClick={() => dispatch(setAuthMode("login"))}
         >
-          <iconify-icon icon="uil:arrow-left"></iconify-icon>
+          <Icon icon="uil:arrow-left"></Icon>
         </button>
       )}
       {authMode === "otp" && (
@@ -184,7 +183,7 @@ const Auth = () => {
           id="flexCenter"
           onClick={() => dispatch(setAuthMode("forgot"))}
         >
-          <iconify-icon icon="typcn:arrow-left"></iconify-icon>
+          <Icon icon="typcn:arrow-left"></Icon>
         </button>
       )}
 
@@ -270,7 +269,7 @@ const Auth = () => {
                   ? "Change Password"
                   : "Continue"}{" "}
                 <span style={{ marginTop: "10px" }}>
-                  <iconify-icon icon="formkit:arrowright"></iconify-icon>
+                  <Icon icon="formkit:arrowright"></Icon>
                 </span>
               </h3>
             </button>

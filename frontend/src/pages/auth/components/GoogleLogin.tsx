@@ -6,12 +6,13 @@ import google from "../../../assets/icons/social/google.png";
 import facebook from "../../../assets/icons/social/facebook.png";
 
 import { loginWithGoogle } from "../../../store/slices/authReducer";
+import type { RootState } from "../../../store/store";
 
 const GoogleLogin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const usertype =
-    useSelector((state) => state.auth.user?.usertype) || "patient";
+    useSelector((state: RootState) => state.auth.user?.usertype) || "patient";
 
   const login = useGoogleLogin({
     flow: "auth-code",
@@ -27,7 +28,7 @@ const GoogleLogin = () => {
         })
       )
         .unwrap()
-        .then((res) => {
+        .then((res: any) => {
           if (!res.exists) {
             navigate("/auth");
           } else {
@@ -49,7 +50,7 @@ const GoogleLogin = () => {
             }
           }
         })
-        .catch((err) => {
+        .catch((err: any) => {
           console.error("Google login error", err);
         });
     },
@@ -58,7 +59,7 @@ const GoogleLogin = () => {
     },
   });
 
-  const { authMode } = useSelector((state) => state.auth);
+  const { authMode } = useSelector((state: RootState) => state.auth);
   return (
     <>
       {(authMode === "login" || authMode === "register") && (

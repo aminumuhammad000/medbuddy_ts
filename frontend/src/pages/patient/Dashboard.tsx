@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { getProfile } from "../../store/slices/authReducer";
@@ -9,6 +9,8 @@ import OrderMedicine from "./order_drug/OrderMedicine";
 import ConsultBooking from "./consult/ConsultBooking";
 import Profile from "./profile/Profile";
 import Updates from "./profile/Updates";
+import { Icon } from "@iconify/react";
+
 import {
   setPage,
   setInformation,
@@ -71,7 +73,7 @@ const Dashboard: React.FC = () => {
                   style={{ marginRight: "11px", marginTop: "7px" }}
                   onClick={handleBack}
                 >
-                  <iconify-icon
+                  <Icon
                     icon="uil:arrow-left"
                     style={{ color: "#1771b7", fontSize: "60px" }}
                   />
@@ -81,10 +83,7 @@ const Dashboard: React.FC = () => {
                   style={{ marginRight: "11px", marginTop: "7px" }}
                   onClick={handleDrugBack}
                 >
-                  <iconify-icon
-                    icon="uil:arrow-left"
-                    style={{ color: "#1771b7", fontSize: "60px" }}
-                  />
+                  <Icon icon="uil:arrow-left" />
                 </button>
               ) : (
                 ""
@@ -102,11 +101,7 @@ const Dashboard: React.FC = () => {
             </h1>
 
             <div className={style.notification}>
-              <iconify-icon
-                icon="mdi:bell"
-                className={style.icon}
-                id="text40"
-              ></iconify-icon>
+              <Icon icon="mdi:bell" className={style.iconDoc} />
             </div>
           </>
         )}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./PasswordInput.module.css";
-
+import { Icon } from "@iconify/react";
 const PasswordInput = ({
   label = "password",
   placeholder = "Enter a password",
@@ -26,11 +26,11 @@ const PasswordInput = ({
           placeholder={placeholder}
           className={style.pass}
         />
-        <iconify-icon
+        <Icon
           icon={icon}
           onClick={togglePasswordVisibility}
           className={style.PassIcon}
-        ></iconify-icon>
+        ></Icon>
       </div>
     </div>
   );

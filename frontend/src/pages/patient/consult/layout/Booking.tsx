@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Booking.module.css";
 import doctor from "../../../../assets/images/profiles/doctor1.png";
+import { Icon } from "@iconify/react";
 
 const Booking: React.FC = () => {
   const [consultType, setConsultType] = useState("virtual");
@@ -58,10 +59,7 @@ const Booking: React.FC = () => {
               <label htmlFor="Video" className={styles.label}>
                 Video
               </label>
-              <iconify-icon
-                icon="typcn:video"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="typcn:video" className={styles.icon}></Icon>
             </li>
 
             <li>
@@ -69,10 +67,7 @@ const Booking: React.FC = () => {
               <label htmlFor="Audio" className={styles.label}>
                 Audio
               </label>
-              <iconify-icon
-                icon="basil:headset-solid"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="basil:headset-solid" className={styles.icon}></Icon>
             </li>
 
             <li>
@@ -80,10 +75,7 @@ const Booking: React.FC = () => {
               <label htmlFor="Chat" className={styles.label}>
                 Chat
               </label>
-              <iconify-icon
-                icon="humbleicons:chat"
-                className={styles.icon}
-              ></iconify-icon>
+              <Icon icon="humbleicons:chat" className={styles.icon}></Icon>
             </li>
           </ul>
         )}

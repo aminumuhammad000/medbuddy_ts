@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./Preview.module.css";
 import profile from "../../../assets/images/profiles/profile.jpg";
-
+import { Icon } from "@iconify/react";
 // Define the type for drug
 interface Drug {
   image: string;
@@ -90,11 +90,11 @@ const Preview: React.FC<PreviewProps> = ({ drug, onAddToCart }) => {
               </div>
               <div className={style.rating}>
                 {[...Array(5)].map((_, index) => (
-                  <iconify-icon
+                  <Icon
                     key={index}
                     icon="material-symbols:star-rounded"
-                    class={style.star}
-                  ></iconify-icon>
+                    className={style.star}
+                  ></Icon>
                 ))}
               </div>
             </div>

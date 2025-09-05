@@ -1,14 +1,25 @@
+import React from "react";
 import style from "./AlertBox.module.css";
-const AlertBox = ({ icon, color, message, buttonClick }) => {
+import { Icon } from "@iconify/react";
+
+interface AlertBoxProps {
+  icon: string;
+  color: string;
+  message: string;
+  buttonClick: () => void;
+}
+
+const AlertBox: React.FC<AlertBoxProps> = ({
+  icon,
+  color,
+  message,
+  buttonClick,
+}) => {
   return (
     <div className={style.Error}>
       <div className={style.alertContainer}>
         <div>
-          <iconify-icon
-            icon={icon}
-            className={style.icon}
-            style={{ color: color }}
-          ></iconify-icon>
+          <Icon icon={icon} className={style.icon} style={{ color }} />
         </div>
         <p className={style.message} id="mediumText">
           {message}

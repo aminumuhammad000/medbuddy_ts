@@ -1,6 +1,6 @@
 import style from "./HowItWorks.module.css";
 import team from "../../../assets/images/backgrounds/team.png";
-
+import { Icon } from "@iconify/react";
 const HowItWorks = () => {
   return (
     <div className={style.HowItWorks} id="HowItWorks">
@@ -23,21 +23,21 @@ const HowItWorks = () => {
           <tr>
             <td>
               <li id="smallText">
-                <iconify-icon
+                <Icon
                   icon="fluent-mdl2:check-mark"
                   className={style.icon}
                   id="flexCenter"
-                ></iconify-icon>
+                ></Icon>
                 24/7 Support
               </li>
             </td>
             <td>
               <li id="smallText">
-                <iconify-icon
+                <Icon
                   icon="fluent-mdl2:check-mark"
                   className={style.icon}
                   id="flexCenter"
-                ></iconify-icon>
+                ></Icon>
                 Trusted Specialist Doctor
               </li>
             </td>
@@ -46,21 +46,21 @@ const HowItWorks = () => {
           <tr>
             <td>
               <li id="smallText">
-                <iconify-icon
+                <Icon
                   icon="fluent-mdl2:check-mark"
                   className={style.icon}
                   id="flexCenter"
-                ></iconify-icon>
+                ></Icon>
                 Best Vaccination
               </li>
             </td>
             <td>
               <li id="smallText">
-                <iconify-icon
+                <Icon
                   icon="fluent-mdl2:check-mark"
                   className={style.icon}
                   id="flexCenter"
-                ></iconify-icon>
+                ></Icon>
                 High Quality Care
               </li>
             </td>

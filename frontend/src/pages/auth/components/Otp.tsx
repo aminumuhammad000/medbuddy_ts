@@ -1,11 +1,20 @@
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, type ChangeEvent } from "react";
 import style from "../Auth.module.css";
 
-const Otp = ({ email, onResend }) => {
-  const inputRefs = [useRef(), useRef(), useRef(), useRef()];
-  const [otpDigits, setOtpDigits] = useState(["", "", "", ""]);
+interface OtpProps {
+  email: string;
+  onResend?: (email: string) => void;
+}
 
-  const [timer, setTimer] = useState(60);
+const Otp: React.FC<OtpProps> = ({ email, onResend }) => {
+  const inputRefs = [
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+  ];
+  const [otpDigits, setOtpDigits] = useState<string[]>(["", "", "", ""]);
+  const [timer, setTimer] = useState<number>(60);
 
   useEffect(() => {
     if (timer > 0) {
@@ -19,19 +28,19 @@ const Otp = ({ email, onResend }) => {
     if (onResend) onResend(email);
   };
 
-  const handleChange = (e, idx) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, idx: number) => {
     const value = e.target.value.replace(/\D/, ""); // Only digits
     if (value.length <= 1) {
       const newDigits = [...otpDigits];
       newDigits[idx] = value;
       setOtpDigits(newDigits);
       if (value && idx < inputRefs.length - 1) {
-        inputRefs[idx + 1].current.focus();
+        inputRefs[idx + 1].current?.focus();
       }
     }
   };
 
-  // Combine OTP digits for the hidden input
+  // Combine OTP digits for hidden input
   const combinedOtp = otpDigits.join("");
 
   return (

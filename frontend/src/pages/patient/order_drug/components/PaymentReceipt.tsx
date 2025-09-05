@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./PaymentReceipt.module.css";
-
+import { Icon } from "@iconify/react";
 const PaymentReceipt: React.FC = () => {
   return (
     <div className={styles.receiptCard}>
@@ -90,7 +90,7 @@ const PaymentReceipt: React.FC = () => {
       {/* Action Buttons */}
       <div className={styles.buttonGroup}>
         <button className={styles.pdfBtn}>
-          Download PDF <iconify-icon icon="tabler:download"></iconify-icon>
+          Download PDF <Icon icon="tabler:download"></Icon>
         </button>
         <button className={styles.dashboardBtn}>Go to Dashboard</button>
       </div>

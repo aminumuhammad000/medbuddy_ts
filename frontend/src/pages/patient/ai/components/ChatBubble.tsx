@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ChatBubble.module.css";
-
+import { Icon } from "@iconify/react";
 interface ChatBubbleProps {
   message: string;
   isAI?: boolean;
@@ -21,10 +21,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
       <div className={styles.messageBubble}>
         {isAI && (
           <div className={styles.aiAvatar}>
-            <iconify-icon
-              icon="mdi:robot"
-              className={styles.avatarIcon}
-            ></iconify-icon>
+            <Icon icon="mdi:robot" className={styles.avatarIcon}></Icon>
           </div>
         )}
 
@@ -50,10 +47,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({
 
         {!isAI && (
           <div className={styles.userAvatar}>
-            <iconify-icon
-              icon="mdi:account"
-              className={styles.avatarIcon}
-            ></iconify-icon>
+            <Icon icon="mdi:account" className={styles.avatarIcon}></Icon>
           </div>
         )}
       </div>

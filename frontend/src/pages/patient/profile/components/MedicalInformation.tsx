@@ -4,9 +4,11 @@ import {
   setPage,
   setInformation,
 } from "../../../../store/slices/patientNavSlice";
+import { Icon } from "@iconify/react";
+import type { RootState } from "../../../../store/store";
 
 const MedicalInformation = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
   const gotoUpdate = () => {
@@ -25,7 +27,7 @@ const MedicalInformation = () => {
           >
             Edit{" "}
             <span>
-              <iconify-icon icon="iconamoon:edit-light"></iconify-icon>
+              <Icon icon="iconamoon:edit-light" />
             </span>
           </button>
         </div>

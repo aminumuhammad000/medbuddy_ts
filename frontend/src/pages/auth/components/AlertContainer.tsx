@@ -1,13 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setAuthMode, clearStatus } from "../../../store/slices/authReducer";
 import AlertBox from "./AlertBox";
-const AlertContainer = () => {
-  const { authMode, loading, error, success } = useSelector(
-    (state) => state.auth
+import type { RootState } from "../../../store/store";
+
+const AlertContainer: React.FC = () => {
+  const { authMode, error, success } = useSelector(
+    (state: RootState) => state.auth
   );
   const [otpResent, setOtpResent] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const shouldRedirect = useRef(false);
 
   useEffect(() => {
     if (success && authMode === "otp" && !otpResent) {
@@ -23,7 +28,7 @@ const AlertContainer = () => {
     <>
       {error && (
         <AlertBox
-          icon={"material-symbols:error"}
+          icon="material-symbols:error"
           color="red"
           message={error}
           buttonClick={() => dispatch(clearStatus())}
@@ -38,9 +43,10 @@ const AlertContainer = () => {
           buttonClick={() => dispatch(clearStatus())}
         />
       )}
+
       {success && authMode === "register" && (
         <AlertBox
-          icon={"icon-park-solid:success"}
+          icon="icon-park-solid:success"
           color="#1771b7"
           message={success}
           buttonClick={() => {
@@ -51,9 +57,10 @@ const AlertContainer = () => {
           }}
         />
       )}
+
       {success && authMode === "login" && (
         <AlertBox
-          icon={"icon-park-solid:success"}
+          icon="icon-park-solid:success"
           color="#1771b7"
           message={success}
           buttonClick={() => dispatch(clearStatus())}
@@ -62,7 +69,7 @@ const AlertContainer = () => {
 
       {otpResent && (
         <AlertBox
-          icon={"icon-park-solid:success"}
+          icon="icon-park-solid:success"
           color="#1771b7"
           message="OTP resent successfully!"
           buttonClick={() => setOtpResent(false)}

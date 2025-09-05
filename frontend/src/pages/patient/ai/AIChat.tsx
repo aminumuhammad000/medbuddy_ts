@@ -6,7 +6,7 @@ import AiSideBar from "../ai/components/AiSideBar";
 import { InputContainer } from "./components/InputContainer";
 import ChatBubble from "./components/ChatBubble"; // Import the new component
 import ChatSidebar from "./components/ChatSidebar";
-
+import { Icon } from "@iconify/react";
 interface Message {
   id: number;
   message: string;
@@ -211,21 +211,18 @@ const AIChat: React.FC = () => {
       <div className={styles.head}>
         {aiSideBar ? (
           <button onClick={handleSideBar} className={styles.btn}>
-            <iconify-icon
-              icon="ri:side-bar-fill"
-              className={styles.sideIcons}
-            ></iconify-icon>
+            <Icon icon="ri:side-bar-fill" className={styles.sideIcons}></Icon>
           </button>
         ) : (
           <button onClick={handleSideBar} className={styles.btn}>
-            <iconify-icon
+            <Icon
               icon="material-symbols:tab-recent"
               className={
                 currentPage === "dashboard"
                   ? styles.sideIconsDashboard
                   : styles.sideIcons2
               }
-            ></iconify-icon>
+            ></Icon>
           </button>
         )}
 
@@ -235,10 +232,10 @@ const AIChat: React.FC = () => {
           <div></div>
         ) : (
           <button className={styles.expand} onClick={() => handlePage("ai")}>
-            <iconify-icon
+            <Icon
               icon="streamline:line-arrow-expand-window-1-remix"
               className={styles.icon}
-            ></iconify-icon>
+            ></Icon>
           </button>
         )}
       </div>
