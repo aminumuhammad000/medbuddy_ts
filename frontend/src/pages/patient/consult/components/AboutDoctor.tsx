@@ -1,4 +1,5 @@
 import style from "./AboutDoctor.module.css";
+import { Icon } from "@iconify/react";
 const AboutDoctor = () => {
   return (
     <div className={style.AboutDoctor}>
@@ -10,31 +11,23 @@ const AboutDoctor = () => {
       </h3>
       <div className={style.cardContainer} id="flexCenter">
         <div>
-          <iconify-icon
-            icon="mdi:naira"
-            id="text30"
-            className={style.icon}
-          ></iconify-icon>
+          <Icon icon="mdi:naira" id="text30" className={style.icon}></Icon>
           <p id="mediumText">Session Fee</p>
           <h3>₦5000</h3>
         </div>
 
         <div>
-          <iconify-icon
+          <Icon
             icon="mdi:clock-outline"
             id="text30"
             className={style.icon}
-          ></iconify-icon>
+          ></Icon>
           <p id="mediumText">Session Duration</p>
           <h3>147 Hrs</h3>
         </div>
 
         <div>
-          <iconify-icon
-            icon="icons8:group"
-            id="text30"
-            className={style.icon}
-          ></iconify-icon>
+          <Icon icon="icons8:group" id="text30" className={style.icon}></Icon>
           <p id="mediumText">Attended Patients</p>
           <h3>₦5000</h3>
         </div>

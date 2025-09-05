@@ -103,7 +103,6 @@ const DoctorList = () => {
             specialist={doc.specialist}
             rating={doc.rating}
             price={doc.price}
-            slot={doc.slot}
             profile={doc.profile}
           />
         ))}

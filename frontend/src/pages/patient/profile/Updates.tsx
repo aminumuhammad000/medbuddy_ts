@@ -4,6 +4,7 @@ import UpdatesPersonalInfo from "./components/UpdatesPersonalInfo";
 import style from "./Updates.module.css";
 import profile from "../../../assets/images/profiles/profile.jpg";
 import { useDispatch, useSelector } from "react-redux";
+import { Icon } from "@iconify/react";
 import {
   updatePersonalInfo,
   updateMedicalInfo,
@@ -13,13 +14,41 @@ import {
 import { useState, useEffect } from "react";
 import Loading from "../../auth/components/Loading";
 import AlertContainer from "../../auth/components/AlertContainer";
+import type { RootState, AppDispatch } from "../../../store/store";
+import React from "react";
 
-const Updates = () => {
-  const dispatch = useDispatch();
-  const { user, loading } = useSelector((state: any) => state.auth);
+// -------------------- FORM TYPES --------------------
+interface ProfileData {
+  fname: string;
+  lname: string;
+  email: string;
+  phone: string;
+  gender: string;
+  dob: string;
+  nhis_id: string;
+  house_address: string;
+}
+
+interface MedicalData {
+  known_allergies: string[] | string;
+  current_medications: string[] | string;
+  vaccination_record: string[] | string;
+  chronic_conditions: string[] | string;
+  blood_type: string;
+}
+
+interface AccountData {
+  language_preference: string;
+  communication_preference: string;
+}
+
+// -------------------- COMPONENT --------------------
+const Updates: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { user, loading } = useSelector((state: RootState) => state.auth);
 
   const userInformation = useSelector(
-    (state: any) => state.patientNav.userInformation
+    (state: RootState) => state.patientNav.userInformation
   );
 
   // Clear old success/error messages when component loads
@@ -28,7 +57,7 @@ const Updates = () => {
   }, [dispatch]);
 
   // -------------------- STATES --------------------
-  const [profileData, setProfileData] = useState({
+  const [profileData, setProfileData] = useState<ProfileData>({
     fname: "",
     lname: "",
     email: "",
@@ -39,7 +68,7 @@ const Updates = () => {
     house_address: "",
   });
 
-  const [medicalData, setMedicalData] = useState({
+  const [medicalData, setMedicalData] = useState<MedicalData>({
     known_allergies: "",
     current_medications: "",
     vaccination_record: "",
@@ -47,7 +76,7 @@ const Updates = () => {
     blood_type: "",
   });
 
-  const [accountData, setAccountData] = useState({
+  const [accountData, setAccountData] = useState<AccountData>({
     language_preference: "",
     communication_preference: "",
   });
@@ -91,48 +120,29 @@ const Updates = () => {
   }, [user]);
 
   // -------------------- HANDLERS --------------------
-  const handleProfileChange = (e) => {
+  const handleProfileChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setProfileData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // const handleMedicalChange = (e) => {
-  //   const { name, value } = e.target;
-
-  //   // If the field is supposed to be an array, split it by comma
-  //   if (
-  //     [
-  //       "current_medications",
-  //       "vaccination_record",
-  //       "chronic_conditions",
-  //     ].includes(name)
-  //   ) {
-  //     setMedicalData((prev) => ({
-  //       ...prev,
-  //       [name]: value.split(",").map((item) => item.trim()), // ✅ convert to array
-  //     }));
-  //   } else {
-  //     setMedicalData((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }));
-  //   }
-  // };
-
-  const handleMedicalChange = (e) => {
-    const { name, value, options, multiple } = e.target;
+  const handleMedicalChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, options, multiple } = e.target as HTMLSelectElement & {
+      options: HTMLOptionsCollection;
+    };
 
     if (multiple) {
-      // multi-select case
       const values = Array.from(options)
-        .filter((o: any) => o.selected)
-        .map((o: any) => o.value);
+        .filter((o) => o.selected)
+        .map((o) => o.value);
 
       setMedicalData((prev) => ({
         ...prev,
         [name]: values,
       }));
     } else {
-      // single select (blood_type) or normal input
       setMedicalData((prev) => ({
         ...prev,
         [name]: value,
@@ -140,18 +150,20 @@ const Updates = () => {
     }
   };
 
-  const handleAccountChange = (e: any) => {
+  const handleAccountChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setAccountData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (userInformation === "basic") {
       const combinedName = `${profileData.fname} ${profileData.lname}`.trim();
 
-      const payload = {
+      const payload: any = {
         ...profileData,
         name: combinedName,
       };
@@ -194,10 +206,7 @@ const Updates = () => {
           <div className={style.imgCard}>
             <img src={user?.profile?.profile || profile} alt="profile image" />
             <button className={style.changeProfile} id="flexCenter" disabled>
-              <iconify-icon
-                icon="solar:camera-linear"
-                id="text30"
-              ></iconify-icon>
+              <Icon icon="solar:camera-linear" id="text30" />
             </button>
           </div>
 

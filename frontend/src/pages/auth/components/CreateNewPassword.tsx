@@ -1,6 +1,11 @@
+import React from "react";
 import PasswordInput from "./PasswordInput";
 
-const CreateNewPassword = ({ email }) => {
+interface CreateNewPasswordProps {
+  email: string;
+}
+
+const CreateNewPassword: React.FC<CreateNewPasswordProps> = ({ email }) => {
   return (
     <>
       <p id="text30" style={{ textAlign: "center", marginBottom: "63px" }}>

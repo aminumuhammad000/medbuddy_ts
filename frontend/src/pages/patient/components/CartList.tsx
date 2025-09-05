@@ -1,5 +1,5 @@
 import style from "./CartList.module.css";
-
+import { Icon } from "@iconify/react";
 interface CartListProps {
   image: string;
   title: string;
@@ -26,7 +26,7 @@ const CartList: React.FC<CartListProps> = ({ image, title, price, amount }) => {
 
       <div className={style.priceContainer} id="flexCenter">
         <button>
-          <iconify-icon icon="fa:trash" className={style.delete} />
+          <Icon icon="fa:trash" className={style.delete} />
         </button>
         <p className={style.price} id="text30">
           {price}

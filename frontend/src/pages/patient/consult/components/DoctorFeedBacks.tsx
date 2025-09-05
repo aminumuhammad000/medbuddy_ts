@@ -1,5 +1,16 @@
 import style from "./DoctorFeedBacks.module.css";
-const DoctorFeedBacks = ({
+import { Icon } from "@iconify/react";
+
+interface DoctorFeedBacksProps {
+  profile: string;
+  name: string;
+  username: string;
+  comment: string;
+  date: string;
+  consultType: string;
+}
+
+const DoctorFeedBacks: React.FC<DoctorFeedBacksProps> = ({
   profile,
   name,
   username,
@@ -11,7 +22,7 @@ const DoctorFeedBacks = ({
     <div className={style.DoctorFeedBacks} id="flexColumn">
       <div className={style.cardHead} id="flexSpaceBetween">
         <div id="flexCenter">
-          <img src={profile} alt="" className={style.img} />
+          <img src={profile} alt={name} className={style.img} />
           <div className={style.nameContainer} id="flexColumn">
             <p className={style.name} id="mediumText">
               {name}
@@ -22,31 +33,11 @@ const DoctorFeedBacks = ({
           </div>
         </div>
         <div id="flexCenter" className={style.starContainer}>
-          <iconify-icon
-            icon="mdi:star"
-            className={style.icon}
-            id="mediumText"
-          ></iconify-icon>
-          <iconify-icon
-            icon="mdi:star"
-            className={style.icon}
-            id="smallText"
-          ></iconify-icon>
-          <iconify-icon
-            icon="mdi:star"
-            className={style.icon}
-            id="smallText"
-          ></iconify-icon>
-          <iconify-icon
-            icon="mdi:star"
-            className={style.icon}
-            id="smallText"
-          ></iconify-icon>
-          <iconify-icon
-            icon="mdi:star"
-            className={style.icon}
-            id="smallText"
-          ></iconify-icon>
+          <Icon icon="mdi:star" className={style.icon} id="mediumText" />
+          <Icon icon="mdi:star" className={style.icon} id="smallText" />
+          <Icon icon="mdi:star" className={style.icon} id="smallText" />
+          <Icon icon="mdi:star" className={style.icon} id="smallText" />
+          <Icon icon="mdi:star" className={style.icon} id="smallText" />
         </div>
       </div>
       <p className={style.comment} id="smallText">

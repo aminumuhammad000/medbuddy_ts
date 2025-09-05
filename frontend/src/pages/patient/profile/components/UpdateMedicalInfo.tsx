@@ -1,3 +1,4 @@
+import type { RootState } from "../../../../store/store";
 import style from "./UpdatesPersonalInfo.module.css";
 import { useSelector } from "react-redux";
 
@@ -24,11 +25,31 @@ const CONDITIONS = [
 ];
 const BLOOD_TYPES = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
-const UpdateMedicalInfo = ({ formData = {}, handleChange }) => {
-  const { user } = useSelector((state) => state.auth);
+interface MedicalFormData {
+  known_allergies?: string[];
+  chronic_conditions?: string[];
+  current_medications?: string;
+  blood_type?: string;
+  vaccination_record?: string;
+}
+
+interface UpdateMedicalInfoProps {
+  formData?: MedicalFormData;
+  handleChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      | { target: { name: string; value: string | string[] } }
+  ) => void;
+}
+
+const UpdateMedicalInfo: React.FC<UpdateMedicalInfoProps> = ({
+  formData = {},
+  handleChange,
+}) => {
+  const { user } = useSelector((state: RootState) => state.auth);
 
   // helper for multi-select
-  const handleMultiChange = (e) => {
+  const handleMultiChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     const { name, options } = e.target;
     const values = Array.from(options)
       .filter((o) => o.selected)
@@ -47,7 +68,7 @@ const UpdateMedicalInfo = ({ formData = {}, handleChange }) => {
             Known Allergies
           </label>
           <select
-            // multiple
+            multiple
             name="known_allergies"
             id="known_allergies"
             value={formData.known_allergies ?? []}
@@ -67,7 +88,7 @@ const UpdateMedicalInfo = ({ formData = {}, handleChange }) => {
             Chronic Conditions
           </label>
           <select
-            // multiple
+            multiple
             name="chronic_conditions"
             id="chronic_conditions"
             value={formData.chronic_conditions ?? []}

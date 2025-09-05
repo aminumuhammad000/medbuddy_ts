@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Appointments.module.css";
-
+import { Icon } from "@iconify/react";
 const Appointments: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,7 +21,7 @@ const Appointments: React.FC = () => {
       dateTime: "16 Oct, 10:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Scheduled"
+      status: "Scheduled",
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ const Appointments: React.FC = () => {
       dateTime: "17 Oct, 10:00 AM",
       type: "In-Clinic",
       mode: "Physical",
-      status: "Scheduled"
+      status: "Scheduled",
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ const Appointments: React.FC = () => {
       dateTime: "18 Oct, 9:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Pending"
+      status: "Pending",
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ const Appointments: React.FC = () => {
       dateTime: "16 Oct, 10:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 5,
@@ -53,7 +53,7 @@ const Appointments: React.FC = () => {
       dateTime: "17 Oct, 10:00 AM",
       type: "In-Clinic",
       mode: "Physical",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 6,
@@ -61,7 +61,7 @@ const Appointments: React.FC = () => {
       dateTime: "18 Oct, 9:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 7,
@@ -69,7 +69,7 @@ const Appointments: React.FC = () => {
       dateTime: "16 Oct, 10:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 8,
@@ -77,7 +77,7 @@ const Appointments: React.FC = () => {
       dateTime: "17 Oct, 10:00 AM",
       type: "In-Clinic",
       mode: "Physical",
-      status: "Completed"
+      status: "Completed",
     },
     {
       id: 9,
@@ -85,7 +85,7 @@ const Appointments: React.FC = () => {
       dateTime: "18 Oct, 9:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Cancelled"
+      status: "Cancelled",
     },
     {
       id: 10,
@@ -93,7 +93,7 @@ const Appointments: React.FC = () => {
       dateTime: "16 Oct, 10:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Cancelled"
+      status: "Cancelled",
     },
     {
       id: 11,
@@ -101,7 +101,7 @@ const Appointments: React.FC = () => {
       dateTime: "17 Oct, 10:00 AM",
       type: "In-Clinic",
       mode: "Physical",
-      status: "Cancelled"
+      status: "Cancelled",
     },
     {
       id: 12,
@@ -109,21 +109,27 @@ const Appointments: React.FC = () => {
       dateTime: "18 Oct, 9:00 AM",
       type: "Virtual",
       mode: "Video",
-      status: "Cancelled"
-    }
+      status: "Cancelled",
+    },
   ];
 
   // Filter appointments based on active filter
   const getFilteredAppointments = () => {
     switch (activeFilter) {
       case "today":
-        return appointments.filter(app => app.dateTime.includes("10:00 AM") || app.dateTime.includes("9:00 AM"));
+        return appointments.filter(
+          (app) =>
+            app.dateTime.includes("10:00 AM") ||
+            app.dateTime.includes("9:00 AM")
+        );
       case "upcoming":
-        return appointments.filter(app => app.status === "Scheduled" || app.status === "Pending");
+        return appointments.filter(
+          (app) => app.status === "Scheduled" || app.status === "Pending"
+        );
       case "completed":
-        return appointments.filter(app => app.status === "Completed");
+        return appointments.filter((app) => app.status === "Completed");
       case "cancelled":
-        return appointments.filter(app => app.status === "Cancelled");
+        return appointments.filter((app) => app.status === "Cancelled");
       default:
         return appointments;
     }
@@ -147,18 +153,23 @@ const Appointments: React.FC = () => {
   };
 
   const renderActionButtons = (appointment: any) => {
-    if (appointment.status === "Completed" || appointment.status === "Cancelled") {
+    if (
+      appointment.status === "Completed" ||
+      appointment.status === "Cancelled"
+    ) {
       return null;
     }
 
     return (
       <div className={styles.actionButtons}>
-        {appointment.type === "Virtual" && appointment.status === "Scheduled" && (
-          <button className={styles.joinCallButton}>Join Call</button>
-        )}
-        {appointment.type === "In-Clinic" && appointment.status === "Scheduled" && (
-          <span className={styles.viewDetailsLink}>View Details</span>
-        )}
+        {appointment.type === "Virtual" &&
+          appointment.status === "Scheduled" && (
+            <button className={styles.joinCallButton}>Join Call</button>
+          )}
+        {appointment.type === "In-Clinic" &&
+          appointment.status === "Scheduled" && (
+            <span className={styles.viewDetailsLink}>View Details</span>
+          )}
         <button className={styles.rescheduleButton}>Reschedule</button>
         <button className={styles.cancelButton}>Cancel</button>
       </div>
@@ -171,12 +182,18 @@ const Appointments: React.FC = () => {
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <button className={styles.backButton}>
-            <iconify-icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px" }}></iconify-icon>
+            <Icon
+              icon="material-symbols:arrow-back-rounded"
+              style={{ fontSize: "30px" }}
+            ></Icon>
           </button>
           <h1 className={styles.pageTitle}>Appointments</h1>
         </div>
         <div className={styles.notificationIcon}>
-          <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "26px" }}></iconify-icon>
+          <Icon
+            icon="mdi:bell-notification"
+            style={{ color: "var(--blue-color)", fontSize: "26px" }}
+          ></Icon>
         </div>
       </div>
 
@@ -184,7 +201,7 @@ const Appointments: React.FC = () => {
       <div className={styles.searchFilterSection}>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputWrapper}>
-            <iconify-icon icon="tabler:search" className={styles.searchIcon}></iconify-icon>
+            <Icon icon="tabler:search" className={styles.searchIcon}></Icon>
             <input
               type="text"
               placeholder="Search by patient name, ID, or date..."
@@ -194,7 +211,7 @@ const Appointments: React.FC = () => {
             />
           </div>
           <div className={styles.filterIcon}>
-            <iconify-icon icon="mdi:filter" style={{ fontSize: "25px" }}></iconify-icon>
+            <Icon icon="mdi:filter" style={{ fontSize: "25px" }}></Icon>
           </div>
         </div>
       </div>
@@ -202,31 +219,41 @@ const Appointments: React.FC = () => {
       {/* Filter Tabs */}
       <div className={styles.filterTabs}>
         <button
-          className={`${styles.filterTab} ${activeFilter === "all" ? styles.activeFilterTab : ""}`}
+          className={`${styles.filterTab} ${
+            activeFilter === "all" ? styles.activeFilterTab : ""
+          }`}
           onClick={() => handleFilterChange("all")}
         >
           All
         </button>
         <button
-          className={`${styles.filterTab} ${activeFilter === "today" ? styles.activeFilterTab : ""}`}
+          className={`${styles.filterTab} ${
+            activeFilter === "today" ? styles.activeFilterTab : ""
+          }`}
           onClick={() => handleFilterChange("today")}
         >
           Today
         </button>
         <button
-          className={`${styles.filterTab} ${activeFilter === "upcoming" ? styles.activeFilterTab : ""}`}
+          className={`${styles.filterTab} ${
+            activeFilter === "upcoming" ? styles.activeFilterTab : ""
+          }`}
           onClick={() => handleFilterChange("upcoming")}
         >
           Upcoming
         </button>
         <button
-          className={`${styles.filterTab} ${activeFilter === "completed" ? styles.activeFilterTab : ""}`}
+          className={`${styles.filterTab} ${
+            activeFilter === "completed" ? styles.activeFilterTab : ""
+          }`}
           onClick={() => handleFilterChange("completed")}
         >
           Completed
         </button>
         <button
-          className={`${styles.filterTab} ${activeFilter === "cancelled" ? styles.activeFilterTab : ""}`}
+          className={`${styles.filterTab} ${
+            activeFilter === "cancelled" ? styles.activeFilterTab : ""
+          }`}
           onClick={() => handleFilterChange("cancelled")}
         >
           Cancelled
@@ -243,24 +270,34 @@ const Appointments: React.FC = () => {
           <div className={styles.headerCell}>Status</div>
           <div className={styles.headerCell}></div>
         </div>
-        
+
         <div className={styles.tableBody}>
           {filteredAppointments.map((appointment) => (
             <div key={appointment.id} className={styles.tableRow}>
               <div className={styles.tableCell}>
-                <span className={styles.patientName}>{appointment.patient}</span>
+                <span className={styles.patientName}>
+                  {appointment.patient}
+                </span>
               </div>
               <div className={styles.tableCell}>
                 <span className={styles.dateTime}>{appointment.dateTime}</span>
               </div>
               <div className={styles.tableCell}>
-                <span className={styles.appointmentType}>{appointment.type}</span>
+                <span className={styles.appointmentType}>
+                  {appointment.type}
+                </span>
               </div>
               <div className={styles.tableCell}>
-                <span className={styles.appointmentMode}>{appointment.mode}</span>
+                <span className={styles.appointmentMode}>
+                  {appointment.mode}
+                </span>
               </div>
               <div className={styles.tableCell}>
-                <span className={`${styles.status} ${getStatusColor(appointment.status)}`}>
+                <span
+                  className={`${styles.status} ${getStatusColor(
+                    appointment.status
+                  )}`}
+                >
                   {appointment.status}
                 </span>
               </div>
@@ -276,4 +313,3 @@ const Appointments: React.FC = () => {
 };
 
 export default Appointments;
-

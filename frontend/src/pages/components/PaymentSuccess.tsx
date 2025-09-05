@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./PaymentSuccess.module.css";
 import { useDispatch } from "react-redux";
 import { setDrugStep } from "../../store/slices/patientNavSlice";
+import { Icon } from "@iconify/react";
 
 const PaymentSuccess: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,10 @@ const PaymentSuccess: React.FC = () => {
 
       {/* Success Icon */}
       <div className={styles.iconWrapper}>
-        <Iconify-icon
+        <Icon
           icon="icon-park-solid:success"
           className={styles.successIcon}
-        ></Iconify-icon>
+        ></Icon>
       </div>
 
       {/* Title */}

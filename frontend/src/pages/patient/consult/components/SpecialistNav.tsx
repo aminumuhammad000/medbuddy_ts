@@ -3,7 +3,7 @@ import style from "./SpecialistNav.module.css";
 import { selectSpecialist } from "../../../../store/slices/patientNavSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../../store/store";
-
+import { Icon } from "@iconify/react";
 const specialist = [
   { name: "Cardiologist", icon: "mdi:heart", amount: 43 },
   { name: "Neurologist", icon: "mdi:brain", amount: 30 },
@@ -79,13 +79,13 @@ export const SpecialistNav: React.FC = () => {
                   : {}
               }
             >
-              <iconify-icon
+              <Icon
                 icon={item.icon}
                 className={style.icon}
                 style={
                   selectedSpecialist === item.name ? { color: "#fff" } : {}
                 }
-              ></iconify-icon>
+              ></Icon>
             </div>
             <h4 className={style.name}>{item.name}</h4>
             {showAllSpecialties && (
@@ -104,11 +104,11 @@ export const SpecialistNav: React.FC = () => {
           }}
         >
           <div className={showAllSpecialties ? style.less : style.more}>
-            <iconify-icon
+            <Icon
               icon={showAllSpecialties ? "mdi:arrow-left" : "mdi:arrow-right"}
-              rotation={showAllSpecialties ? 180 : 0}
+              // rotation={showAllSpecialties ? 180 : 0}
               className={style.icon}
-            ></iconify-icon>
+            ></Icon>
 
             <h3 className={showAllSpecialties ? style.name : style.moreName}>
               {showAllSpecialties ? "See less" : "See more"}

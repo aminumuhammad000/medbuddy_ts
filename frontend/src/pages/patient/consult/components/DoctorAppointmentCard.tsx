@@ -2,7 +2,7 @@ import React from "react";
 import style from "./DoctorAppointmentCard.module.css";
 import { useDispatch } from "react-redux";
 import { setConsultStep } from "../../../../store/slices/patientNavSlice";
-
+import { Icon } from "@iconify/react";
 type DoctorAppointmentCardProps = {
   name: string;
   specialist: string;
@@ -57,7 +57,7 @@ const DoctorAppointmentCard: React.FC<DoctorAppointmentCardProps> = ({
 
       <div className={style.footer} id="flexCenter">
         <div className={style.experience}>
-          <iconify-icon icon="uil:bag" className={style.icon} />
+          <Icon icon="uil:bag" className={style.icon} />
           <h1 className={style.heading}>
             {experience}{" "}
             <span className={style.small} id="smallText">
@@ -67,7 +67,7 @@ const DoctorAppointmentCard: React.FC<DoctorAppointmentCardProps> = ({
         </div>
 
         <div className={style.experience}>
-          <iconify-icon
+          <Icon
             icon="material-symbols-light:star-outline-rounded"
             className={style.icon}
           />
@@ -80,10 +80,7 @@ const DoctorAppointmentCard: React.FC<DoctorAppointmentCardProps> = ({
         </div>
 
         <div className={style.totalPatient}>
-          <iconify-icon
-            icon="ion:people-outline"
-            className={style.icon}
-          ></iconify-icon>
+          <Icon icon="ion:people-outline" className={style.icon}></Icon>
           <h1 className={style.heading}>
             {totalPatient}{" "}
             <span className={style.small} id="smallText">

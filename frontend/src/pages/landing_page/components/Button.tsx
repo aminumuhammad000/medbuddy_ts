@@ -1,13 +1,21 @@
-import React from 'react'
+import React from "react";
 
-const Button = (w,h) => {
-  return (
-    <div>
-         <div className='flex justify-center items-center gap-4'>
-            <button className='bg-[#1771B7] text-white p-1.5 w-[7em] rounded-[10px] h-[32px] hover:bg-[#2d2d5b] hover:scale-[1.1] hover:cursor-pointer'>Sign Up</button>
-        </div>
-    </div>
-  )
+interface ButtonProps {
+  w?: string;
+  h?: string;
 }
 
-export default Button
+const Button: React.FC<ButtonProps> = ({ w = "7em", h = "32px" }) => {
+  return (
+    <div className="flex justify-center items-center gap-4">
+      <button
+        className="bg-[#1771B7] text-white p-1.5 rounded-[10px] hover:bg-[#2d2d5b] hover:scale-[1.1] hover:cursor-pointer"
+        style={{ width: w, height: h }}
+      >
+        Sign Up
+      </button>
+    </div>
+  );
+};
+
+export default Button;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./ChatSidebar.module.css";
 import { useDispatch } from "react-redux";
 import { setSearchChat } from "../../../../store/slices/patientNavSlice";
-
+import { Icon } from "@iconify/react";
 interface ChatItem {
   id: number;
   title: string;
@@ -67,19 +67,13 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
           className={styles.searchInput}
         />
         <button onClick={handleClose} className={styles.closeButton}>
-          <iconify-icon
-            icon="mdi:close"
-            className={styles.closeIcon}
-          ></iconify-icon>
+          <Icon icon="mdi:close" className={styles.closeIcon}></Icon>
         </button>
       </div>
 
       <div className={styles.content}>
         <button onClick={handleNewChatClick} className={styles.newChatButton}>
-          <iconify-icon
-            icon="mdi:plus"
-            className={styles.newChatIcon}
-          ></iconify-icon>
+          <Icon icon="mdi:plus" className={styles.newChatIcon}></Icon>
           New chat
         </button>
 
@@ -93,10 +87,10 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
                   onClick={() => handleChatClick(chat.id)}
                   className={styles.chatItem}
                 >
-                  <iconify-icon
+                  <Icon
                     icon="mdi:message-outline"
                     className={styles.chatIcon}
-                  ></iconify-icon>
+                  ></Icon>
                   <span className={styles.chatTitle}>{chat.title}</span>
                 </div>
               ))}

@@ -1,15 +1,29 @@
 import style from "./UpdatesPersonalInfo.module.css";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+import type { RootState } from "../../../../store/store";
 
-const UpdateAccountInfo = ({ formData = {}, handleChange }) => {
-  const { user } = useSelector((state) => state.auth);
+interface UpdateAccountInfoProps {
+  formData?: {
+    language_preference?: string;
+    communication_preference?: string;
+  };
+  handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>;
+}
+
+const UpdateAccountInfo: React.FC<UpdateAccountInfoProps> = ({
+  formData = {},
+  handleChange,
+}) => {
+  const { user } = useSelector((state: RootState) => state.auth);
 
   // Determine the default values from backend if formData is empty
   const languagePref =
     formData.language_preference ||
     user?.profile?.language_preference ||
     "english";
+
   const communicationPref =
     formData.communication_preference ||
     user?.profile?.communication_preference ||
@@ -17,8 +31,9 @@ const UpdateAccountInfo = ({ formData = {}, handleChange }) => {
 
   const [show, setShow] = useState(false);
   const togglePasswordVisibility = () => {
-    setShow(!show);
+    setShow((prev) => !prev);
   };
+
   const icon = show ? "solar:eye-outline" : "quill:eye-closed";
   const passwordType = show ? "text" : "password";
 
@@ -74,18 +89,18 @@ const UpdateAccountInfo = ({ formData = {}, handleChange }) => {
             <input
               type={passwordType}
               name="password"
-              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).{8,}$"
               title="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
               placeholder="password"
               className={style.pass}
               value="********"
               disabled
             />
-            <iconify-icon
+            <Icon
               icon={icon}
               onClick={togglePasswordVisibility}
               className={style.PassIcon}
-            ></iconify-icon>
+            />
           </div>
         </div>
       </div>

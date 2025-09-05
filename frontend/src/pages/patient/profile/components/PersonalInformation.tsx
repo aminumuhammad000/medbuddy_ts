@@ -4,9 +4,11 @@ import {
   setPage,
   setInformation,
 } from "../../../../store/slices/patientNavSlice";
+import { Icon } from "@iconify/react";
+import type { RootState } from "../../../../store/store";
 
 const PersonalInformation = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth);
 
   const fullName = typeof user?.auth?.name === "string" ? user.auth.name : "";
   const formattedDob = user?.profile?.dob?.slice(0, 10) || "N/A";
@@ -30,7 +32,7 @@ const PersonalInformation = () => {
           >
             Edit{" "}
             <span>
-              <iconify-icon icon="iconamoon:edit-light"></iconify-icon>
+              <Icon icon="iconamoon:edit-light"></Icon>
             </span>
           </button>
         </div>

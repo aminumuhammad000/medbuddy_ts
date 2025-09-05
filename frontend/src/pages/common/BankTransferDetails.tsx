@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./BankTransferDetails.module.css";
-
+import { Icon } from "@iconify/react";
 interface BankTransferDetailsProps {
   amount: string;
   bankName: string;
@@ -47,10 +47,7 @@ const BankTransferDetails: React.FC<BankTransferDetailsProps> = ({
           onClick={() => copyToClipboard(accountNumber)}
         >
           Copy
-          <iconify-icon
-            icon="stash:copy-light"
-            className={styles.icon}
-          ></iconify-icon>
+          <Icon icon="stash:copy-light" className={styles.icon}></Icon>
         </button>
       </p>
 
@@ -63,10 +60,7 @@ const BankTransferDetails: React.FC<BankTransferDetailsProps> = ({
           onClick={() => copyToClipboard(referenceCode)}
         >
           Copy
-          <iconify-icon
-            icon="stash:copy-light"
-            className={styles.icon}
-          ></iconify-icon>
+          <Icon icon="stash:copy-light" className={styles.icon}></Icon>
         </button>
       </p>
 

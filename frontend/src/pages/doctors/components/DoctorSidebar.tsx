@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "../../../store/slices/doctorNavSlice";
 import logo from ".././../../assets/images/logos/logo2.png";
 import styles from "./DoctorSidebar.module.css";
+import { Icon } from "@iconify/react";
 
 const DoctorSidebar: React.FC = () => {
   const currentPage = useSelector((state: any) => state.doctorNav.currentPage);
@@ -17,120 +18,103 @@ const DoctorSidebar: React.FC = () => {
       id: "dashboard",
       label: "Overview",
       icon: (
-          <iconify-icon icon="material-symbols:dashboard-rounded"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+        <Icon
+          icon="material-symbols:dashboard-rounded"
+          className={styles.menuIcon}
+        ></Icon>
+      ),
     },
     {
       id: "profile",
       label: "My Profile",
       icon: (
-        <iconify-icon icon="ph:chalkboard-teacher-fill"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+        <Icon
+          icon="ph:chalkboard-teacher-fill"
+          className={styles.menuIcon}
+        ></Icon>
+      ),
     },
     {
       id: "appointments",
       label: "Appointments",
-      icon: (
-       <iconify-icon icon="mdi:drugs"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+      icon: <Icon icon="mdi:drugs" className={styles.menuIcon}></Icon>,
     },
     {
       id: "prescriptions",
       label: "Prescriptions",
       icon: (
-         <iconify-icon icon="material-symbols:prescriptions"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+        <Icon
+          icon="material-symbols:prescriptions"
+          className={styles.menuIcon}
+        ></Icon>
+      ),
     },
     {
       id: "patients",
       label: "Patients",
-      icon: (
-        <iconify-icon icon="mdi:patient"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+      icon: <Icon icon="mdi:patient" className={styles.menuIcon}></Icon>,
     },
     {
       id: "reports",
       label: "Reports",
       icon: (
-      <iconify-icon icon="icon-park-solid:table-report"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+        <Icon
+          icon="icon-park-solid:table-report"
+          className={styles.menuIcon}
+        ></Icon>
+      ),
     },
     {
       id: "messages",
       label: "Messages",
       icon: (
-              <iconify-icon icon="flowbite:messages-solid"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+        <Icon icon="flowbite:messages-solid" className={styles.menuIcon}></Icon>
+      ),
     },
     {
-       id: "settings",
+      id: "settings",
       label: "Settings",
       icon: (
-          <iconify-icon icon="material-symbols:settings-rounded"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
+        <Icon
+          icon="material-symbols:settings-rounded"
+          className={styles.menuIcon}
+        ></Icon>
+      ),
     },
     {
-
       id: "logout",
       label: "Logout",
-      icon: (
-          <iconify-icon icon="majesticons:logout"
-           className={styles.menuIcon}>
-          </iconify-icon>
-      )
-    }
-    
+      icon: <Icon icon="majesticons:logout" className={styles.menuIcon}></Icon>,
+    },
   ];
 
   return (
     <div className={styles.sidebar}>
       {/* Logo Section */}
       <div className={styles.logoSection}>
-          
-          <div>
-            <img
-              src={logo} 
-              alt="MedBuddy Logo" 
-              className={styles.logoImage}
-            />
-          </div>
+        <div>
+          <img src={logo} alt="MedBuddy Logo" className={styles.logoImage} />
+        </div>
       </div>
 
-{/* Navigation Menu */}
-<nav className={styles.navigationMenu}>
-  <ul className={styles.menuList}>
-    {menuItems.map((item) => (
-      <li key={item.id} className={styles.menuItem}>
-        <button
-          onClick={() => handlePage(item.id)}
-          className={`${styles.menuButton} ${currentPage === item.id ? styles.active : ''}`}
-        >
-          <div className={styles.iconContainer}>
-            {item.icon}
-          </div>
-          <h5>{item.label}</h5>
-        </button>
-      </li>
-    ))}
-  </ul>
-</nav>
-
+      {/* Navigation Menu */}
+      <nav className={styles.navigationMenu}>
+        <ul className={styles.menuList}>
+          {menuItems.map((item) => (
+            <li key={item.id} className={styles.menuItem}>
+              <button
+                onClick={() => handlePage(item.id)}
+                className={`${styles.menuButton} ${
+                  currentPage === item.id ? styles.active : ""
+                }`}
+              >
+                <div className={styles.iconContainer}>{item.icon}</div>
+                <h5>{item.label}</h5>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* Logout Button */}
       <div className={styles.logoutSection}>
