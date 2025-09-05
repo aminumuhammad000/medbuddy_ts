@@ -219,6 +219,15 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
+.tableHeadered {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  gap: 20px;
+  padding: 20px 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
 .headerCell {
   font-size: 16px;
   font-weight: 600;
@@ -230,6 +239,12 @@
   background: white;
 }
 
+.tableRowed {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  gap: 16px;
+  padding: 10px 1px;
+}
 .tableRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
@@ -347,8 +362,6 @@
 
 .renewButton {
   background: transparent;
-  color: #10b981;
-  border: 2px solid #10b981;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 14px;
@@ -358,9 +371,7 @@
 }
 
 .renewButton:hover {
-  background: #10b981;
-  color: white;
-  transform: translateY(-1px);
+
 }
 
 /* Detail View Styles */
@@ -402,10 +413,16 @@
 /* Patient Information Card Styles */
 .patientInfoCard {
   background: white;
-  border-radius: 12px;
   padding: 24px;
+   border-radius: 13px;
   margin-bottom: 32px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.patientInfoCarded{
+  background: white;
+  padding: 0;
+  margin-bottom: 35px;
 }
 
 .patientInfoTitle {
@@ -428,15 +445,15 @@
 }
 
 .patientInfoRow {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   gap: 4px;
 }
 
 .patientInfoLabel {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #6b7280;
+  margin-right: 20px;
   margin: 0;
 }
 
@@ -547,21 +564,21 @@
 }
 
 .additionalInfoLabel {
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  margin: 0 0 12px 0;
+  font-size: 17px;
+  font-weight: 1000;
+  color: black;
+  margin: 0 0 1px 0;
   display: block;
 }
 
 .additionalInfoTextarea {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid #d1d5db;
+   border: 1px solid #e5e7eb;
+  background: #EDEDEDCC;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
   color: #374151;
-  background: white;
   resize: vertical;
   min-height: 100px;
   font-family: inherit;
@@ -582,7 +599,7 @@
 .actionButtonsContainer {
   display: flex;
   gap: 16px;
-  justify-content: flex-start;
+  justify-content:center;
   margin-top: 8px;
 }
 
@@ -590,7 +607,7 @@
   background: var(--blue-color);
   color: white;
   border: none;
-  padding: 14px 32px;
+  padding: 20px 42px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -607,7 +624,7 @@
   background: white;
   color: var(--blue-color);
   border: 2px solid var(--blue-color);
-  padding: 12px 32px;
+  padding: 20px 42px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -1224,7 +1241,7 @@
     gap: 16px;
   }
   
-  .patientInfoCard {
+  .patientInfoCard   {
     padding: 20px;
   }
   

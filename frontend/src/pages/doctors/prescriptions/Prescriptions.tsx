@@ -235,16 +235,20 @@ const Prescriptions: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
+<<<<<<< HEAD
+              <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></iconify-icon>
+=======
               <Icon
                 icon="mdi:bell-notification"
                 style={{ color: "#ef4444", fontSize: "24px" }}
               ></Icon>
+>>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
             </div>
           </div>
         </div>
 
         {/* Edit Form Content */}
-        <div className={styles.editFormContent}>
+        {/* <div className={styles.editFormContent}> */}
           {/* Patient Information Section */}
           <div className={styles.patientInfoCard}>
             <h3 className={styles.patientInfoTitle}>Patient Information</h3>
@@ -371,6 +375,9 @@ const Prescriptions: React.FC = () => {
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
+                          <label className={styles.additionalInfoLabel}>Additional Information</label>
+=======
             </div>
           </div>
 
@@ -379,12 +386,15 @@ const Prescriptions: React.FC = () => {
             <label className={styles.additionalInfoLabel}>
               Additional Information
             </label>
+>>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
             <textarea
               placeholder="Type note"
               className={styles.additionalInfoTextarea}
               rows={4}
             ></textarea>
+            </div>
           </div>
+
 
           {/* Action Buttons */}
           <div className={styles.actionButtonsContainer}>
@@ -392,7 +402,7 @@ const Prescriptions: React.FC = () => {
             <button className={styles.saveDraftButton}>Save as Draft</button>
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 
@@ -410,16 +420,20 @@ const Prescriptions: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
+<<<<<<< HEAD
+              <iconify-icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></iconify-icon>
+=======
               <Icon
                 icon="mdi:bell-notification"
                 style={{ color: "#ef4444", fontSize: "24px" }}
               ></Icon>
+>>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
             </div>
           </div>
         </div>
 
         {/* Edit Form Content */}
-        <div className={styles.editFormContent}>
+        {/* <div className={styles.editFormContent}> */}
           {/* Patient Information Section */}
           <div className={styles.patientInfoCard}>
             <h3 className={styles.patientInfoTitle}>Patient Information</h3>
@@ -475,7 +489,7 @@ const Prescriptions: React.FC = () => {
           <div className={styles.currentMedicationsCard}>
             <h3 className={styles.sectionTitle}>Current Medications</h3>
             <div className={styles.medicationTable}>
-              <div className={styles.tableHeader}>
+              <div className={styles.tableHeadered}>
                 <div className={styles.headerCell}>Medicine Name</div>
                 <div className={styles.headerCell}>Dosage & Frequency</div>
                 <div className={styles.headerCell}>Duration</div>
@@ -483,7 +497,7 @@ const Prescriptions: React.FC = () => {
                 <div className={styles.headerCell}>Actions</div>
               </div>
               <div className={styles.tableBody}>
-                <div className={styles.tableRow}>
+                <div className={styles.tableRowed}>
                   <div className={styles.tableCell}>Metformin 500mg</div>
                   <div className={styles.tableCell}>1 tablet, twice daily</div>
                   <div className={styles.tableCell}>30 days</div>
@@ -494,7 +508,7 @@ const Prescriptions: React.FC = () => {
                     <button className={styles.removeButton}>Remove</button>
                   </div>
                 </div>
-                <div className={styles.tableRow}>
+                <div className={styles.tableRowed}>
                   <div className={styles.tableCell}>Amoxicillin 250mg</div>
                   <div className={styles.tableCell}>
                     1 capsule, three times daily
@@ -581,6 +595,9 @@ const Prescriptions: React.FC = () => {
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
+              <label className={styles.additionalInfoLabel}>Additional Information</label>
+=======
             </div>
           </div>
 
@@ -589,22 +606,35 @@ const Prescriptions: React.FC = () => {
             <label className={styles.additionalInfoLabel}>
               Additional Information
             </label>
+>>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
             <textarea
               placeholder="Type note"
               className={styles.additionalInfoTextarea}
               rows={4}
               defaultValue="Drink plenty of water and avoid alcohol while on medication."
             ></textarea>
+            </div>
           </div>
+
+ 
 
           {/* Action Buttons */}
           <div className={styles.actionButtonsContainer}>
+<<<<<<< HEAD
+            <button className={styles.saveSendButton}>
+              Update & Send
+            </button>
+            <button className={styles.saveDraftButton}>
+              Save as Draft
+            </button>
+=======
             <button className={styles.saveSendButton}>Update & Send</button>
             <button className={styles.saveDraftButton}>Save as Draft</button>
             <button className={styles.cancelEditButton}>Cancel</button>
+>>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 
@@ -633,7 +663,7 @@ const Prescriptions: React.FC = () => {
         {/* Prescription Detail Content */}
         <div className={styles.detailContent}>
           {/* Patient Information Section */}
-          <div className={styles.patientInfoCard}>
+          <div className={styles.patientInfoCarded}>
             <h3 className={styles.patientInfoTitle}>Patient Information</h3>
             <div className={styles.patientInfoGrid}>
               <div className={styles.patientInfoColumn}>
@@ -694,10 +724,15 @@ const Prescriptions: React.FC = () => {
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Medication Details</h3>
               <div className={styles.actionButtons}>
+<<<<<<< HEAD
+                <button className={styles.editButton} style={{background:"var(--blue-color)", color:"white"}} onClick={handleEdit}>Edit</button>
+                <button className={styles.renewButton} style={{color:"var(--blue-color)", border:" 0.2px solid var(--blue-color)"}} >Renew</button>
+=======
                 <button className={styles.editButton} onClick={handleEdit}>
                   Edit
                 </button>
                 <button className={styles.renewButton}>Renew</button>
+>>>>>>> d88657fdbe26ef262511087ee9366af895653e9e
               </div>
             </div>
             <div className={styles.medicationTable}>

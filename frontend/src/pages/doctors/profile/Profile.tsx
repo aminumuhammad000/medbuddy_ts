@@ -29,7 +29,7 @@ const Profile: React.FC = () => {
     <div className={styles.profileContainer}>
       {/* Page Header */}
       <div className={styles.pageHeader}>
-        <h1 className={styles.pageTitle}>My profile</h1>
+        <h1 className={styles.pageTitle}> My profile</h1>
         <div className={styles.notificationIcon}>
           <Icon
             icon="mdi:bell-notification"

@@ -111,13 +111,6 @@
   width: 100%;
 }
 
-.editForm {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
 /* Profile Picture Section */
 .profilePictureSection {
   display: flex;
@@ -136,8 +129,8 @@
 }
 
 .profilePicture {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
   /* border: 3px solid #f3f4f6; */
@@ -147,8 +140,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 32px;
-  height: 32px;
+  width: 62px;
+  height: 62px;
   background: var(--blue-color);
   border-radius: 50%;
   display: flex;
@@ -165,14 +158,14 @@
 }
 
 .imageButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: inline-flex;
+  flex-direction: left;
+  /* gap: 12px; */
 }
 
 .uploadButton {
   background: var(--blue-color);
-  color: white;
+  color: rgb(147, 23, 23);
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -215,8 +208,10 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-left: auto;
-  align-self: flex-start;
+  margin-bottom: 20px;
+  align-self: flex-end;
+  display: flex;
+  justify-self: right;
 }
 
 .saveChangesButton:hover {
@@ -229,9 +224,9 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 5px;
+  padding-bottom: 1px;
+  /* border-bottom: 1px solid #e5e7eb; */
 }
 
 .profilePictureContainer {
@@ -242,11 +237,11 @@
 }
 
 .profilePicture {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--blue-color);
+  border: 1px solid var(--blue-color);
 }
 
 .cameraIcon {
@@ -255,28 +250,29 @@
   right: 0;
   background: var(--blue-color);
   color: white;
-  width: 32px;
-  height: 32px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 3px solid white;
+  /* border: 3px solid white; */
 }
 
 .imageButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: inline-flex;
+  flex-direction: left;
+  gap: 18px;
+  margin-left: 22px;
 }
 
 .uploadButton {
-  background: transparent;
-  color: var(--blue-color);
-  border: 1px solid #dbeafe;
-  padding: 8px 16px;
-  border-radius: 6px;
+  background: var(--blue-color);
+  color: white;
+  /* border: 1px solid #dbeafe; */
+  padding: 15px 16px;
+  border-radius: 10px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -284,16 +280,16 @@
 }
 
 .uploadButton:hover {
-  background: #eff6ff;
+  background: var(--blue-color);
   border-color: var(--blue-color);
 }
 
 .removeButton {
   background: transparent;
-  color: #ef4444;
-  border: 1px solid #fecaca;
-  padding: 8px 16px;
-  border-radius: 6px;
+  color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+  padding: 15px 16px;
+  border-radius: 10px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -301,8 +297,9 @@
 }
 
 .removeButton:hover {
-  background: #fef2f2;
-  border-color: #ef4444;
+  background: var(--blue-color);
+  border-color: var(--blue-color);
+  color: white;
 }
 
 /* Form Section */
@@ -347,29 +344,29 @@
 }
 
 .textInput {
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
+     width: 100%;
+  padding:19px 18px;
+  border: 1px solid #e5e7eb;
+  background: #EDEDEDCC;
+  border-radius: 14px;
+  font-size: 16px;
   color: #1a1a1a;
-  background: #f9fafb;
+  left: 40px;
   transition: all 0.2s ease;
+  padding-left: 40px;
+ 
 }
 
 .selectInput {
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
+  width: 100%;
+  padding:28px 1px;
+  border: 1px solid #e5e7eb;
+  background: #EDEDEDCC;
+  border-radius: 14px;
+  font-size: 16px;
   color: #1a1a1a;
-  background: #f9fafb;
   transition: all 0.2s ease;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%233b82f6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 12px center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  padding-right: 40px;
+  padding-left: 40px;
 }
 
 .textInput:focus {
@@ -401,25 +398,30 @@
 }
 
 .countryCodeSelect {
-  padding: 12px 8px;
-  border: 1px solid #d1d5db;
   border-radius: 8px;
-  font-size: 14px;
+  width: 200px;
+  padding:28px 2px;
+  border: 1px solid #e5e7eb;
+  background: #EDEDEDCC;
+  border-radius: 14px;
+  font-size: 16px;
   color: #1a1a1a;
-  background: #f9fafb;
-  min-width: 80px;
-  cursor: pointer;
+  left: 40px;
+  transition: all 0.2s ease;
+ 
 }
 
 .phoneInput {
-  flex: 1;
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
+  width: 100%;
+  padding:19px 18px;
+  border: 1px solid #e5e7eb;
+  background: #EDEDEDCC;
+  border-radius: 14px;
+  font-size: 16px;
   color: #1a1a1a;
-  background: #f9fafb;
+  left: -30px;
   transition: all 0.2s ease;
+
 }
 
 .phoneInput:focus {
