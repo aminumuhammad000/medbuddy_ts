@@ -36,6 +36,10 @@ const Prescriptions: React.FC = () => {
   };
 
   const handleEdit = () => {
+    setViewMode("editExisting");
+  };
+
+  const handleAddNew = () => {
     setViewMode("edit");
   };
 
@@ -235,14 +239,7 @@ const Prescriptions: React.FC = () => {
           </div>
           <div className={styles.headerRight}>
             <div className={styles.notificationIcon}>
-
               <Icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></Icon>
-
-              <Icon
-                icon="mdi:bell-notification"
-                style={{ color: "#ef4444", fontSize: "24px" }}
-              ></Icon>
-
             </div>
           </div>
         </div>
@@ -420,7 +417,6 @@ const Prescriptions: React.FC = () => {
         <div className={styles.headerRight}>
           <div className={styles.notificationIcon}>
             <Icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }} />
-            <Icon icon="mdi:bell-notification" style={{ color: "#ef4444", fontSize: "24px" }} />
           </div>
         </div>
       </div>
@@ -574,7 +570,6 @@ const Prescriptions: React.FC = () => {
       <div className={styles.actionButtonsContainer}>
         <button className={styles.saveSendButton}>Update & Send</button>
         <button className={styles.saveDraftButton}>Save as Draft</button>
-        <button className={styles.cancelEditButton}>Cancel</button>
       </div>
     </div>
   );
@@ -666,15 +661,8 @@ const Prescriptions: React.FC = () => {
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Medication Details</h3>
               <div className={styles.actionButtons}>
-
                 <button className={styles.editButton} style={{background:"var(--blue-color)", color:"white"}} onClick={handleEdit}>Edit</button>
                 <button className={styles.renewButton} style={{color:"var(--blue-color)", border:" 0.2px solid var(--blue-color)"}} >Renew</button>
-
-                <button className={styles.editButton} onClick={handleEdit}>
-                  Edit
-                </button>
-                <button className={styles.renewButton}>Renew</button>
-
               </div>
             </div>
             <div className={styles.medicationTable}>
@@ -798,7 +786,7 @@ const Prescriptions: React.FC = () => {
             Expired
           </button>
         </div>
-        <button className={styles.addNewButton} onClick={handleEdit}>
+        <button className={styles.addNewButton} onClick={handleAddNew}>
           Add new
           <Icon
             icon="ic:sharp-add"

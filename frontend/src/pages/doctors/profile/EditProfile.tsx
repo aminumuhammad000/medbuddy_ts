@@ -67,66 +67,43 @@ const EditProfile: React.FC<EditProfileProps> = ({
       <div className={styles.pageHeader}>
         <div className={styles.headerLeft}>
           <button className={styles.backButton} onClick={onBack}>
-
             <Icon icon="material-symbols:arrow-back-rounded" style={{ fontSize: "30px", color:"var(--blue-color)" }}></Icon>
-
-            <Icon
-              icon="mdi:arrow-left"
-              style={{ fontSize: "24px" }}
-            ></Icon>
-
           </button>
           <h1 className={styles.pageTitle}>Edit profile</h1>
         </div>
         <div className={styles.headerRight}>
           <div className={styles.notificationIcon}>
-
             <Icon icon="mdi:bell-notification" style={{ color: "var(--blue-color)", fontSize: "24px" }}></Icon>
-
-            <Icon
-              icon="mdi:bell-notification"
-              style={{ color: "#ef4444", fontSize: "24px" }}
-            ></Icon>
-
           </div>
         </div>
       </div>
 
-      {/* Profile Picture Section */}
-      <div className={styles.profilePictureSection}>
-        <div className={styles.profilePictureContainer}>
-          <img
-            src={doctorImage}
-            alt="Profile"
-            className={styles.profilePicture}
-          />
-          <div className={styles.cameraIcon}>
-
-            <Icon icon="solar:camera-outline" style={{ fontSize: "30px" }}></Icon>
-
-            <Icon
-              icon="mdi:camera"
-              style={{ fontSize: "20px" }}
-            ></Icon>
-
+      {/* Profile Picture Section - Only show for basic information */}
+      {activeTab === "basic" && (
+        <div className={styles.profilePictureSection}>
+          <div className={styles.profilePictureContainer}>
+            <img
+              src={doctorImage}
+              alt="Profile"
+              className={styles.profilePicture}
+            />
+            <div className={styles.cameraIcon}>
+              <Icon icon="solar:camera-outline" style={{ fontSize: "30px" }}></Icon>
+            </div>
+          </div>
+          <div className={styles.imageButtons}>
+            <button className={styles.uploadButton}>Upload new image</button>
+            <button className={styles.removeButton}>Remove image</button>
           </div>
         </div>
-        <div className={styles.imageButtons}>
-          <button className={styles.uploadButton}>Upload new image</button>
-          <button className={styles.removeButton}>Remove image</button>
-        </div>
-
-
-        <button className={styles.saveChangesButton}>Save changes</button>
-
-      </div>
+      )}
 
       {/* Form Content */}
       {activeTab === "basic" && (
         <div className={styles.editForm}>
-          <button className={styles.saveChangesButton}>
-          Save changes
-        </button>
+          <button className={styles.saveChangesButton} onClick={handleSaveChanges}>
+            Save changes
+          </button>
           {/* Personal Information Form */}
           <div className={styles.formSection}>
             <h3 className={styles.sectionTitle}>Personal Information</h3>
@@ -244,6 +221,9 @@ const EditProfile: React.FC<EditProfileProps> = ({
 
       {activeTab === "professional" && (
         <div className={styles.editForm}>
+          <button className={styles.saveChangesButton} onClick={handleSaveChanges}>
+            Save changes
+          </button>
           {/* Professional Information Form */}
           <div className={styles.formSection}>
             <h3 className={styles.sectionTitle}>Professional Information</h3>
@@ -343,6 +323,9 @@ const EditProfile: React.FC<EditProfileProps> = ({
 
       {activeTab === "availability" && (
         <div className={styles.editForm}>
+          <button className={styles.saveChangesButton} onClick={handleSaveChanges}>
+            Save changes
+          </button>
           {/* Availability Settings Form */}
           <div className={styles.formSection}>
             <h3 className={styles.sectionTitle}>Availability Settings</h3>
