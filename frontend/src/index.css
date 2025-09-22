@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap");
 :root {
-  --blue-color: #1771b7;
+  --blue-color: #1771B7;
   --white-color: #ffffff;
   --background-color: #f5f8ff;
-  --hover-color: #2d2d5b;
+  --hover-color: #1771B7;
+  --gray-light: #f8fafc;
+  --gray-border: #e2e8f0;
+  --gray-text: #6b7280;
+  --gray-placeholder: #9ca3af;
+  --red-color: #dc2626;
+  --red-hover: #b91c1c;
 }
 * {
   padding: 0;
@@ -25,7 +31,8 @@ h6,
 label,
 p {
   font-family: "Lato", sans-serif;
-  opacity: 0.9;
+  opacity: 1;
+  color: #000000;
 }
 h1,
 #text40 {
@@ -76,9 +83,11 @@ select {
 p,
 input,
 select {
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   border: none;
+  font-family: "Lato", sans-serif;
+  color: #000000;
 }
 input:user-invalid {
   outline: 1px solid red;
@@ -129,7 +138,8 @@ li,
 button {
   list-style: none;
   font-family: "Lato", sans-serif;
-  opacity: 0.9;
+  opacity: 1;
+  color: #000000;
 }
 button {
   cursor: pointer;
@@ -140,4 +150,109 @@ button {
 .icon:hover,
 button:hover {
   transform: scale(1.05);
+}
+
+/* Mobile Global Styles */
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #ffffff;
+    font-family: "Lato", sans-serif;
+  }
+
+  /* Input styles for mobile */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"] {
+    background-color: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    border-radius: 15px;
+    padding: 0 20px;
+    height: 55px;
+    font-size: 16px;
+    color: #000000;
+    opacity: 1;
+    transition: all 0.2s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="password"]:focus {
+    border-color: var(--blue-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+  }
+
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="tel"]::placeholder,
+  input[type="password"]::placeholder {
+    color: var(--gray-placeholder);
+    opacity: 1;
+  }
+
+  /* Label styles for mobile */
+  label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 5px;
+    display: block;
+    opacity: 1;
+  }
+
+  /* Button styles for mobile */
+  button {
+    font-family: "Lato", sans-serif;
+    opacity: 1;
+    color: #000000;
+    transition: all 0.2s ease;
+  }
+
+  /* Checkbox styles for mobile */
+  input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--blue-color);
+    border-radius: 5px;
+    margin-top: 2px;
+  }
+
+  /* Typography for mobile */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    opacity: 1;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  p {
+    color: #000000;
+    opacity: 1;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  /* Link styles for mobile */
+  span {
+    color: var(--red-color);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  span:hover {
+    color: var(--red-hover);
+  }
 }

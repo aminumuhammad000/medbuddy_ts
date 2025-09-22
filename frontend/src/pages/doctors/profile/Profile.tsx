@@ -5,7 +5,7 @@ import EditProfile from "./EditProfile";
 import { Icon } from "@iconify/react";
 
 const Profile: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("availability");
+  const [activeTab, setActiveTab] = useState("basic");
   const [isEditing, setIsEditing] = useState(false);
 
   const handleTabChange = (tab: string) => {
@@ -22,7 +22,7 @@ const Profile: React.FC = () => {
 
   // If editing, show the EditProfile component
   if (isEditing) {
-    return <EditProfile onBack={handleBackToProfile} />;
+    return <EditProfile onBack={handleBackToProfile} section={activeTab as "basic" | "professional" | "availability"} />;
   }
 
   return (

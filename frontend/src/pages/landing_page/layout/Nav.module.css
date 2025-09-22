@@ -37,3 +37,45 @@ button.signIn {
   background-color: transparent;
   color: var(--blue-color);
 }
+
+
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .navContainer {
+    display: none;
+    width: 10%;
+    padding: 0 16px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logoContainer {
+    width: 90px;
+  }
+
+  .navList {
+    display: none; /* hide links on mobile (use hamburger instead) */
+  }
+
+  .ctaContainer {
+    gap: 10px;
+  }
+
+  .ctaContainer button {
+    width: auto;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 8px;
+  }
+
+  button.signIn {
+    background-color: transparent;
+    color: var(--blue-color);
+    border: 1px solid var(--blue-color);
+  }
+}
