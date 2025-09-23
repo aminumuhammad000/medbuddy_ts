@@ -81,8 +81,6 @@ const Updates: React.FC = () => {
     language_preference: "",
     communication_preference: "",
   });
-
-  // -------------------- LOAD USER PROFILE --------------------
   useEffect(() => {
     if (user) {
       const [firstName, lastName] = user.auth?.name?.split(" ") || ["", ""];
