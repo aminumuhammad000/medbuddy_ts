@@ -49,3 +49,71 @@
   color: var(--blue-color);
   border-radius: 10px;
 }
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 1200px) {
+  .FeedbackCard {
+    padding: 2em 32px 2em 32px;
+  }
+  .heading {
+    font-size: 40px;
+  }
+  .feedBackContainer {
+    width: 90%;
+    gap: 24px;
+    margin-top: 3em;
+  }
+}
+
+@media (max-width: 900px) {
+  .FeedbackCard {
+    width: 90%;
+    margin: auto;
+    padding: 1em 12px 1em 12px;
+    margin-top: 2em;
+  }
+  .heading {
+    font-size: 28px;
+  }
+  .feedBackContainer {
+    width: 100%;
+    gap: 14px;
+    margin-top: 2em;
+  }
+  .feedBackContainer::before {
+    display: none;
+  }
+  .btnContainer {
+    margin-top: 32px;
+    justify-content: center;
+  }
+  .viewMore {
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .FeedbackCard {
+    padding: 0.5em 4px 0.5em 4px;
+    margin-top: 1em;
+  }
+  .heading {
+    font-size: 18px;
+  }
+  .feedBackContainer {
+    gap: 8px;
+    margin-top: 1em;
+  }
+  .btnContainer {
+    margin-top: 18px;
+  }
+  .viewMore {
+    width: 100px;
+    height: 32px;
+    font-size: 13px;
+  } 
+}
+ 
+

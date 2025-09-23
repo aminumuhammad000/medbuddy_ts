@@ -21,7 +21,7 @@ const Banner: React.FC = () => {
           <h1 className={style.heading}>
             Your Trusted <br />
             Digital{" "}
-            <span className="">
+            <span className={style.span}>
               Health <br />
               Companion
             </span>
@@ -37,7 +37,6 @@ const Banner: React.FC = () => {
         <div className={style.btnContainer}>
           <Link to="/Auth" className={style.link}>
             <button
-              style={{ width: "200px", height: "56px" }}
               id="flexCenter"
               onClick={() => handleRoleClick("patient")}
             >

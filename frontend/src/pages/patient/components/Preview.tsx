@@ -12,7 +12,7 @@ interface Drug {
 
 // Props for Preview
 interface PreviewProps {
-  drug?: Drug; // drug can be undefined, since you check `if (!drug) return null;`
+  drug?: Drug | null; // drug can be undefined, since you check `if (!drug) return null;`
   onAddToCart: () => void;
 }
 

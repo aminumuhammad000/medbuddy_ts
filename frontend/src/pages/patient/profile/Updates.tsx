@@ -29,13 +29,14 @@ interface ProfileData {
   house_address: string;
 }
 
-interface MedicalData {
-  known_allergies: string[] | string;
-  current_medications: string[] | string;
-  vaccination_record: string[] | string;
-  chronic_conditions: string[] | string;
+export interface MedicalData {
+  known_allergies: string[];
+  chronic_conditions: string[];
+  current_medications: string;
+  vaccination_record: string;
   blood_type: string;
 }
+
 
 interface AccountData {
   language_preference: string;
@@ -69,10 +70,10 @@ const Updates: React.FC = () => {
   });
 
   const [medicalData, setMedicalData] = useState<MedicalData>({
-    known_allergies: "",
+    known_allergies: [],
     current_medications: "",
     vaccination_record: "",
-    chronic_conditions: "",
+    chronic_conditions: [],
     blood_type: "",
   });
 
@@ -125,15 +126,18 @@ const Updates: React.FC = () => {
   ) => {
     setProfileData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
-  const handleMedicalChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+const handleMedicalChange = (
+  e:
+    | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    | { target: { name: string; value: string | string[] } }
+) => {
+  if ("target" in e && "value" in e.target) {
+    // Case 1: Synthetic event (from input/select)
     const { name, value, options, multiple } = e.target as HTMLSelectElement & {
-      options: HTMLOptionsCollection;
+      options?: HTMLOptionsCollection;
     };
 
-    if (multiple) {
+    if (multiple && options) {
       const values = Array.from(options)
         .filter((o) => o.selected)
         .map((o) => o.value);
@@ -148,7 +152,16 @@ const Updates: React.FC = () => {
         [name]: value,
       }));
     }
-  };
+  } else {
+    // Case 2: Custom object from handleMultiChange
+    const { name, value } = e.target;
+    setMedicalData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+};
+
 
   const handleAccountChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>

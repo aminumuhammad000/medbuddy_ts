@@ -1,13 +1,13 @@
 import React from "react";
 import style from "./FeaturesCard.module.css";
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 
 interface FeaturesCardProps {
-  icon: string; // iconify icon name, e.g. "mdi:account"
+  icon: React.ReactNode; // instead of string
   title: string;
   text: string;
-  bg?: string; // optional background color
-  color?: string; // optional text/icon color
+  bg?: string;
+  color?: string;
 }
 
 const FeaturesCard: React.FC<FeaturesCardProps> = ({
@@ -23,15 +23,18 @@ const FeaturesCard: React.FC<FeaturesCardProps> = ({
       id="flexColumnCenter"
       style={{ backgroundColor: bg, color: color }}
     >
-      <Icon icon={icon} className={style.icon} id="flexCenter"></Icon>
+      <div className={style.icon} id="flexCenter">
+        {icon}
+      </div>
       <h2 className={style.title} style={{ color: color }} id="mediumText">
         {title}
       </h2>
-      <p className={style.text} id="smallText">
+      <p className={style.text} id="smallText" style={{ color: color }}>
         {text}
       </p>
     </div>
   );
 };
+
 
 export default FeaturesCard;

@@ -27,3 +27,15 @@
 .text {
   text-align: center;
 }
+@media (max-width: 768px) {
+  .FeaturesCard {
+    width: 80%;
+    min-height: 300px;
+    border-radius: 50px;
+    height: auto;
+    padding: 16px;
+    margin: 0;
+    margin-top: 10px;
+    box-shadow: 1px 1px 2px 0px #c9c3c3;
+  }
+}

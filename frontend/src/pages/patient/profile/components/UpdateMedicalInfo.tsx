@@ -1,6 +1,9 @@
 import type { RootState } from "../../../../store/store";
 import style from "./UpdatesPersonalInfo.module.css";
 import { useSelector } from "react-redux";
+import type { MedicalData } from "../../../../types/patient";
+// or wherever the interface lives
+
 
 // Options
 const ALLERGIES = [
@@ -25,16 +28,8 @@ const CONDITIONS = [
 ];
 const BLOOD_TYPES = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
-interface MedicalFormData {
-  known_allergies?: string[];
-  chronic_conditions?: string[];
-  current_medications?: string;
-  blood_type?: string;
-  vaccination_record?: string;
-}
-
 interface UpdateMedicalInfoProps {
-  formData?: MedicalFormData;
+  formData: MedicalData;
   handleChange: (
     e:
       | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -43,7 +38,7 @@ interface UpdateMedicalInfoProps {
 }
 
 const UpdateMedicalInfo: React.FC<UpdateMedicalInfoProps> = ({
-  formData = {},
+  formData,
   handleChange,
 }) => {
   const { user } = useSelector((state: RootState) => state.auth);

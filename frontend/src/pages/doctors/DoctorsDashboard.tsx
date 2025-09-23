@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import React, { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "../../store/slices/authReducer";
+// import { getProfile } from "../../store/slices/authReducer";
 import style from "./DoctorsDashboard.module.css";
 import DoctorSidebar from "./components/DoctorSidebar";
 import Overview from "./dashboard/components/Overview";
@@ -17,7 +17,7 @@ import { setPage, setInformation } from "../../store/slices/doctorNavSlice";
 import type { RootState, AppDispatch } from "../../store/store";
 
 const DoctorsDashboard: React.FC = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
   const currentPage = useSelector(
@@ -39,13 +39,13 @@ const DoctorsDashboard: React.FC = () => {
     }
   };
 
-  const handleLogout = () => {
-    // Clear any stored authentication data
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    // Navigate to home page
-    navigate("/");
-  };
+  // const handleLogout = () => {
+  //   // Clear any stored authentication data
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("user");
+  //   // Navigate to home page
+  //   navigate("/");
+  // };
 
   return (
     <div className={style.dashboardContainer}>

@@ -21,3 +21,40 @@
 .TeamCard .role {
   margin-top: 8px;
 }
+
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 900px) {
+  .TeamCard {
+    width: 80%;
+    height: auto;
+    padding: 18px;
+    margin: 0 auto 18px auto;
+  }
+
+  .imgProfile {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .TeamCard {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    margin: 0 auto 12px auto;
+  }
+  .imgProfile {
+    width: 90px;
+    height: 90px;
+  }
+  .TeamCard .name {
+    font-size: 16px;
+    padding-top: 0.7em;
+  }
+  .TeamCard .role {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+}

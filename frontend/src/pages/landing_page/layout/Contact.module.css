@@ -57,3 +57,73 @@
   height: 46px;
   border-radius: 10px;
 }
+
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 900px) {
+  .Contact {
+    padding: 2em 12px 2em 12px;
+  }
+  .Contact .logoContainer {
+    width: 250px;
+  }
+  .Contact .subscribeContainer {
+    padding: 2em;
+    margin-top: 1em;
+  }
+  .Contact .subscribeContainer h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .Contact .inputContainer {
+    height: 50px;
+    padding: 0px 6px 0px 12px;
+  }
+  .Contact .inputContainer button {
+    width: 90px;
+    height: 36px;
+    font-size: 15px;
+    padding: 0.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  .Contact {
+    width: 90%;
+    align-items: center;
+    padding: 1em 4px 1em 4px;
+    margin-top: 50px;
+    margin-inline: auto;
+  }
+  .Contact .logoContainer {
+    width: 150px;
+  }
+  .Contact .subscribeContainer {
+    padding: 1em;
+    margin-top: 0.5em;
+  }
+  .Contact .subscribeContainer h1 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .Contact .subscribeContainer p {
+    font-size: 13px;
+  }
+  .Contact .inputContainer {
+    height: 38px;
+    padding: 0px 2px 0px 6px;
+    /* flex-direction: column; */
+    gap: 6px;
+  }
+  .Contact .inputContainer input {
+    width: 100%;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .Contact .inputContainer button {
+    width: 70px;
+    height: 28px;
+    font-size: 12px;
+    padding: 0.3em;
+  }
+}

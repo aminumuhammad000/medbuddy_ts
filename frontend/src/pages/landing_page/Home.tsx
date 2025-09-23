@@ -1,3 +1,4 @@
+import styles from "./Home.module.css";
 import Nav from "./layout/Nav";
 import Banner from ".//layout/Banner";
 import Features from "./layout/Features";
@@ -9,7 +10,7 @@ import Footer from "./layout/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <Nav />
       <Banner />
       <Features />

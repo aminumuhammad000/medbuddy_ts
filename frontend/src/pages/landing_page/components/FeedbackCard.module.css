@@ -44,3 +44,89 @@
 .star {
   margin-top: 20px;
 }
+
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 900px) {
+  .FeedbackCard {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 12px;
+    gap: 18px;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  .profileContainer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+  }
+  .profileContainer .blury {
+    min-width: 10em;
+    width: 100%;
+    height: auto;
+  }
+  .profileContainer .sideImage {
+    position: static;
+    margin-left: -28px;
+    margin-top: 0;
+    z-index: 10;
+  }
+  .detailsContainer {
+    margin-left: 0;
+    width: 100%;
+  }
+  .detailsContainer .name {
+    width: auto;
+    font-size: 18px;
+  }
+  .detailsContainer .text {
+    width: 100%;
+    font-size: 15px;
+    margin-top: 12px;
+  }
+  .star {
+    margin-top: 12px;
+  }
+}
+
+/* @media (max-width: 600px) {
+  .FeedbackCard {
+    padding: 8px 4px;
+    gap: 10px;
+  }
+  .profileContainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profileContainer .blury {
+    width: 5em;
+    height: auto;
+  }
+  .profileContainer .sideImage {
+    position: absolute;
+    margin-left: 0;
+    top: 10px;
+  }
+  .detailsContainer {
+    margin-left: 0;
+    width: 100%;
+  }
+  .detailsContainer .name {
+    font-size: 15px;
+  }
+  .detailsContainer .username {
+    font-size: 13px;
+  }
+  .detailsContainer .text {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .star {
+    margin-top: 8px;
+  }
+} */

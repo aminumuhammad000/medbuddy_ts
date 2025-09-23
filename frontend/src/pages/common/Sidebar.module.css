@@ -33,11 +33,11 @@
 }
 .menu ul {
   margin-top: 130px; 
-  /* background-color: red;  */
 }
 .menu ul li {
   cursor: pointer;
   margin-top: 2rem; /* 50px */
+  color: var(--white-color);
 }
 .menu ul li button {
   background-color: transparent;

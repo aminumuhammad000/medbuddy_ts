@@ -4,6 +4,7 @@
   margin-inline: auto;
   flex-wrap: wrap;
   height: 120px;
+  background-color: var(--background-color);
 }
 .Link {
   color: #1c044b;
@@ -38,29 +39,76 @@ button.signIn {
   color: var(--blue-color);
 }
 
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
 
-
-/* Mobile Navigation */
+/* Mobile styles */
 @media (max-width: 768px) {
   .navContainer {
-    display: none;
-    width: 10%;
+    position: fixed;
+    width: 100%;
     padding: 0 16px;
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px;
+   background-color: var(--background-color);
+    z-index: 100;
   }
 
   .logoContainer {
+    position: fixed;
     width: 90px;
+    z-index: 1000;
   }
 
   .navList {
-    display: none; /* hide links on mobile (use hamburger instead) */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transition: right 0.3s ease-in-out;
+    gap: 20px;
+    z-index: 999;
+    border-radius: 20px 0px 0px 10px;
   }
 
+  .showMenu {
+    right: 0;
+  }
+
+  .hamburger {
+    position: fixed;
+    display: block;
+    right: 15px;
+    z-index: 1000; /* keep above menu */
+    /* color: var(--blue-color); */
+  }
+
+  .closeBtn {
+    align-self: flex-end;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  .Link{
+    color: var(--white-color);
+}
   .ctaContainer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
   }
 
@@ -71,11 +119,16 @@ button.signIn {
     font-weight: 500;
     padding: 5px 12px;
     border-radius: 8px;
+    background-color: var(--white-color);
+    color: var(--blue-color);
   }
 
   button.signIn {
-    background-color: transparent;
+    background-color: var(--white-color);
     color: var(--blue-color);
     border: 1px solid var(--blue-color);
   }
 }
+
+
+

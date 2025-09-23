@@ -1,5 +1,6 @@
 import FeaturesCard from "../components/FeaturesCard";
 import style from "./Features.module.css";
+import { Icon } from "@iconify/react";
 
 const Features = () => {
   return (
@@ -10,13 +11,13 @@ const Features = () => {
       <hr />
       <div className={style.cardContainer} id="flexCenter">
         <FeaturesCard
-          icon={"hugeicons:ai-dna"}
+          icon={<Icon icon="hugeicons:ai-dna" width="32" height="32" />}
           title="AI Health Assistant"
           text="Ask anything and get health info instantly."
         />
 
         <FeaturesCard
-          icon={"streamline-ultimate:work-from-home-laptop-meeting"}
+        icon={<Icon icon="streamline-ultimate:work-from-home-laptop-meeting" width="32" height="32" />}
           title="Virtual Consultations"
           text="Talk to certified doctors and pharmacists."
           bg={"#1771b7"}
@@ -24,13 +25,13 @@ const Features = () => {
         />
 
         <FeaturesCard
-          icon={"line-md:bell-loop"}
+          icon={<Icon icon="line-md:bell-loop" width="32" height="32" />}
           title="Smart Alerts"
           text="Refill reminders, drug recalls, and interaction warnings."
         />
 
         <FeaturesCard
-          icon={"mdi:drugs"}
+        icon={<Icon icon="mdi:drugs" width="32" height="32" />}
           title="Order NAFDAC-Verified Drugs"
           text="Safe prescriptions delivered."
         />
