@@ -17,7 +17,7 @@ const Login = () => {
         <PasswordInput />
 
         <div className={style.check}>
-          <input type="checkbox" />
+          <input type="checkbox" className={style.checkbox}/>
           <span id="mediumText">Remember me</span>
         </div>
       </div>

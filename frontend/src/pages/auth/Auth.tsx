@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef, useState, type FormEvent } from "react";
-import type { RootState, AppDispatch } from "../../store/store"; // <-- adjust path
+import { useEffect, useState } from "react";
+import type { FormEvent } from "react";
 import style from "./Auth.module.css";
 import {
   setRole,
@@ -13,10 +13,6 @@ import {
   clearStatus,
   resendOtp,
 } from "../../store/slices/authReducer";
-
-import frame from "../../assets/images/backgrounds/frame.png";
-import logo2 from "../../assets/images/logos/logo2.png";
-
 import { Link, useNavigate } from "react-router-dom";
 import LoginComponent from "./components/LoginComponent";
 import Register from "./components/Register";
@@ -26,16 +22,20 @@ import CreateNewPassword from "./components/CreateNewPassword";
 import Loading from "./components/Loading";
 import GoogleLogin from "./components/GoogleLogin";
 import AlertContainer from "./components/AlertContainer";
+import type { RootState, AppDispatch } from "../../store/store";
+
+import frame from "../../assets/images/backgrounds/frame.png";
+import logo2 from "../../assets/images/logos/logo2.png";
 import { Icon } from "@iconify/react";
 
-const Login = () => {
-  const [otpEmail, setOtpEmail] = useState("");
+const Auth = () => {
+  const [otpEmail, setOtpEmail] = useState<string>("");
   const navigate = useNavigate();
-  const { user, authMode, loading, error, success } = useSelector(
+  const { user, authMode, loading, success } = useSelector(
     (state: RootState) => state.auth
   );
   const dispatch = useDispatch<AppDispatch>();
-  const shouldRedirect = useRef(false);
+  // const shouldRedirect = useRef(false);
 
   useEffect(() => {
     dispatch(clearStatus());
@@ -43,7 +43,6 @@ const Login = () => {
 
   useEffect(() => {
     if (!success) return;
-    if (error) return;
 
     switch (authMode) {
       case "login":
@@ -52,11 +51,12 @@ const Login = () => {
           navigate("/pharmacist/dashboard");
         else if (user?.usertype === "doctor") navigate("/doctors/dashboard");
         else if (user?.usertype === "admin") navigate("/admin/dashboard");
-        else navigate("/dashboard");
+        // else navigate("/dashboard");
         break;
 
       case "register":
-        shouldRedirect.current = true;
+        dispatch(clearStatus());
+        dispatch(setAuthMode("otp")); // set auth mode to OTP verification
         break;
 
       case "forgot":
@@ -93,31 +93,24 @@ const Login = () => {
       otp?: { value: string };
     };
 
-    if (authMode === "forgot" && form.email) {
-      const email = form.email.value;
+    if (authMode === "forgot") {
+      const email = form.email?.value || "";
       setOtpEmail(email);
       dispatch(forgotPassword({ email }));
       return;
     }
 
-    if (authMode === "otp" && form.otp) {
-      const otp = form.otp.value;
-      dispatch(verifyOtp({ otp, email: otpEmail }));
+    if (authMode === "otp") {
+      const otp = form.otp?.value || "";
+      dispatch(verifyOtp({ otp, email: otpEmail })); // Pass both otp and email
       return;
     }
-
-    if (
-      authMode === "setPassword" &&
-      form.email &&
-      form.password &&
-      form.confirmPassword
-    ) {
-      const email = form.email.value;
-      const password = form.password.value;
-      const confirmPassword = form.confirmPassword.value;
+    if (authMode === "setPassword") {
+      const email = form.email?.value || "";
+      const password = form.password?.value || "";
+      const confirmPassword = form.confirmPassword?.value || "";
 
       if (password !== confirmPassword) {
-        alert("Passwords do not match");
         return;
       }
 
@@ -125,20 +118,20 @@ const Login = () => {
       return;
     }
 
-    if (authMode === "login" && form.email && form.password) {
-      const email = form.email.value;
-      const password = form.password.value;
+    if (authMode === "login") {
+      const email = form.email?.value || "";
+      const password = form.password?.value || "";
       dispatch(loginUser({ email, password }));
       return;
     }
 
-    if (authMode === "register" && form.email && form.password && form.phone) {
+    if (authMode === "register") {
       const payload = {
         usertype: user?.usertype,
         name: form.name?.value || "",
-        email: form.email.value,
-        phone: form.phone.value,
-        password: form.password.value,
+        email: form.email?.value || "",
+        phone: form.phone?.value || "",
+        password: form.password?.value || "",
         nhis_id: form.nhis?.value || "",
         license_number: form.license?.value || "",
       };
@@ -181,7 +174,7 @@ const Login = () => {
           id="flexCenter"
           onClick={() => dispatch(setAuthMode("login"))}
         >
-          <Icon icon="uil:arrow-left" />
+          <Icon icon="uil:arrow-left"></Icon>
         </button>
       )}
       {authMode === "otp" && (
@@ -190,7 +183,7 @@ const Login = () => {
           id="flexCenter"
           onClick={() => dispatch(setAuthMode("forgot"))}
         >
-          <Icon icon="typcn:arrow-left" />
+          <Icon icon="typcn:arrow-left"></Icon>
         </button>
       )}
 
@@ -245,8 +238,11 @@ const Login = () => {
         <div className={style.form} id="flexCenter">
           <form onSubmit={handleFormSubmit} id="flexColumn">
             {authMode === "register" && <Register />}
+
             {authMode === "login" && <LoginComponent />}
+
             {authMode === "forgot" && <ForgetPassword />}
+
             {authMode === "otp" && (
               <Otp email={otpEmail} onResend={handleResendOtp} />
             )}
@@ -260,6 +256,7 @@ const Login = () => {
               disabled={loading}
             >
               <h3 id="flexCenter">
+                {" "}
                 {loading
                   ? "Please wait..."
                   : authMode === "login"
@@ -272,7 +269,7 @@ const Login = () => {
                   ? "Change Password"
                   : "Continue"}{" "}
                 <span style={{ marginTop: "10px" }}>
-                  <Icon icon="formkit:arrowright" />
+                  <Icon icon="formkit:arrowright"></Icon>
                 </span>
               </h3>
             </button>
@@ -318,4 +315,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Auth;

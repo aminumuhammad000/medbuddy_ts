@@ -73,7 +73,7 @@ const Register = () => {
       </>
 
       <div className={style.check} id="mediumText">
-        <input type="checkbox" required />
+        <input type="checkbox" required className={style.checkbox}/>
         <span>I accept the terms & conditions and privacy</span>
       </div>
     </>

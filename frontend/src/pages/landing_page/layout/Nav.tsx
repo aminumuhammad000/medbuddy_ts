@@ -25,7 +25,7 @@ const Nav: React.FC = () => {
 
   return (
     <>
-      <div className={style.navContainer} id="flexSpaceBetween">
+      <div className={style.navContainer}>
         {/* Logo */}
         <Link to="/">
           <div className={style.logoContainer} id="flexCenter">
@@ -45,12 +45,11 @@ const Nav: React.FC = () => {
         {/* Nav list (desktop visible, mobile toggle) */}
         <ul
           className={`${style.navList} ${isOpen ? style.showMenu : ""}`}
-          id="flexCenter"
         >
           {/* Close button (mobile only) */}
-          <li className={style.closeBtn}>
+          {/* <li className={style.closeBtn}>
             
-          </li>
+          </li> */}
 
           <li>
             <Link to="/" id="mediumText" className={style.Link} onClick={() => setIsOpen(false)}>

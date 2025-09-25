@@ -48,7 +48,6 @@ const Otp: React.FC<OtpProps> = ({ email, onResend }) => {
       <p
         className={style.headingText}
         id="text30"
-        style={{ textAlign: "center", width: "842px" }}
       >
         We have sent an OTP code to {email}. <br />
         Enter the OTP code below to verify.

@@ -10,7 +10,7 @@ const GoogleLogin = () => {
   return (
     <>
       {(authMode === "login" || authMode === "register") && (
-        <div className={style.loginWith} id="flexCenter">
+        <div className={style.loginWith}>
           <button onClick={() => console.log("Google login clicked")}>
             <img src={google} alt="google icon" className={style.Google} />
           </button>

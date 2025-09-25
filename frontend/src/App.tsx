@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/landing_page/HomePage";
-import Auth from "./pages/Auth";
+import Auth from "./pages/auth/Auth";
 import DoctorsDashboard from "./pages/doctors/DoctorsDashboard";
 import DashboardPatient from "./pages/patient/Dashboard";
 import NotFound from "./pages/common/NotFound";

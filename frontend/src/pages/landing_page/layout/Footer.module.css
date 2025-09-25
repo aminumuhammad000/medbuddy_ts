@@ -48,9 +48,11 @@
 @media (max-width: 900px) {
   .Footer {
     padding: 2em 12px 0 12px;
+    background-color: transparent;
   }
   .Footer .logoContainer {
     width: 150px;
+    padding: 1.5em 0px;
   }
   .Footer .text {
     width: 100%;
@@ -72,15 +74,13 @@
     gap: 1em;
     padding: 1px 1em 1em 1em;
     font-size: 14px;
+    background-color: #f8f8f8;
   }
 }
 
 @media (max-width: 600px) {
   .Footer {
     padding: 1em 4px 0 4px;
-  }
-  .Footer .logoContainer {
-    width: 80px;
   }
   .Footer .text {
     font-size: 13px;

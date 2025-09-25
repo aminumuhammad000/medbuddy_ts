@@ -130,6 +130,7 @@ p.text {
   }
   .span{
     text-decoration: none;
+    color: var(--hover-color);
   }
   p.text {
     width: 100%;

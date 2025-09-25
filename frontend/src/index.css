@@ -87,14 +87,10 @@ select {
   outline: none;
   border: none;
   font-family: "Lato", sans-serif;
-  /* color: #000000; */
 }
 input:user-invalid {
   outline: 1px solid red;
 }
-/* input:user-valid {
-  outline: 1px solid green;
-} */
 #flexCenter {
   display: flex;
   justify-content: center;
@@ -151,14 +147,13 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Mobile Global Styles */
-@media screen and (max-width: 768px) {
+
+/* @media screen and (max-width: 768px) {
   body {
     background-color: #ffffff;
     font-family: "Lato", sans-serif;
   }
 
-  /* Input styles for mobile */
   input[type="text"],
   input[type="email"],
   input[type="tel"],
@@ -169,7 +164,6 @@ button:hover {
     padding: 0 20px;
     height: 55px;
     font-size: 16px;
-    /* color: #000000; */
     opacity: 1;
     transition: all 0.2s ease;
   }
@@ -191,25 +185,21 @@ button:hover {
     opacity: 1;
   }
 
-  /* Label styles for mobile */
   label {
     font-size: 15px;
     font-weight: 500;
-    /* color: #000000; */
     margin-bottom: 5px;
     display: block;
     opacity: 1;
   }
 
-  /* Button styles for mobile */
   button {
     font-family: "Lato", sans-serif;
     opacity: 1;
-    /* color: #000000; */
     transition: all 0.2s ease;
   }
 
-  /* Checkbox styles for mobile */
+
   input[type="checkbox"] {
     width: 22px;
     height: 22px;
@@ -218,9 +208,7 @@ button:hover {
     margin-top: 2px;
   }
 
-  /* Typography for mobile */
   h1, h2, h3, h4, h5, h6 {
-    /* color: #000000; */
     opacity: 1;
     font-weight: 600;
   }
@@ -237,13 +225,11 @@ button:hover {
   }
 
   p {
-    /* color: #000000; */
     opacity: 1;
     font-size: 15px;
     font-weight: 400;
   }
 
-  /* Link styles for mobile */
   span {
     color: var(--red-color);
     cursor: pointer;
@@ -254,4 +240,4 @@ button:hover {
   span:hover {
     color: var(--red-hover);
   }
-}
+} */
